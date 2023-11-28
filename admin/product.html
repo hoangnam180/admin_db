@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="https://coban.phongtran.info/" />
+    <link rel="shortcut icon" type="image/png" href="./public/templates/images/ico.png" />
+    <title>Phần mềm quản lý bán hàng</title>
+    <link href="./public/templates/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./public/templates/css/select2.min.css" rel="stylesheet" />
+    <link href="./public/templates/css/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="./public/templates/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="./public/templates/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="./public/templates/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./public/templates/css/style.css" rel="stylesheet">
+    <link href="./public/templates/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="./public/templates/css/jquery.datetimepicker.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet">
+    <script src="./public/templates/js/jquery.js"></script>
+    <script src="./public/templates/js/jquery.form.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar-container" class="navbar navbar- navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle menu-toggler pull-left"
+                        style="margin-right: 0px !important;width: 15%"
+                        onclick="$('#sidebar').toggleClass('hidden-xs hidden-sm hidden-md')">
+                        <span class="sr-only">Toggle sidebar</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span type="button"
+                        class="btn btn-success navbar-toggle navbar-toggle-header menu-toggler pull-left"
+                        style="background: #0B87C9;width: 70%;margin-right: 0px !important;">
+                        LH: 0814.144.142
+                    </span>
+                    <button type="button" class="navbar-toggle-header navbar-toggle menu-toggler pull-right text-right"
+                        style="margin-right: 0px !important;width: 15%"
+                        onclick="$('#header').toggleClass('hidden-xs hidden-sm hidden-md')">
+                        <span class="sr-only">Toggle sidebar</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!--        -->
+                
+                <div class="hidden-xs navbar-collapse" id="header">
+                    <ul class="nav navbar-nav navbar-right" id="set-background" style="background: #0B87C9">
+                        <li class="hidden-xs hidden">
+                            <label style="margin: 13px 15px; color: white">
+                                Kho </label>
+                        </li>
+                        <li style="border-right: 1px solid #E1E1E1; padding-right: 15px;" class="hidden">
+                            <select id="store-id" class="form-control" style="margin: 8px auto">
+                                <option selected value="1">M? Tho</option>
+                            </select>
+                        </li>
+                        <li class="dropdown user-profile">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false"><span class="hello">Xin ch�o, </span>Phong
+                                Tr?n<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="account"><i class="fa fa-user"></i>T�i kho?n</a></li>
+                                <li><a href="authentication/logout"><i class="fa fa-power-off"></i>Tho�t</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="main" role="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="sidebar sidebar-fixed hidden-xs hidden-sm" id="sidebar">
+                        <ul class="nav nav-pills nav-list nav-stacked">
+                            <li id="pos"><a href="pos" style="color: white;background-color: #ffb752!important;"><i
+                                        class="fa fa-sellsy"></i>Pos</a></li>
+                            <li id="dashboard"><a href="dashboard"><i class="fa fa-dashboard"></i>Tổng quan</a></li>
+                            <li id="orders"><a href="orders"><i class="fa fa-shopping-cart"></i>Đơn hàng</a></li>
+                            <li id="product"><a href="product"><i class="fa fa-barcode"></i>Sản phẩm</a></li>
+                            <li id="customer"><a href="customer"><i class="fa fa-users"></i>KH - NCC</a></li>
+                            <li id="input"><a href="input"><i class="fa fa-inbox"></i>Nhập kho</a></li>
+                            <li id="inventory"><a href="inventory"><i class="fa fa-list-alt"></i>Tồn
+                                    kho</a></li>
+                            <li id="revenue"><a href="revenue"><i class="fa fa-signal"></i>Doanh số</a></li>
+                            <li id="profit"><a href="profit"><i class="fa fa-usd"></i>Lợi nhuận</a></li>
+                            <li id="setting"><a href="setting"><i class="fa fa-cogs"></i>Thiết lập</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-11">
+                    <div class="main-content">
+                        <div class="alert alert-dange ajax-error" role="alert"><span
+                                style="font-weight: bold; font-size: 18px;">Th�ng b�o!</span><br>
+
+                            <div class="ajax-error-ct"></div>
+                        </div>
+                        <div class="alert ajax-success" role="alert"
+                            style="width: 350px;background: rgba(92,130,79,0.9); display:none; color: #fff;"><span
+                                style="font-weight: bold; font-size: 18px;">Th�ng b�o!</span>
+                            <br>
+
+                            <div class="ajax-success-ct"></div>
+                        </div>
+                        <!-- Start create employee -->
+                        <div class="modal fade" id="create-nv" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                                                class="fa fa-user"></i>
+                                            Th�m t�i kho?n dang nh?p </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal" id="frm-cruser">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="tennhanvien">T�n nh�n vi�n</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="display_name" name="display_name"
+                                                        class="form-control" value="" placeholder="Nh?p t�n nh�n vi�n">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-display_name"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="manv">M� nh�n vi�n</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="manv" name="manv" class="form-control"
+                                                        value="" placeholder="Nh?p m� nh�n vi�n">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-manv"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="manv">Email</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="mail" name="email" class="form-control"
+                                                        value="" placeholder="Nh?p email c?a b?n">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-mail"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="commission">H? s? thu?ng</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="commission" name="commission"
+                                                        class="form-control txtNumber" value=""
+                                                        placeholder="Nh?p % hoa h?ng ( h? s? thu?ng)">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-commission"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="manv">M?t kh?u</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="password" id="password" name="password"
+                                                        class="form-control" value="" placeholder="Nh?p M?t kh?u">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-password"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-3 padd-right-0">
+                                                    <label for="manv">Nh�m ngu?i d�ng</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="group-user">
+                                                        <div class="group-selbox">
+                                                            <select name="group" id="sel-group" class="form-control">
+                                                            </select>
+                                                        </div>
+                                                        <span style="color: red; font-style: italic;"
+                                                            class="error error-group"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="stock">Kho l�m vi?c</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="stock-selbox"></div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-primary btn-sm btn-crnv"
+                                            onclick="cms_cruser()"><i class="fa fa-check"></i> Luu
+                                        </button>
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> B? qua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end create employee -->
+
+                        <!-- Start create function -->
+                        <div class="modal fade" id="create-func" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                                                class="fa fa-user"></i>
+                                            Th�m Ch?c nang </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="tennhanvien">URL</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="permisstion_url" name="permisstion_url"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p url cho ph�p c?a ch?c nang">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-permisstion_url"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="manv">T�n ch?c nang</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="permisstion_name" name="permisstion_name"
+                                                        class="form-control" value="" placeholder="Nh?p t�n ch?c nang">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-permisstion_name"></span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-primary btn-sm btn-crfunc"><i
+                                                class="fa fa-check"></i> Luu
+                                        </button>
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> B? qua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="create-group" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                                                class="fa fa-user"></i>
+                                            Th�m nh�m ngu?i d�ng </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="group-name">T�n Nh�m</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="group-name" name="group_name"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p t�n nh�m ngu?i d�ng">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-group_name"></span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-primary btn-sm btn-crgroup"><i
+                                                class="fa fa-check"></i> Luu
+                                        </button>
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> B? qua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="create-store" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                                                class="fa fa-user"></i>
+                                            Th�m kho </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label for="group-name">T�n Kho</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="store-name" name="store_name"
+                                                        class="form-control" value="" placeholder="Nh?p t�n kho">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-store_name"></span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-primary btn-sm"
+                                            onclick="cms_crstore();"><i class="fa fa-check"></i> Luu
+                                        </button>
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> B? qua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- start create customer -->
+
+                        <div class="modal fade" id="create-cust" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document" style="width: 90%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">T?o m?i kh�ch h�ng</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" id="frm-crcust">
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_group">Nh�m KH</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="customer_group" class="form-control">
+                                                        <option value="0">Kh�ch l?</option>
+                                                        <option value="1">Kh�ch s?</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_code">M� KH</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_code" name="customer_code"
+                                                        class="form-control" value=""
+                                                        placeholder="M� kh�ch h�ng(t? sinh n?u b? tr?ng)">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_code"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_name">T�n KH</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_name" name="customer_name"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p t�n kh�ch h�ng (b?t bu?c)">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_name"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_phone">�i?n tho?i</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_phone" name="customer_phone"
+                                                        class="form-control" value="" placeholder="Nh?p s? di?n tho?i">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_phone"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_email">Email</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_email" name="customer_email"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p email kh�ch h�ng ( v� d?: kh10@gmail.com )">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_email"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_tax">Ma~ s�� thu�</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_tax" name="customer_tax"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p ma~ s�� thu� kha�ch ha`ng">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_tax"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_province_modal">T?nh/Tp</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="customer_province_modal"
+                                                        onchange="cms_change_province()" style="width: 100% !important;"
+                                                        class="form-control province">
+                                                        <option value="-1">Ch?n t?nh/ th�nh ph?</option>
+                                                        <option value="1">Th�nh ph? H� N?i</option>
+                                                        <option value="2">T?nh H� Giang</option>
+                                                        <option value="4">T?nh Cao B?ng</option>
+                                                        <option value="6">T?nh B?c K?n</option>
+                                                        <option value="8">T?nh Tuy�n Quang</option>
+                                                        <option value="10">T?nh L�o Cai</option>
+                                                        <option value="11">T?nh �i?n Bi�n</option>
+                                                        <option value="12">T?nh Lai Ch�u</option>
+                                                        <option value="14">T?nh Son La</option>
+                                                        <option value="15">T?nh Y�n B�i</option>
+                                                        <option value="17">T?nh Ho� B�nh</option>
+                                                        <option value="19">T?nh Th�i Nguy�n</option>
+                                                        <option value="20">T?nh L?ng Son</option>
+                                                        <option value="22">T?nh Qu?ng Ninh</option>
+                                                        <option value="24">T?nh B?c Giang</option>
+                                                        <option value="25">T?nh Ph� Th?</option>
+                                                        <option value="26">T?nh Vinh Ph�c</option>
+                                                        <option value="27">T?nh B?c Ninh</option>
+                                                        <option value="30">T?nh H?i Duong</option>
+                                                        <option value="31">Th�nh ph? H?i Ph�ng</option>
+                                                        <option value="33">T?nh Hung Y�n</option>
+                                                        <option value="34">T?nh Th�i B�nh</option>
+                                                        <option value="35">T?nh H� Nam</option>
+                                                        <option value="36">T?nh Nam �?nh</option>
+                                                        <option value="37">T?nh Ninh B�nh</option>
+                                                        <option value="38">T?nh Thanh H�a</option>
+                                                        <option value="40">T?nh Ngh? An</option>
+                                                        <option value="42">T?nh H� Tinh</option>
+                                                        <option value="44">T?nh Qu?ng B�nh</option>
+                                                        <option value="45">T?nh Qu?ng Tr?</option>
+                                                        <option value="46">T?nh Th?a Thi�n Hu?</option>
+                                                        <option value="48">Th�nh ph? �� N?ng</option>
+                                                        <option value="49">T?nh Qu?ng Nam</option>
+                                                        <option value="51">T?nh Qu?ng Ng�i</option>
+                                                        <option value="52">T?nh B�nh �?nh</option>
+                                                        <option value="54">T?nh Ph� Y�n</option>
+                                                        <option value="56">T?nh Kh�nh H�a</option>
+                                                        <option value="58">T?nh Ninh Thu?n</option>
+                                                        <option value="60">T?nh B�nh Thu?n</option>
+                                                        <option value="62">T?nh Kon Tum</option>
+                                                        <option value="64">T?nh Gia Lai</option>
+                                                        <option value="66">T?nh �?k L?k</option>
+                                                        <option value="67">T?nh �?k N�ng</option>
+                                                        <option value="68">T?nh L�m �?ng</option>
+                                                        <option value="70">T?nh B�nh Phu?c</option>
+                                                        <option value="72">T?nh T�y Ninh</option>
+                                                        <option value="74">T?nh B�nh Duong</option>
+                                                        <option value="75">T?nh �?ng Nai</option>
+                                                        <option value="77">T?nh B� R?a - Vung T�u</option>
+                                                        <option value="79">Th�nh ph? H? Ch� Minh</option>
+                                                        <option value="80">T?nh Long An</option>
+                                                        <option value="82">T?nh Ti?n Giang</option>
+                                                        <option value="83">T?nh B?n Tre</option>
+                                                        <option value="84">T?nh Tr� Vinh</option>
+                                                        <option value="86">T?nh Vinh Long</option>
+                                                        <option value="87">T?nh �?ng Th�p</option>
+                                                        <option value="89">T?nh An Giang</option>
+                                                        <option value="91">T?nh Ki�n Giang</option>
+                                                        <option value="92">Th�nh ph? C?n Tho</option>
+                                                        <option value="93">T?nh H?u Giang</option>
+                                                        <option value="94">T?nh S�c Trang</option>
+                                                        <option value="95">T?nh B?c Li�u</option>
+                                                        <option value="96">T?nh C� Mau</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_district_modal">Qu?n/Huy?n</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="customer_district_modal"
+                                                        onchange="cms_change_district()" style="width: 100% !important;"
+                                                        class="form-control district">
+                                                        <option value="0">Ch?n Qu?n/Huy?n</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_ward_modal">Phu?ng/X�</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="customer_ward_modal" style="width: 100% !important;"
+                                                        class="form-control ward">
+                                                        <option value="0">Ch?n X�/Phu?ng</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_addr">�?a ch?</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_addr" name="customer_addr"
+                                                        class="form-control" value="" placeholder="Nh?p d?a ch?">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_addr"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_addr">B?n d?</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_map" name="customer_map"
+                                                        class="form-control" value="" placeholder="Nh?p b?n d?">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_addr"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_notes">Ghi ch�</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_notes" name="customer_notes"
+                                                        class="form-control" value="" placeholder="Nh?p ghi ch�">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_notes"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_birthday">Ng�y sinh</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="customer_birthday" name="customer_birthday"
+                                                        class="form-control txttimes" value="" placeholder="yyyy-mm-dd">
+                                                    <span style="color: red;"
+                                                        class="error error-customer_birthday"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_gender">Gi?i t�nh</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="radio" name="gender" checked class="customer_gender"
+                                                        value="0"> Nam
+                                                    <input type="radio" name="gender" class="customer_gender" value="1">
+                                                    N?
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_gender"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="customer_gender">N?</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="is_customer_debt" name="is_customer_debt"
+                                                        class="txtMoney form-control" value=""
+                                                        placeholder="Kh�ch h�ng dang n?">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-customer_debt"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 col-xs-12" style="margin-top: 18px;">
+                                                <div class="jumbotron text-center" id="img_upload"
+                                                    style="border-radius: 0; margin-bottom: 10px; padding: 5px 20px;">
+                                                    <h4>Upload h�nh ?nh</h4>
+
+                                                    <center>
+                                                        <div id='customer_img_preview' style="display: none;"></div>
+                                                        <form id="customer_image_upload_form" method="post"
+                                                            enctype="multipart/form-data" action='product/upload_img'
+                                                            autocomplete="off">
+                                                            <div class="file_input_container">
+                                                                <div class="upload_button"><input type="file"
+                                                                        name="photo" id="customer_photo"
+                                                                        class="file_input" /></div>
+                                                            </div>
+
+                                                        </form>
+                                                    </center>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-primary btn-sm btn-crcust"
+                                            onclick="cms_crCustomer();"><i class="fa fa-check"></i> Luu
+                                        </button>
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> B? qua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end customer -->
+
+                        <!-- start create supplier -->
+
+                        <div class="modal fade" id="create-sup" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document" style="width: 90%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">T?o m?i nh� cung c?p</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" id="frm-crsup">
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_name">M� nh� cung c?p</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_code" name="supplier_code"
+                                                        class="form-control" value=""
+                                                        placeholder="M� nh� cung c?p (T? sinh n?u b? tr?ng)">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_code"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_name">T�n nh� cung c?p</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_name" name="supplier_name"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p t�n nh� cung c?p (b?t bu?c)">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_name"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_phone">�i?n tho?i</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_phone" name="supplier_phone"
+                                                        class="form-control" value="" placeholder="Nh?p s? di?n tho?i">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_phone"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_email">Email</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_email" name="supplier_email"
+                                                        class="form-control" value=""
+                                                        placeholder="Nh?p email nh� cung c?p ( v� d?: kh10@gmail.com )">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_email"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_tax">Ma~ s�� thu�</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_tax" name="supplier_tax"
+                                                        class="form-control" value="" placeholder="Nh?p ma~ s�� thu�">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_tax"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_province_modal">T?nh/Tp</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="supplier_province_modal"
+                                                        onchange="cms_s_change_province()" style="width: 100%"
+                                                        class="form-control province">
+                                                        <option value="-1">Ch?n t?nh/ th�nh ph?</option>
+                                                        <option value="1">Th�nh ph? H� N?i</option>
+                                                        <option value="2">T?nh H� Giang</option>
+                                                        <option value="4">T?nh Cao B?ng</option>
+                                                        <option value="6">T?nh B?c K?n</option>
+                                                        <option value="8">T?nh Tuy�n Quang</option>
+                                                        <option value="10">T?nh L�o Cai</option>
+                                                        <option value="11">T?nh �i?n Bi�n</option>
+                                                        <option value="12">T?nh Lai Ch�u</option>
+                                                        <option value="14">T?nh Son La</option>
+                                                        <option value="15">T?nh Y�n B�i</option>
+                                                        <option value="17">T?nh Ho� B�nh</option>
+                                                        <option value="19">T?nh Th�i Nguy�n</option>
+                                                        <option value="20">T?nh L?ng Son</option>
+                                                        <option value="22">T?nh Qu?ng Ninh</option>
+                                                        <option value="24">T?nh B?c Giang</option>
+                                                        <option value="25">T?nh Ph� Th?</option>
+                                                        <option value="26">T?nh Vinh Ph�c</option>
+                                                        <option value="27">T?nh B?c Ninh</option>
+                                                        <option value="30">T?nh H?i Duong</option>
+                                                        <option value="31">Th�nh ph? H?i Ph�ng</option>
+                                                        <option value="33">T?nh Hung Y�n</option>
+                                                        <option value="34">T?nh Th�i B�nh</option>
+                                                        <option value="35">T?nh H� Nam</option>
+                                                        <option value="36">T?nh Nam �?nh</option>
+                                                        <option value="37">T?nh Ninh B�nh</option>
+                                                        <option value="38">T?nh Thanh H�a</option>
+                                                        <option value="40">T?nh Ngh? An</option>
+                                                        <option value="42">T?nh H� Tinh</option>
+                                                        <option value="44">T?nh Qu?ng B�nh</option>
+                                                        <option value="45">T?nh Qu?ng Tr?</option>
+                                                        <option value="46">T?nh Th?a Thi�n Hu?</option>
+                                                        <option value="48">Th�nh ph? �� N?ng</option>
+                                                        <option value="49">T?nh Qu?ng Nam</option>
+                                                        <option value="51">T?nh Qu?ng Ng�i</option>
+                                                        <option value="52">T?nh B�nh �?nh</option>
+                                                        <option value="54">T?nh Ph� Y�n</option>
+                                                        <option value="56">T?nh Kh�nh H�a</option>
+                                                        <option value="58">T?nh Ninh Thu?n</option>
+                                                        <option value="60">T?nh B�nh Thu?n</option>
+                                                        <option value="62">T?nh Kon Tum</option>
+                                                        <option value="64">T?nh Gia Lai</option>
+                                                        <option value="66">T?nh �?k L?k</option>
+                                                        <option value="67">T?nh �?k N�ng</option>
+                                                        <option value="68">T?nh L�m �?ng</option>
+                                                        <option value="70">T?nh B�nh Phu?c</option>
+                                                        <option value="72">T?nh T�y Ninh</option>
+                                                        <option value="74">T?nh B�nh Duong</option>
+                                                        <option value="75">T?nh �?ng Nai</option>
+                                                        <option value="77">T?nh B� R?a - Vung T�u</option>
+                                                        <option value="79">Th�nh ph? H? Ch� Minh</option>
+                                                        <option value="80">T?nh Long An</option>
+                                                        <option value="82">T?nh Ti?n Giang</option>
+                                                        <option value="83">T?nh B?n Tre</option>
+                                                        <option value="84">T?nh Tr� Vinh</option>
+                                                        <option value="86">T?nh Vinh Long</option>
+                                                        <option value="87">T?nh �?ng Th�p</option>
+                                                        <option value="89">T?nh An Giang</option>
+                                                        <option value="91">T?nh Ki�n Giang</option>
+                                                        <option value="92">Th�nh ph? C?n Tho</option>
+                                                        <option value="93">T?nh H?u Giang</option>
+                                                        <option value="94">T?nh S�c Trang</option>
+                                                        <option value="95">T?nh B?c Li�u</option>
+                                                        <option value="96">T?nh C� Mau</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_district_modal">Qu?n/Huy?n</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="supplier_district_modal"
+                                                        onchange="cms_s_change_district()" style="width: 100%"
+                                                        class="form-control district">
+                                                        <option value="0">Ch?n Qu?n/Huy?n</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_ward_modal">Phu?ng/X�</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <select id="supplier_ward_modal" style="width: 100%"
+                                                        class="form-control ward">
+                                                        <option value="0">Ch?n X�/Phu?ng</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_addr">�?a ch?</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_addr" name="supplier_addr"
+                                                        class="form-control" value="" placeholder="Nh?p d?a ch?">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_addr"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="supplier_notes">Ghi ch�</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="supplier_notes" name="notes"
+                                                        class="form-control" value="" placeholder="Nh?p ghi ch�">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_notes"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                                                <div class="col-md-3 col-xs-5">
+                                                    <label for="is_supplier_debt">N?</label>
+                                                </div>
+                                                <div class="col-md-9 col-xs-7 padd-0">
+                                                    <input type="text" id="is_supplier_debt" name="is_supplier_debt"
+                                                        class="form-control txtMoney" value=""
+                                                        placeholder="�ang n? nh� cung c?p">
+                                                    <span style="color: red; font-style: italic;"
+                                                        class="error error-supplier_debt"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 col-xs-12" style="margin-top: 18px;">
+                                                <div class="jumbotron text-center" id="img_upload"
+                                                    style="border-radius: 0; margin-bottom: 10px; padding: 15px 20px;">
+                                                    <h3>Upload h�nh ?nh</h3>
+                                                    <small
+                                                        style="font-size: 14px; margin-bottom: 5px; display: inline-block;">(K�ch
+                                                        thu?t
+                                                        t?i da 10MB)
+                                                    </small>
+                                                    <p>
+                                                        <center>
+                                                            <div id='supplier_img_preview' style="display: none;"></div>
+                                                            <form id="supplier_image_upload_form" method="post"
+                                                                enctype="multipart/form-data"
+                                                                action='product/upload_img' autocomplete="off">
+                                                                <div class="file_input_container">
+                                                                    <div class="upload_button"><input type="file"
+                                                                            name="photo" id="supplier_photo"
+                                                                            class="file_input" /></div>
+                                                                </div>
+
+                                                            </form>
+                                                        </center>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-primary btn-sm btn-crsup"
+                                            onclick="cms_crsup();"><i class="fa fa-check"></i> Luu
+                                        </button>
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> B? qua
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="list-prd-manufacture" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Qu?n l� nh� s?n xu?t</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="tabtable">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs tab-setting" role="tablist"
+                                                style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                                                <li role="presentation" class="active list-manufacture-click"
+                                                    style="margin-right: 3px;"><a href="#list-manufacture"
+                                                        aria-controls="list-manufacture" role="tab" data-toggle="tab"><i
+                                                            class="fa fa-list"></i> Danh s�ch Nh� s?n xu?t</a></li>
+                                                <li role="presentation"><a href="#create-manufacture"
+                                                        aria-controls="create-manufacture" role="tab"
+                                                        data-toggle="tab"><i class="fa fa-plus"></i> T?o m?i nh�
+                                                        s?n xu?t
+                                                    </a></li>
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content"
+                                                style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                                                <div role="tabpanel" class="tab-pane active" id="list-manufacture">
+                                                    <div class="prd_manufacture-body">
+
+                                                    </div>
+                                                </div>
+
+                                                <!-- Tab Function -->
+                                                <div role="tabpanel" class="tab-pane" id="create-manufacture">
+                                                    <div class="row form-horizontal">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <div class="col-md-7">
+                                                                    <input type="text"
+                                                                        style="border-radius: 0 !important;"
+                                                                        class="form-control" id="prd_manuf_name"
+                                                                        value="" placeholder="Nh?p t�n Nh� s?n xu?t">
+                                                                </div>
+                                                                <div class="input-groups-btn col-md-5">
+                                                                    <button type="button" class="save btn btn-primary"
+                                                                        style="border-radius: 0 3px 3px 0;"
+                                                                        onclick="cms_create_manufacture(1);"><i
+                                                                            class="fa fa-check"></i> Luu
+                                                                    </button>
+                                                                    <button type="button" class="save btn btn-primary"
+                                                                        onclick="cms_create_manufacture(0);"><i
+                                                                            class="fa fa-floppy-o"></i> Luu v� ti?p t?c
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> ��ng
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="list-prd-unit" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Qu?n l� don v? t�nh</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="tabtable">
+                                            <ul class="nav nav-tabs tab-setting" role="tablist"
+                                                style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                                                <li role="presentation" class="active list-unit-click"
+                                                    style="margin-right: 3px;"><a href="#list-unit"
+                                                        aria-controls="list-unit" role="tab" data-toggle="tab"><i
+                                                            class="fa fa-list"></i> Danh s�ch don v? t�nh</a></li>
+                                                <li role="presentation"><a href="#create-unit"
+                                                        aria-controls="create-unit" role="tab" data-toggle="tab"><i
+                                                            class="fa fa-plus"></i> T?o m?i don
+                                                        v? t�nh</a></li>
+                                            </ul>
+                                            <div class="tab-content"
+                                                style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                                                <div role="tabpanel" class="tab-pane active" id="list-unit">
+                                                    <div class="prd_unit-body">
+                                                    </div>
+                                                </div>
+                                                <div role="tabpanel" class="tab-pane" id="create-unit">
+                                                    <div class="row form-horizontal">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <div class="col-md-7">
+                                                                    <input type="text"
+                                                                        style="border-radius: 0 !important;"
+                                                                        class="form-control" id="prd_unit_name" value=""
+                                                                        placeholder="Nh?p t�n don v? t�nh">
+                                                                </div>
+                                                                <div class="input-groups-btn col-md-5">
+                                                                    <button type="button" class="save btn btn-primary"
+                                                                        style="border-radius: 0 3px 3px 0;"
+                                                                        onclick="cms_create_unit(1);"><i
+                                                                            class="fa fa-check"></i> Luu
+                                                                    </button>
+                                                                    <button type="button" class="save btn btn-primary"
+                                                                        onclick="cms_create_unit(0);"><i
+                                                                            class="fa fa-floppy-o"></i> Luu v� ti?p t?c
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> ��ng
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="list-prd-group" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Qu?n l� danh m?c</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="tabtable">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs tab-setting" role="tablist"
+                                                style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                                                <li role="presentation" class="active" style="margin-right: 3px;"><a
+                                                        href="#list-groups" aria-controls="list-group" role="tab"
+                                                        data-toggle="tab"><i class="fa fa-list"></i> Danh s�ch danh
+                                                        m?c</a></li>
+                                                <li role="presentation"><a href="#create-groups"
+                                                        aria-controls="create-group" role="tab" data-toggle="tab"><i
+                                                            class="fa fa-plus"></i> T?o m?i danh m?c</a>
+                                                </li>
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content"
+                                                style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                                                <div role="tabpanel" class="tab-pane active" id="list-groups">
+                                                    <div class="prd_group-body">
+                                                        <div class="text-center"><img
+                                                                src="public/templates/images/balls.gif" /></div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Tab Function -->
+                                                <div role="tabpanel" class="tab-pane" id="create-groups">
+                                                    <div class="row form-horizontal">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <div class="col-md-4 text-right">
+                                                                    <label>T�n danh m?c</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <input type="text" id="prd_group_name"
+                                                                        class="form-control"
+                                                                        placeholder="Nh?p t�n danh m?c.">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-md-4 text-right">
+                                                                    <label>Danh m?c c?p cha</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <select id="parentid" class="form-control">
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-md-8 col-md-offset-4">
+                                                                    <button type="button" class="save btn btn-primary"
+                                                                        style="border-radius: 0 3px 3px 0;"
+                                                                        onclick="cms_create_group(1);">
+                                                                        <i class="fa fa-check"></i> Luu
+                                                                    </button>
+                                                                    <button type="button" class="save btn btn-primary"
+                                                                        onclick="cms_create_group(0);"><i
+                                                                            class="fa fa-floppy-o"></i> Luu
+                                                                        v� ti?p t?c
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="save btn btn-default btn-sm btn-close"
+                                            data-dismiss="modal"><i class="fa fa-undo"></i> ��ng
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="breadcrumbs-fixed panel-action">
+                                <div class="row">
+                                    <div class="products-act">
+                                        <div class="col-md-3 col-sm-3 col-xs-6 col-md-offset-2">
+                                            <div class="left-action text-left clearfix">
+                                                <h2>S?n ph?m</h2>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-9 col-xs-6 padd-0">
+                                            <div class="right-action text-right">
+                                                <div class="btn-groups">
+                                                    <div class="col-md-5 col-sm-6 hidden-xs" style="line-height: 50px;">
+
+                                                    </div>
+                                                    <div class="col-md-7 col-sm-6 col-xs-12">
+                                                        <a class="save btn btn-primary" onclick="cms_vcrproduct(1)"> <i
+                                                                class="fa fa-plus"></i> <span
+                                                                class="hidden-xs hidden-sm"> T?o s?n ph?m</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main-space orders-space"></div>
+
+                            <div class="products-content">
+                                <div class="product-sear panel-sear">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padd-0">
+                                        <div class="form-group col-lg-2 col-md-3 col-sm-2 col-xs-6 padd-0"
+                                            style="display: flex">
+                                            <input type="text" class="form-control"
+                                                placeholder="Nh?p th�ng tin s?n ph?m d? t�m ki?m" id="product-search">
+                                        </div>
+                                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                                            <select class="form-control" id="search_option_1">
+                                                <option value="0">�ang kinh doanh</option>
+                                                <option value="1">�� ng?ng kinh doanh</option>
+                                                <option value="2">�� x�a</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                                            <select class="form-control search_option_2" id="prd_group_id">
+                                                <option value="-1" selected="selected">-Danh m?c-</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-5 padd-0">
+                                            <select class="form-control search_option_3" id="prd_manufacture_id">
+                                                <option value="-1" selected="selected">-Nh� s?n xu?t-</option>
+                                                <optgroup label="Ch?n nh� s?n xu?t">
+                                                    <option value="1">TQ</option>
+                                                    <option value="2">H?ng H�</option>
+                                                    <option value="3">qaeqsadadas</option>
+                                                    <option value="4">Duc tuong</option>
+                                                    <option value="5">LT Ocean</option>
+                                                    <option value="6">aaaaaa</option>
+                                                </optgroup>
+                                                <optgroup label="------------------------">
+                                                    <option value="product_manufacture" data-toggle="modal"
+                                                        data-target="#list-prd-manufacture">T?o m?i
+                                                        Nh� s?n xu?t
+                                                    </option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-4 col-md-3 col-sm-4 col-xs-1 padd-0"
+                                            style="display: flex">
+                                            <button type="button" class="save btn btn-primary btn-large btn-ssup"
+                                                onclick="cms_paging_product(1)"><i class="fa fa-search"></i> <span
+                                                    class="hidden-xs hidden-sm"> T�m</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-main-body">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./public/templates/js/select2.min.js"></script>
+<script src="./public/templates/js/jquery-ui.min.js"></script>
+<script src="./public/templates/js/html5shiv.min.js"></script>
+<script src="./public/templates/js/respond.min.js"></script>
+<script src="./public/templates/js/bootstrap.min.js"></script>
+<script src="./public/templates/js/jquery.datetimepicker.full.js"></script>
+<script src="./public/templates/js/bootstrap-datepicker.min.js"></script>
+<script src="./public/templates/js/bootstrap-datepicker.vi.min.js"></script>
+<script src="./public/templates/js/ckeditor.js"></script>
+<script src="./public/templates/js/editor.js"></script>
+<script src="./public/templates/js/ajax2.js"></script>
+<script src="./public/templates/js/bootstrap-tagsinput.min.js"></script>
+
+</html>
