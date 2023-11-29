@@ -959,7 +959,7 @@
                         <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
                             <div role="tabpanel" class="tab-pane active" id="list-groups">
                                 <div class="prd_group-body">
-                                    <div class="text-center"><img src="/templates/images/balls.gif"></div>
+                                    <div class="text-center"><img src="public/templates/images/balls.gif"></div>
                                 </div>
                             </div>
 
@@ -1016,272 +1016,305 @@
         <div class="breadcrumbs-fixed panel-action">
             <div class="row">
                 <div class="orders-act">
-                    <div class="col-md-4 col-xs-6 col-md-offset-2">
+                    <div class="col-md-4 col-xs-12 col-md-offset-2">
                         <div class="left-action text-left clearfix">
-                            <h2>Đơn hàng</h2>
+                            <h2>Đơn hàng »</h2>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-6">
+                    <div class="col-md-6 col-xs-12 padd-0">
                         <div class="right-action text-right">
                             <div class="btn-groups">
-                                <a href="create-orders" type="button" class="save btn btn-primary"><i
-                                        class="fa fa-plus"></i> <span class="hidden-xs hidden-sm"> Tạo phiếu</span>
-                                </a>
+                                <button type="button" class="save btn btn-primary" onclick="cms_save_orders(0)">
+                                    <i class="fa fa-floppy-o"></i> Lưu tạm
+                                </button>
+                                <button type="button" class="save btn btn-primary" onclick="cms_save_orders(1)"><i
+                                        class="fa fa-check"></i> Lưu
+                                </button>
+                                <button type="button" class="save btn btn-primary" onclick="cms_save_orders(2)"><i
+                                        class="fa fa-print"></i> Lưu &amp; In
+                                </button>
+                                <button type="button" class="save btn-back btn btn-default"
+                                    onclick="cms_javascript_redirect( cms_javascrip_fullURL() )"><i
+                                        class="fa fa-arrow-left"></i> Hủy
+                                </button>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="main-space orders-space"></div>
-        <div class="orders-content">
-            <div class="product-sear panel-sear">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padd-0">
-                    <div class="form-group col-lg-2 col-md-2 col-sm-3 col-xs-6 padd-0" style="display: flex">
-                        <input type="text" class="form-control" id="order-search"
-                            placeholder="Nhập thông tin để tìm kiếm" value="">
+
+        <div class="orders-content check-order">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="order-search" style="margin: 10px 0px; position: relative;">
+                        <input type="text" class="form-control ui-autocomplete-input"
+                            placeholder="Nhập mã sản phẩm tên sản phẩm" id="search-pro-box" autocomplete="off">
                     </div>
-                    <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
-                        <select id="search_option_1" class="form-control">
-                            <option value="0">-Đơn hàng-</option>
-                            <option value="1">Đơn đã xóa</option>
-                            <option value="2">Đơn còn nợ</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
-                        <select id="search_option_2" class="form-control">
-                            <option value="-1">-Tình trạng-</option>
-                            <option value="0">Lưu tạm</option>
-                            <option value="1">Hoàn thành</option>
-                            <option value="2">Xác nhận</option>
-                            <option value="3">Đang giao</option>
-                            <option value="4">Đã giao</option>
-                            <option value="5">Hủy</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
-                        <select id="search_option_3" class="form-control">
-                            <option value="-1">-Khách Hàng-</option>
-                            <option value="0">Không nhập</option>
-                            <option value="1">CÔNG TY TNHH QUẢNG CÁO TRỰC TUYẾN VIHA</option>
-                            <option value="2">Tan Tran</option>
-                            <option value="3">Nguyễn Đức Anh</option>
-                            <option value="4">Toyota Mỹ Đình</option>
-                            <option value="5">Cửa Hàng Anh Tuấn</option>
-                            <option value="7">ABC</option>
-                            <option value="8">lll</option>
-                            <option value="9">Đại lý Bánh Kẹo Quốc Hoàng</option>
-                            <option value="10">Béo Bạn</option>
-                            <option value="11">Đại lý Bánh Kẹo Phan Sơn</option>
-                            <option value="12">a tũn</option>
-                            <option value="13">Hữu Nhân</option>
-                            <option value="14">Phạm Văn Hoàng</option>
-                            <option value="15">Nguyên Đặng</option>
-                            <option value="16">HƯƠNG</option>
-                            <option value="17">hoa</option>
-                            <option value="18">ha</option>
-                            <option value="19">minh</option>
-                            <option value="20">Thanh nhàn</option>
-                            <option value="21">Thanh Nhàn</option>
-                            <option value="25">ok</option>
-                            <option value="26">NewCustomer</option>
-                            <option value="28">Hà</option>
-                            <option value="29">asd</option>
-                            <option value="30">Khách lẻ</option>
-                            <option value="31">Nguyễn Văn Nam</option>
-                            <option value="32">AAA</option>
-                            <option value="33">ANH MINH</option>
-                            <option value="35">erterte</option>
-                            <option value="37">anh long</option>
-                            <option value="38">chị thanh</option>
-                            <option value="39">vinh</option>
-                            <option value="40">lê tâm đắc</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-1 col-md-3 col-sm-3 col-xs-6 padd-0 hidden">
-                        <select id="search_option_4" class="form-control">
-                            <option value="-1">-Kho-</option>
-                            <option value="1">Mỹ Tho</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-2 col-sm-4 col-xs-6 padd-0" style="display: flex">
-                        <div class="input-daterange input-group" id="datepicker"
-                            style="min-width: 130px;display: flex;">
-                            <input type="text" class="input-sm form-control" autocomplete="off" id="search-date-from"
-                                placeholder="Từ ngày" name="start">
-                            <span class="input-group-addon hidden-xs hidden-md"
-                                style="padding: 6px 4px;width: auto">-</span>
-                            <input type="text" class="input-sm form-control" autocomplete="off" id="search-date-to"
-                                placeholder="Đến ngày" name="end">
+                    <script>
+                        $store_id = $('#store-id').val();
+                        $(function () {
+                            $("#search-pro-box").autocomplete({
+                                minLength: 1,
+                                source: 'orders/cms_autocomplete_products/' + 0 + '/' + $store_id,
+                                focus: function (event, ui) {
+                                    $("#search-pro-box").val(ui.item.prd_code);
+                                    return false;
+                                },
+                                select: function (event, ui) {
+                                    cms_select_product_sell(ui.item.ID, 0);
+                                    $("#search-pro-box").val('');
+                                    return false;
+                                }
+                            }).keyup(function (e) {
+                                if (e.which === 13) {
+                                    cms_autocomplete_enter_sell();
+                                    $("#search-pro-box").val('');
+                                    $(".ui-menu-item").hide();
+                                }
+                            })
+                                .autocomplete("instance")._renderItem = function (ul, item) {
+                                    return $("<li>")
+                                        .append("<div>" + item.prd_code + " - " + item.prd_name + " - " + item.prd_sell_price + " - Tồn: " + item.quantity + "</div>")
+                                        .appendTo(ul);
+                                };
+                        });
+                    </script>
+                    <div class="product-results">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center hidden-xs">STT</th>
+                                    <th class="hidden-xs">Mã SP</th>
+                                    <th class="text-left">Tên SP</th>
+                                    <th class="hidden-xs">Vị trí</th>
+                                    <th class="hidden-xs">Hình ảnh</th>
+                                    <th class="text-center  hidden">Ngày hết hạn</th>
+
+                                    <th class="text-center">SL</th>
+                                    <th class="text-center hidden-xs">ĐVT</th>
+
+                                    <th class="text-center">Đơn giá</th>
+                                    <th class="text-center">Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="pro_search_append">
+                            </tbody>
+                        </table>
+                        <div class="alert alert-success hidden-xs" style="margin-top: 30px;" role="alert">Gõ mã tên sản
+                            phẩm vào
+                            hộp
+                            tìm kiếm để thêm hàng vào đơn hàng
                         </div>
-                        <button style="box-shadow: none;" type="button" class="save btn btn-primary btn-large"
-                            onclick="cms_paging_order(1)"><i class="fa fa-search"></i> <span
-                                class="hidden-xs hidden-sm hidden-md">Tìm</span>
-                        </button>
                     </div>
 
-                    <div class="form-group col-lg-4 col-md-2 col-sm-8 col-xs-6 padd-0 text-right">
-                        <div class="btn-group order-btn-calendar">
-                            <button type="button" onclick="cms_order_week()" class="btn btn-default">Tuần</button>
-                            <button type="button" onclick="cms_order_month()" class="btn btn-default">Tháng</button>
-                            <button type="button" onclick="cms_order_quarter()" class="btn btn-default">Quý</button>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            <div class="orders-main-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th class="text-center hidden-xs">STT</th>
-                                <th class="text-center">Mã đơn hàng</th>
-                                <th class="text-center hidden-xs">Kho xuất</th>
-                                <th class="text-center">Ngày bán</th>
-                                <th class="text-center hidden-xs">Thu ngân</th>
-                                <th class="text-center">Khách hàng</th>
-                                <th class="text-center hidden-xs">Tình trạng</th>
-                                <th class="text-center hidden-xs">Tổng SL</th>
-                                <th class="text-center">Tổng tiền</th>
-                                <th class="text-center"><i class="fa fa-clock-o"></i> Nợ</th>
-                                <th></th>
-                                <th class="text-center hidden-xs"><label class="checkbox" style="margin: 0;">
-                                        <input type="checkbox" class="checkbox chkAll">
-                                        <span style="width: 15px; height: 15px;">
-                                        </span>
-                                    </label>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="text-align: center;">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="morder-info" style="padding: 4px;">
+                                <div class="tab-contents" style="padding: 8px 6px;">
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Khách hàng</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <div class="col-md-12 padd-0" style="position: relative;display: flex">
+                                                <input id="search-box-cys" class="form-control" autocomplete="off"
+                                                    type="text" placeholder="Tìm khách hàng (F4)"
+                                                    style="border-radius: 3px 0 0 3px !important;"><span
+                                                    style="color: red; position: absolute; right: 34px; top:5px; "
+                                                    class="del-cys"></span>
 
-                                    <i style="color: #478fca!important;" title="Chi tiết đơn hàng"
-                                        onclick="cms_show_detail_order(178)"
-                                        class="fa fa-plus-circle i-detail-order-178">
-                                    </i>
-                                    <i style="color: #478fca!important;" title="Chi tiết đơn hàng"
-                                        onclick="cms_show_detail_order(178)"
-                                        class="fa fa-minus-circle i-hide i-detail-order-178">
-                                    </i>
-
-                                </td>
-                                <td class="text-center hidden-xs">1</td>
-                                <td class="text-center" style="color: #2a6496; cursor: pointer;"
-                                    onclick="cms_detail_order(178)">
-                                    PX0000178</td>
-                                <td class="text-center hidden-xs">Mỹ Tho</td>
-                                <td class="text-center"><span class="hidden visible-xs">28/11/2023</span><span
-                                        class="hidden-xs">16:11 28/11/2023</span></td>
-                                <td class="text-center hidden-xs">Phong Trần</td>
-                                <td class="text-center">Không nhập</td>
-                                <td class="text-center hidden-xs">Hoàn thành</td>
-                                <td class="text-center hidden-xs">1 </td>
-                                <td class="text-center">7,000 </td>
-                                <td class="text-center">7,000 </td>
-                                <td class="text-center">
-
-                                    <i title="In hóa đơn" onclick="cms_print_order(2,178)"
-                                        class="fa fa-print blue hidden-xs" style="margin-right: 5px;">
-                                    </i>
-
-                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa vĩnh viễn"
-                                        onclick="cms_del_order(178,1)"></i>
-                                </td>
-                                <td class="text-center hidden-xs">
-                                    <label class="checkbox" style="margin: 0;">
-                                        <input type="checkbox" value="178" class="checkbox chk">
-                                        <span style="width: 15px; height: 15px;">
-                                        </span>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr class="tr-hide" id="tr-detail-order-178">
-                                <td colspan="15">
-                                    <div class="tabbable">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active">
-                                                <a data-toggle="tab">
-                                                    <i class="green icon-reorder bigger-110"></i>
-                                                    Chi tiết đơn hàng
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane active">
-                                                <div class="alert alert-success clearfix" style="display: flex;">
-
-                                                    <div class="padding-left-10">
-                                                        <i class="fa fa-sticky-note-o">
-                                                        </i>
-                                                        <span class="hidden-768">Ghi chú:
-                                                        </span>
-                                                        <label> </label>
-                                                    </div>
+                                                <div id="cys-suggestion-box"
+                                                    style="border: 1px solid #444; display: none; overflow-y: auto;background-color: #fff; z-index: 2 !important; position: absolute; left: 0; width: 100%; padding: 5px 0px; max-height: 400px !important;top:34px;">
+                                                    <div class="search-cys-inner"></div>
                                                 </div>
 
-                                                <table class="table table-striped table-bordered table-hover dataTable">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th class="text-center hidden-xs">STT</th>
-                                                            <th class="text-left hidden-xs">Mã SP</th>
-                                                            <th class="text-left">Tên SP</th>
-                                                            <th class="text-center hidden-xs">Hình ảnh</th>
-                                                            <th class="text-center  hidden">Ngày
-                                                                hết
-                                                                hạn
-                                                            </th>
-                                                            <th class="text-center">SL</th>
-                                                            <th class="text-center hidden-xs">ĐVT</th>
-                                                            <th class="text-center">Đơn giá</th>
-                                                            <th class="text-center">Thành tiền</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center width-5 hidden-xs">
-                                                                1 </td>
-                                                            <td class="text-left hidden-xs">
-                                                                SP00030 </td>
-                                                            <td class="text-left">
-                                                                cam </td>
-                                                            <td class="text-center zoomin hidden-xs">
-                                                                <img height="30"
-                                                                    src="/templates/uploads/baner-2_24_08_2023.jpg">
-                                                            </td>
-                                                            <td class="text-center  hidden"></td>
-                                                            <td class="text-center">
-                                                                1 </td>
-                                                            <td class="text-center hidden-xs">
-                                                                VND </td>
-                                                            <td class="text-center">
-                                                                7,000 </td>
-                                                            <td class="text-center">
-                                                                7,000 </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <button type="button" data-toggle="modal" data-target="#create-cust"
+                                                    class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0; box-shadow: none; padding: 6px 11px;">
+                                                    +
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Ngày bán</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <input id="date-order" class="form-control datepk" type="text"
+                                                placeholder="Hôm nay" style="border-radius: 0 !important;">
+                                        </div>
+                                        <script>$('#date-order').datetimepicker({
+                                                autoclose: true
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>NV bán hàng</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <select class="form-control" id="sale_id">
+                                                <option selected="" value="1">Phong Trần</option>
+                                                <option value="6">Nguyễn Văn Hải</option>
+                                                <option value="7">fgvhbj</option>
+                                                <option value="8">Abc</option>
+                                                <option value="9">user</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Ghi chú</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <textarea id="note-order" cols="" class="form-control" rows="2"
+                                                style="border-radius: 0;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <h4 class="lighter" style="margin-top: 0;">
+                                <i class="fa fa-info-circle blue"></i>
+                                Thông tin thanh toán
+                                <button onclick="toggle_promotion()" class="hidden">Khuyến mãi</button>
+                            </h4>
 
-                <div class="alert alert-info summany-info clearfix" role="alert">
-                    <div class="sm-info pull-left padd-0">
-                        Tổng số hóa đơn:
-                        <span>1</span>
-                        Tổng tiền:
-                        <span>7,000</span>
-                        Tổng nợ:
-                        <span>7,000</span>
-                    </div>
-                    <div class="pull-right ajax-pagination">
+                            <div class="morder-info" style="padding: 4px;">
+                                <div class="tab-contents" style="padding: 8px 6px;">
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Hình thức</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <div class="input-group">
+                                                <input type="radio" class="payment-method" name="method-pay" value="1"
+                                                    checked="">
+                                                Tiền mặt &nbsp;
+                                                <input type="radio" class="payment-method" name="method-pay" value="2">
+                                                Thẻ &nbsp;
+                                                <input type="radio" class="payment-method" name="method-pay" value="3">
+                                                CK &nbsp;
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>VAT</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <select class="form-control" id="vat">
+                                                <option value="0">0%</option>
+                                                <option value="5">5%</option>
+                                                <option value="10">10%</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Tiền hàng</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <div class="total-money">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Tổng SL</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <div class="total-quantity">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix hidden">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Giảm giá mỗi sp</label>
+                                        </div>
+                                        <div class="col-md-8 padd-0" style="display: flex;">
+                                            <input type="text" class="form-control text-right txtMoney discount-item"
+                                                placeholder="0" style="border-radius: 0 !important;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Giảm giá</label>
+                                        </div>
+                                        <div class="col-md-8 padd-0" style="display: flex;">
+                                            <button onclick="cms_change_discount_order()" style="display: none;"
+                                                class="toggle-discount-order btn btn-primary">vnđ
+                                            </button>
+                                            <button onclick="cms_change_discount_order()"
+                                                class="toggle-discount-order btn btn-primary">%
+                                            </button>
+                                            <input type="text"
+                                                class="toggle-discount-order form-control text-right discount-percent-order"
+                                                placeholder="0" style="border-radius: 0 !important;">
+                                            <input type="text"
+                                                class="toggle-discount-order form-control text-right txtMoney discount-order"
+                                                placeholder="0" style="display:none;border-radius: 0 !important;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Tổng cộng</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <div class="total-after-discount">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label>Khách trả</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <input type="text" class="form-control text-right txtMoney customer-pay"
+                                                placeholder="0" style="border-radius: 0 !important;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group marg-bot-10 clearfix">
+                                        <div class="col-md-4 col-xs-4 padd-0">
+                                            <label class="debt">Còn nợ</label>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 padd-0">
+                                            <div class="debt">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12 padd-0">
+                            <div class="btn-groups pull-right" style="margin-bottom: 50px;">
+                                <button type="button" class="save btn btn-primary" onclick="cms_save_orders(0)">
+                                    <i class="fa fa-floppy-o"></i> Lưu tạm
+                                </button>
+                                <button type="button" class="save btn btn-primary" onclick="cms_save_orders(1)"><i
+                                        class="fa fa-check"></i> Lưu
+                                </button>
+                                <button type="button" class="save btn btn-primary" onclick="cms_save_orders(2)"><i
+                                        class="fa fa-print"></i> Lưu &amp; In
+                                </button>
+                                <button type="button" class="save btn-back btn btn-default"
+                                    onclick="cms_javascript_redirect( cms_javascrip_fullURL() )"><i
+                                        class="fa fa-arrow-left"></i> Hủy
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

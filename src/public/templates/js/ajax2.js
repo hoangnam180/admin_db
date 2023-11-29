@@ -241,7 +241,7 @@ function cms_func_common() {
     $('#pass2').on('inputkeypress', function () {
         var pass1 = $('#pass1').val(), pass2 = $('#pass2').val();
         if (!is_match(pass1, pass2)) {
-            alert('Mật khẩu nhập lại không khớp!');
+            alert('Máº­t kháº©u nháº­p láº¡i khĂ´ng khá»›p!');
             $("#pass2").focus();
             return false;
         }
@@ -360,10 +360,10 @@ function cms_func_common() {
 
             if (debt >= 0) {
                 $('div.debt').text(cms_encode_currency_format(debt));
-                $('label.debt').text('Nợ');
+                $('label.debt').text('Ná»£');
             } else {
                 $('div.debt').text(cms_encode_currency_format(-debt));
-                $('label.debt').text('Tiền thừa');
+                $('label.debt').text('Tiá»n thá»«a');
             }
         });
     }
@@ -452,10 +452,10 @@ function cms_func_common() {
 
             if (debt >= 0) {
                 $('div.debt').text(cms_encode_currency_format(debt));
-                $('label.debt').text('Nợ');
+                $('label.debt').text('Ná»£');
             } else {
                 $('div.debt').text(cms_encode_currency_format(-debt));
-                $('label.debt').text('Tiền thừa');
+                $('label.debt').text('Tiá»n thá»«a');
             }
         });
 
@@ -473,10 +473,10 @@ function cms_func_common() {
 
                 if (debt >= 0) {
                     $('div.debt').text(cms_encode_currency_format(debt));
-                    $('label.debt').text('Còn nợ');
+                    $('label.debt').text('CĂ²n ná»£');
                 } else {
                     $('div.debt').text(cms_encode_currency_format(-debt));
-                    $('label.debt').text('Tiền thừa');
+                    $('label.debt').text('Tiá»n thá»«a');
                 }
             } else {
                 $('input#customer_pay_return').val(cms_encode_currency_format(total_money_return));
@@ -578,10 +578,10 @@ function cms_func_common() {
 
             if (debt >= 0) {
                 $('div.debt').text(cms_encode_currency_format(debt));
-                $('label.debt').text('Nợ');
+                $('label.debt').text('Ná»£');
             } else {
                 $('div.debt').text(cms_encode_currency_format(-debt));
-                $('label.debt').text('Tiền thừa');
+                $('label.debt').text('Tiá»n thá»«a');
             }
         });
     }
@@ -815,22 +815,22 @@ function cms_cruser() {
         group_id = $(this).val();
     });
     if (display_name.length == 0) {
-        $('.error-display_name').text('Vui lòng nhập tên hiển thị!');
+        $('.error-display_name').text('Vui lĂ²ng nháº­p tĂªn hiá»ƒn thá»‹!');
     } else {
         $('.error-display_name').text('');
     }
     if (username.length == 0) {
-        $('.error-manv').text('Vui lòng nhập mã nhân viên!');
+        $('.error-manv').text('Vui lĂ²ng nháº­p mĂ£ nhĂ¢n viĂªn!');
     } else {
         $('.error-manv').text('');
     }
     if (email.length == 0) {
-        $('.error-mail').text('Vui lòng nhập email!');
+        $('.error-mail').text('Vui lĂ²ng nháº­p email!');
     } else {
         $('.error-mail').text('');
     }
     if (password.length == 0) {
-        $('.error-password').text('Vui lòng nhập mật khẩu!');
+        $('.error-password').text('Vui lĂ²ng nháº­p máº­t kháº©u!');
     } else {
         $('.error-password').text('');
     }
@@ -860,7 +860,7 @@ function cms_cruser() {
                 } else {
                     $('.btn-close').trigger('click');
                     cms_paging_user_setting();
-                    $('.ajax-success-ct').html('Thêm thành viên mới thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ThĂªm thĂ nh viĂªn má»›i thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -879,7 +879,7 @@ function cms_paging_user_setting() {
             if (data != '0') {
                 $('#user .table-user tbody').html(data);
             } else {
-                var $html = '<tr><td colspan="7" class="text-center">Không có người dùng để hiển thị</td> </tr>';
+                var $html = '<tr><td colspan="7" class="text-center">KhĂ´ng cĂ³ ngÆ°á»i dĂ¹ng Ä‘á»ƒ hiá»ƒn thá»‹</td> </tr>';
                 $('#user.table-user tbody').html($html);
             }
         }
@@ -914,7 +914,7 @@ function cms_save_item_user(id) {
                 cms_paging_user_setting();
                 cms_upgroup();
             } else if (data == '0') {
-                alert('Lưu không thành công!');
+                alert('LÆ°u khĂ´ng thĂ nh cĂ´ng!');
             } else {
                 $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
             }
@@ -940,7 +940,7 @@ function cms_update_store($id) {
             if (data == '1') {
                 cms_upstore();
             } else if (data == '0') {
-                alert('Lưu không thành công!');
+                alert('LÆ°u khĂ´ng thĂ nh cĂ´ng!');
             } else {
                 $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
             }
@@ -950,21 +950,21 @@ function cms_update_store($id) {
 }
 
 function cms_del_usitem($id) {
-    var conf = confirm('Bạn chắc chắn muốn xóa!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a!');
     if (conf) {
-        // alert('Chức năng xóa nhân viên bị khóa do đây là tài khoản demo');
+        // alert('Chá»©c nÄƒng xĂ³a nhĂ¢n viĂªn bá»‹ khĂ³a do Ä‘Ă¢y lĂ  tĂ i khoáº£n demo');
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'ajax/cms_del_usitem',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '0') {
                     cms_paging_user_setting();
-                    $('.ajax-success-ct').html('Xóa thành viên thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a thĂ nh viĂªn thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    alert('Không thể xóa nhân viên!');
+                    alert('KhĂ´ng thá»ƒ xĂ³a nhĂ¢n viĂªn!');
                 }
             }
         };
@@ -973,20 +973,20 @@ function cms_del_usitem($id) {
 }
 
 function cms_del_store($id) {
-    var conf = confirm('Bạn chắc chắn muốn xóa!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'store/cms_del_store',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '0') {
                     cms_upstore();
-                    $('.ajax-success-ct').html('Xóa kho thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a kho thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    alert('Không thể xóa kho này!');
+                    alert('KhĂ´ng thá»ƒ xĂ³a kho nĂ y!');
                 }
             }
         };
@@ -1011,10 +1011,10 @@ function cms_save_template() {
         'callback': function (data) {
             $('.save').attr('readonly', false);
             if (data == '1') {
-                $('.ajax-success-ct').html('Lưu mẫu in thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-success-ct').html('LÆ°u máº«u in thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 cms_load_review_template();
             } else if (data == '0') {
-                $('.ajax-error-ct').html('Thực hiện không thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-error-ct').html('Thá»±c hiá»‡n khĂ´ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
             } else {
                 $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
             }
@@ -1029,7 +1029,7 @@ function cms_change_password() {
     var newpass = $.trim($('#newpass').val());
     var renewpass = $.trim($('#renewpass').val());
     if (newpass != renewpass) {
-        alert('Mật khẩu mới không giống nhau, Vui lòng nhập lại');
+        alert('Máº­t kháº©u má»›i khĂ´ng giá»‘ng nhau, Vui lĂ²ng nháº­p láº¡i');
     } else {
         var $data = {
             'data': {
@@ -1045,11 +1045,11 @@ function cms_change_password() {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Đổi mật khẩu thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Äá»•i máº­t kháº©u thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     $('.form-hide').slideUp('200');
                     $('#btn-changepass').show();
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Mật khẩu củ không đúng!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Máº­t kháº©u cá»§ khĂ´ng Ä‘Ăºng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
                     $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
                 }
@@ -1070,11 +1070,11 @@ function cms_load_template() {
         'callback': function (data) {
             $('.save').attr('readonly', false);
             if (data == '0') {
-                $('.ajax-error-ct').html('Thực hiện không thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-error-ct').html('Thá»±c hiá»‡n khĂ´ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
             } else {
                 CKEDITOR.instances['ckeditor'].setData(data);
                 cms_load_review_template();
-                $('.ajax-success-ct').html('Load mẫu in thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-success-ct').html('Load máº«u in thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
             }
         }
     };
@@ -1109,7 +1109,7 @@ function cms_upfunc() {
             if (data != '0') {
                 $('#functions .table-function tbody').html(data);
             } else {
-                var $html = '<tr><td colspan="3" class="text-center">Không có chức năng để hiển thị</td> </tr>';
+                var $html = '<tr><td colspan="3" class="text-center">KhĂ´ng cĂ³ chá»©c nÄƒng Ä‘á»ƒ hiá»ƒn thá»‹</td> </tr>';
                 $('#functions .table-function tbody').html($html);
             }
         }
@@ -1129,7 +1129,7 @@ function cms_select_group_upfunc($id) {
             if (data != '0') {
                 $('#functions .table-function tbody').html(data);
             } else {
-                var $html = '<tr><td colspan="3" class="text-center">Không có chức năng để hiển thị</td> </tr>';
+                var $html = '<tr><td colspan="3" class="text-center">KhĂ´ng cĂ³ chá»©c nÄƒng Ä‘á»ƒ hiá»ƒn thá»‹</td> </tr>';
                 $('#functions .table-function tbody').html($html);
             }
         }
@@ -1144,7 +1144,7 @@ function cms_crgroup() {
         var $group_name = $.trim($('#group-name').val());
 
         if ($group_name.length == 0) {
-            $('.error-group_name').text('Vui lòng nhập tên nhóm người dùng');
+            $('.error-group_name').text('Vui lĂ²ng nháº­p tĂªn nhĂ³m ngÆ°á»i dĂ¹ng');
         } else {
             $('.error-group_name').text('');
         }
@@ -1154,16 +1154,16 @@ function cms_crgroup() {
             var $param = {
                 'type': 'POST',
                 'url': 'ajax/cms_crgroup',
-                'data': {'group_name': $group_name},
+                'data': { 'group_name': $group_name },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     if (data != '1') {
-                        $('.ajax-error-ct').html('Nhóm người dùng đã tồn tại hoặc không đúng!').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-error-ct').html('NhĂ³m ngÆ°á»i dĂ¹ng Ä‘Ă£ tá»“n táº¡i hoáº·c khĂ´ng Ä‘Ăºng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     } else {
                         $('.btn-close').trigger('click');
                         cms_upgroup();
                         cms_radiogroup();
-                        $('.ajax-success-ct').html('Bạn đã tạo mới Nhóm người dùng thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ táº¡o má»›i NhĂ³m ngÆ°á»i dĂ¹ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
 
                     }
                 }
@@ -1177,7 +1177,7 @@ function cms_crstore() {
     "use strict";
     var $store_name = $.trim($('#store-name').val());
     if ($store_name.length == 0) {
-        $('.error-store_name').text('Vui lòng nhập tên kho');
+        $('.error-store_name').text('Vui lĂ²ng nháº­p tĂªn kho');
     } else {
         $('.error-store_name').text('');
     }
@@ -1187,15 +1187,15 @@ function cms_crstore() {
         var $param = {
             'type': 'POST',
             'url': 'setting/cms_crstore/',
-            'data': {'store_name': $store_name},
+            'data': { 'store_name': $store_name },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '1') {
-                    $('.ajax-error-ct').html('Tên kho đã tồn tại hoặc không đúng!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn kho Ä‘Ă£ tá»“n táº¡i hoáº·c khĂ´ng Ä‘Ăºng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
                     $('.btn-close').trigger('click');
 
-                    $('.ajax-success-ct').html('Bạn đã tạo kho thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ táº¡o kho thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_upstore();
                 }
             }
@@ -1220,7 +1220,7 @@ function cms_upgroup() {
             if (data != '0') {
                 $('#functions .table-group tbody').html(data);
             } else {
-                var $html = '<tr><td colspan="3" class="text-center">Không có Group để hiển thị</td> </tr>';
+                var $html = '<tr><td colspan="3" class="text-center">KhĂ´ng cĂ³ Group Ä‘á»ƒ hiá»ƒn thá»‹</td> </tr>';
                 $('#functions .table-group tbody').html($html);
             }
         }
@@ -1240,7 +1240,7 @@ function cms_upstore() {
             if (data != '0') {
                 $('#stores .table-store tbody').html(data);
             } else {
-                var $html = '<tr><td colspan="3" class="text-center">Không có kho để hiển thị</td> </tr>';
+                var $html = '<tr><td colspan="3" class="text-center">KhĂ´ng cĂ³ kho Ä‘á»ƒ hiá»ƒn thá»‹</td> </tr>';
                 $('#stores .table-store tbody').html($html);
             }
         }
@@ -1270,21 +1270,21 @@ function cms_radiogroup() {
 
 function cms_del_gritem($id) {
     "use strict";
-    var conf = confirm('Bạn chắc chắn muốn xóa!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a!');
     if (conf) {
-        // alert('Chức năng xóa nhóm người dùng bị khóa do đây là tài khoản demo');
+        // alert('Chá»©c nÄƒng xĂ³a nhĂ³m ngÆ°á»i dĂ¹ng bá»‹ khĂ³a do Ä‘Ă¢y lĂ  tĂ i khoáº£n demo');
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'ajax/cms_del_gritem',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '0') {
                     cms_upgroup();
                     cms_radiogroup();
                 } else {
-                    alert('Không thể xóa nhóm khi đang có nhân viên trong nhóm!');
+                    alert('KhĂ´ng thá»ƒ xĂ³a nhĂ³m khi Ä‘ang cĂ³ nhĂ¢n viĂªn trong nhĂ³m!');
                 }
             }
         };
@@ -1296,9 +1296,9 @@ function cms_save_item_group($id) {
     "use strict";
     var $group_name = $('.table-group tr.edit-tr-item-' + $id + ' td.itgr_name input').val();
     if ($group_name.length == 0) {
-        alert('Tên nhóm người dùng không được bỏ trống!');
+        alert('TĂªn nhĂ³m ngÆ°á»i dĂ¹ng khĂ´ng Ä‘Æ°á»£c bá» trá»‘ng!');
     } else {
-        var $data = {'gid': $id, 'group_name': $group_name};
+        var $data = { 'gid': $id, 'group_name': $group_name };
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
@@ -1309,7 +1309,7 @@ function cms_save_item_group($id) {
                 if (data == '1') {
                     cms_upgroup();
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Thực hiện không thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Thá»±c hiá»‡n khĂ´ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
                     $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
                 }
@@ -1366,12 +1366,12 @@ function cms_crCustomer() {
         }
     });
     if ($name.length == 0) {
-        $('.error-customer_name').text('Vui lòng nhập tên khách hàng.');
+        $('.error-customer_name').text('Vui lĂ²ng nháº­p tĂªn khĂ¡ch hĂ ng.');
     } else {
         $('.error-group_name').text('');
         if ($phone.length != 0) {
             if (!$.isNumeric($phone)) {
-                $('.error-customer_phone').text('Điện thoại phải là số.');
+                $('.error-customer_phone').text('Äiá»‡n thoáº¡i pháº£i lĂ  sá»‘.');
                 return;
             } else {
                 $('.error-customer_phone').text('');
@@ -1404,10 +1404,10 @@ function cms_crCustomer() {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi! ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data > 0) {
                     $('.btn-close').trigger('click');
-                    $('.ajax-success-ct').html('Bạn đã tạo mới khách hàng thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ táº¡o má»›i khĂ¡ch hĂ ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     $("#search-box-cys").prop('readonly', true).attr('data-id', data).val($name);
                     $(".del-cys").html('<i class="fa fa-minus-circle" aria-hidden="true"></i>');
                     cms_paging_customer(1);
@@ -1420,7 +1420,7 @@ function cms_crCustomer() {
                         $("#customer_addr_fix").val($address);
                     }
                 } else {
-                    $('.ajax-error-ct').html('Mã khách hàng đã tồn tại, Vui lòng chọn mã khác').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('MĂ£ khĂ¡ch hĂ ng Ä‘Ă£ tá»“n táº¡i, Vui lĂ²ng chá»n mĂ£ khĂ¡c').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -1430,19 +1430,19 @@ function cms_crCustomer() {
 
 function cms_delCustomer($id, $page) {
     'use strict';
-    var conf = confirm('Bạn chắc chắn muốn xóa khách hàng này!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a khĂ¡ch hĂ ng nĂ y!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'customer/cms_delCustomer',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi! Khách hàng đã từng mua hàng không thể xóa được').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! KhĂ¡ch hĂ ng Ä‘Ă£ tá»«ng mua hĂ ng khĂ´ng thá»ƒ xĂ³a Ä‘Æ°á»£c').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Bạn đã xóa khách hàng thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ xĂ³a khĂ¡ch hĂ ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_customer($page);
                 }
             }
@@ -1472,12 +1472,12 @@ function cms_save_edit_customer() {
         }
     });
     if ($name.length == 0) {
-        $('.error-customer_name').text('Tên khách hàng không được để trống.');
+        $('.error-customer_name').text('TĂªn khĂ¡ch hĂ ng khĂ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng.');
     } else {
         $('.error-customer_name').text('');
         if ($phone.length != 0) {
             if (!$.isNumeric($phone)) {
-                $('.error-customer_phone').text('Điện thoại phải là số.');
+                $('.error-customer_phone').text('Äiá»‡n thoáº¡i pháº£i lĂ  sá»‘.');
                 return;
             } else {
                 $('.error-customer_phone').text('');
@@ -1506,7 +1506,7 @@ function cms_save_edit_customer() {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Bạn đã cập nhật khách hàng thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ cáº­p nháº­t khĂ¡ch hĂ ng thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_reset_valCustomer();
                     cms_detail_after_edit($id);
                 }
@@ -1544,12 +1544,12 @@ function cms_crsup() {
     $notes = $.trim($('#supplier_notes').val());
     $is_supplier_debt = cms_decode_currency_format($('#is_supplier_debt').val());
     if ($name.length == 0) {
-        $('.error-supplier_name').text('Tên nhà cung cấp không được để trống.');
+        $('.error-supplier_name').text('TĂªn nhĂ  cung cáº¥p khĂ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng.');
     } else {
         $('.error-supplier_name').text('');
         if ($phone.length != 0) {
             if (!$.isNumeric($phone)) {
-                $('.error-supplier_phone').text('Điện thoại phải là số.');
+                $('.error-supplier_phone').text('Äiá»‡n thoáº¡i pháº£i lĂ  sá»‘.');
                 return;
             } else {
                 $('.error-supplier_phone').text('');
@@ -1579,13 +1579,13 @@ function cms_crsup() {
                 $('.save').attr('readonly', false);
                 if (data > 0) {
                     $('.btn-close').trigger('click');
-                    $('.ajax-success-ct').html('Bạn đã tạo mới nhà cung cấp thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ táº¡o má»›i nhĂ  cung cáº¥p thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_supplier(1);
                     cms_reset_valSupplier();
                     $("#search-box-mas").prop('readonly', true).attr('data-id', data).val($name);
                     $(".del-mas").html('<i class="fa fa-minus-circle" aria-hidden="true"></i>');
                 } else {
-                    $('.ajax-error-ct').html('Lỗi hệ thống.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -1598,12 +1598,12 @@ function cms_print_order($id_template, $id_order) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_print_order',
-        'data': {'data': {'id_template': $id_template, 'id_order': $id_order}},
+        'data': { 'data': { 'id_template': $id_template, 'id_order': $id_order } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
-            var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
+            var mywindow = window.open('', 'In hĂ³a Ä‘Æ¡n', 'height=800,width=1200');
             if (mywindow == null) {
-                alert('Trình duyệt đã ngăn không cho phần mềm In. Vui lòng mở khóa hiển thị In ở góc phải phía trên của trình duyệt');
+                alert('TrĂ¬nh duyá»‡t Ä‘Ă£ ngÄƒn khĂ´ng cho pháº§n má»m In. Vui lĂ²ng má»Ÿ khĂ³a hiá»ƒn thá»‹ In á»Ÿ gĂ³c pháº£i phĂ­a trĂªn cá»§a trĂ¬nh duyá»‡t');
             } else {
                 if (mywindow.document.URL == 'about:blank')
                     mywindow.document.writeln(data);
@@ -1626,12 +1626,12 @@ function cms_print_order_in_create($id_template, $id_order) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_print_order',
-        'data': {'data': {'id_template': $id_template, 'id_order': $id_order}},
+        'data': { 'data': { 'id_template': $id_template, 'id_order': $id_order } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
-            var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
+            var mywindow = window.open('', 'In hĂ³a Ä‘Æ¡n', 'height=800,width=1200');
             if (mywindow == null) {
-                alert('Lưu đơn hàng thành công!. Trình duyệt đã ngăn không cho phần mềm In. Vui lòng mở khóa hiển thị In ở góc phải phía trên của trình duyệt');
+                alert('LÆ°u Ä‘Æ¡n hĂ ng thĂ nh cĂ´ng!. TrĂ¬nh duyá»‡t Ä‘Ă£ ngÄƒn khĂ´ng cho pháº§n má»m In. Vui lĂ²ng má»Ÿ khĂ³a hiá»ƒn thá»‹ In á»Ÿ gĂ³c pháº£i phĂ­a trĂªn cá»§a trĂ¬nh duyá»‡t');
                 cms_vsell_order();
             } else {
                 if (mywindow.document.URL == 'about:blank')
@@ -1656,12 +1656,12 @@ function cms_print_order_in_pos($id_template, $id_order) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_print_order',
-        'data': {'data': {'id_template': $id_template, 'id_order': $id_order}},
+        'data': { 'data': { 'id_template': $id_template, 'id_order': $id_order } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
-            var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
+            var mywindow = window.open('', 'In hĂ³a Ä‘Æ¡n', 'height=800,width=1200');
             if (mywindow == null) {
-                alert('Lưu đơn thành công!. Trình duyệt đã ngăn không cho phần mềm In. Vui lòng mở khóa hiển thị In ở góc phải phía trên của trình duyệt');
+                alert('LÆ°u Ä‘Æ¡n thĂ nh cĂ´ng!. TrĂ¬nh duyá»‡t Ä‘Ă£ ngÄƒn khĂ´ng cho pháº§n má»m In. Vui lĂ²ng má»Ÿ khĂ³a hiá»ƒn thá»‹ In á»Ÿ gĂ³c pháº£i phĂ­a trĂªn cá»§a trĂ¬nh duyá»‡t');
                 location.reload();
             } else {
                 if (mywindow.document.URL == 'about:blank')
@@ -1686,12 +1686,12 @@ function cms_print_input($id_template, $id_input) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_print_input',
-        'data': {'data': {'id_template': $id_template, 'id_input': $id_input}},
+        'data': { 'data': { 'id_template': $id_template, 'id_input': $id_input } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
-            var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
+            var mywindow = window.open('', 'In hĂ³a Ä‘Æ¡n', 'height=800,width=1200');
             if (mywindow == null) {
-                alert('Trình duyệt đã ngăn không cho phần mềm In. Vui lòng mở khóa hiển thị In ở góc phải phía trên của trình duyệt');
+                alert('TrĂ¬nh duyá»‡t Ä‘Ă£ ngÄƒn khĂ´ng cho pháº§n má»m In. Vui lĂ²ng má»Ÿ khĂ³a hiá»ƒn thá»‹ In á»Ÿ gĂ³c pháº£i phĂ­a trĂªn cá»§a trĂ¬nh duyá»‡t');
             } else {
                 if (mywindow.document.URL == 'about:blank')
                     mywindow.document.writeln(data);
@@ -1714,12 +1714,12 @@ function cms_print_input_in_create($id_template, $id_input) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_print_input',
-        'data': {'data': {'id_template': $id_template, 'id_input': $id_input}},
+        'data': { 'data': { 'id_template': $id_template, 'id_input': $id_input } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
-            var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
+            var mywindow = window.open('', 'In hĂ³a Ä‘Æ¡n', 'height=800,width=1200');
             if (mywindow == null) {
-                alert('Lưu phiếu nhập thành công!. Trình duyệt đã ngăn không cho phần mềm In. Vui lòng mở khóa hiển thị In ở góc phải phía trên của trình duyệt');
+                alert('LÆ°u phiáº¿u nháº­p thĂ nh cĂ´ng!. TrĂ¬nh duyá»‡t Ä‘Ă£ ngÄƒn khĂ´ng cho pháº§n má»m In. Vui lĂ²ng má»Ÿ khĂ³a hiá»ƒn thá»‹ In á»Ÿ gĂ³c pháº£i phĂ­a trĂªn cá»§a trĂ¬nh duyá»‡t');
                 cms_vsell_input();
             } else {
                 if (mywindow.document.URL == 'about:blank')
@@ -1742,7 +1742,7 @@ function cms_print_input_in_create($id_template, $id_input) {
 function cms_paging_supplier($page) {
     $keyword = $('.txt-ssupplier').val();
     $option = $('#sup-option').val();
-    $data = {'data': {'option': $option, 'keyword': $keyword}};
+    $data = { 'data': { 'option': $option, 'keyword': $keyword } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -1758,19 +1758,19 @@ function cms_paging_supplier($page) {
 
 function cms_delsup($id, $page) {
     'use strict';
-    var conf = confirm('Bạn chắc chắn muốn xóa nhà cung cấp này!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a nhĂ  cung cáº¥p nĂ y!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'supplier/cms_delsup',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi! không thể xóa nhà cung cấp này').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! khĂ´ng thá»ƒ xĂ³a nhĂ  cung cáº¥p nĂ y').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Bạn đã xóa nhà cung cấp thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ xĂ³a nhĂ  cung cáº¥p thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_supplier($page);
                 }
             }
@@ -1822,12 +1822,12 @@ function cms_save_edit_sup() {
     var $notes = $('.customer-supplier #notes').val();
 
     if ($name.length == 0) {
-        $('.error-supplier_name').text('Tên Nhà cung cấp không được để trống.');
+        $('.error-supplier_name').text('TĂªn NhĂ  cung cáº¥p khĂ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng.');
     } else {
         $('.error-supplier_name').text('');
         if ($phone.length != 0) {
             if (!$.isNumeric($phone)) {
-                $('.error-supplier_phone').text('Điện thoại phải là số.');
+                $('.error-supplier_phone').text('Äiá»‡n thoáº¡i pháº£i lĂ  sá»‘.');
                 return;
             } else {
                 $('.error-supplier_phone').text('');
@@ -1852,7 +1852,7 @@ function cms_save_edit_sup() {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Bạn đã cập nhật nhà cung cấp thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Báº¡n Ä‘Ă£ cáº­p nháº­t nhĂ  cung cáº¥p thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_detail_supplier($id);
                 }
             }
@@ -1882,24 +1882,24 @@ function cms_create_manufacture($cont) {
     'user strict';
     var $prd_manuf_name = $.trim($('#prd_manuf_name').val());
     if ($prd_manuf_name.length == 0) {
-        alert('Nhập tên Nhà sản xuất sản phẩm.');
+        alert('Nháº­p tĂªn NhĂ  sáº£n xuáº¥t sáº£n pháº©m.');
     } else {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'product/cms_create_manufacture',
-            'data': {'data': {'prd_manuf_name': $prd_manuf_name}},
+            'data': { 'data': { 'prd_manuf_name': $prd_manuf_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_manufacture(1);
                     cms_load_listmanufacture();
-                    $('.ajax-success-ct').html('Tạo nhà sản xuất thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Táº¡o nhĂ  sáº£n xuáº¥t thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     $('#prd_manuf_name').val('');
                     if ($cont == 1)
                         $('.btn-close').trigger('click');
                 } else {
-                    $('.ajax-error-ct').html('Tên Nhà sản xuất đã có trong hệ thống. Vui lòng chọn tên khác.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn NhĂ  sáº£n xuáº¥t Ä‘Ă£ cĂ³ trong há»‡ thá»‘ng. Vui lĂ²ng chá»n tĂªn khĂ¡c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -1911,24 +1911,24 @@ function cms_create_unit($cont) {
     'user strict';
     var $prd_unit_name = $.trim($('#prd_unit_name').val());
     if ($prd_unit_name.length == 0) {
-        alert('Nhập tên đơn vị tính sản phẩm.');
+        alert('Nháº­p tĂªn Ä‘Æ¡n vá»‹ tĂ­nh sáº£n pháº©m.');
     } else {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'product/cms_create_unit',
-            'data': {'data': {'prd_unit_name': $prd_unit_name}},
+            'data': { 'data': { 'prd_unit_name': $prd_unit_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_unit(1);
                     cms_load_listunit();
-                    $('.ajax-success-ct').html('Tạo đơn vị tính thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Táº¡o Ä‘Æ¡n vá»‹ tĂ­nh thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     $('#prd_unit_name').val('');
                     if ($cont == 1)
                         $('.btn-close').trigger('click');
                 } else {
-                    $('.ajax-error-ct').html('Tên đơn vị tính đã có trong hệ thống. Vui lòng chọn tên khác.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn Ä‘Æ¡n vá»‹ tĂ­nh Ä‘Ă£ cĂ³ trong há»‡ thá»‘ng. Vui lĂ²ng chá»n tĂªn khĂ¡c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -1965,7 +1965,7 @@ function cms_paging_unit($page) {
 }
 
 function cms_delete_manufacture($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa Nhà sản xuất sản phẩm này!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a NhĂ  sáº£n xuáº¥t sáº£n pháº©m nĂ y!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -1975,9 +1975,9 @@ function cms_delete_manufacture($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi! không thể xóa Nhà sản xuất sản phẩm này').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! khĂ´ng thá»ƒ xĂ³a NhĂ  sáº£n xuáº¥t sáº£n pháº©m nĂ y').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Xóa nhà sản xuất thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a nhĂ  sáº£n xuáº¥t thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_manufacture($page);
                     cms_load_listmanufacture();
                 }
@@ -1988,7 +1988,7 @@ function cms_delete_manufacture($id, $page) {
 }
 
 function cms_delete_unit($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa đơn vị tính sản phẩm này!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a Ä‘Æ¡n vá»‹ tĂ­nh sáº£n pháº©m nĂ y!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -1998,9 +1998,9 @@ function cms_delete_unit($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi! không thể xóa đơn vị tính sản phẩm này').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! khĂ´ng thá»ƒ xĂ³a Ä‘Æ¡n vá»‹ tĂ­nh sáº£n pháº©m nĂ y').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Xóa đơn vị tính thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a Ä‘Æ¡n vá»‹ tĂ­nh thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_unit($page);
                     cms_load_listunit();
                 }
@@ -2011,7 +2011,7 @@ function cms_delete_unit($id, $page) {
 }
 
 function cms_delete_receipt_in_order($order_id, $receipt_id) {
-    var conf = confirm('Bạn chắc chắn muốn xóa phiếu nhập này!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a phiáº¿u nháº­p nĂ y!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2021,9 +2021,9 @@ function cms_delete_receipt_in_order($order_id, $receipt_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi! không thể xóa phiếu thu này').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! khĂ´ng thá»ƒ xĂ³a phiáº¿u thu nĂ y').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Xóa phiếu thu thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a phiáº¿u thu thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_detail_order($order_id);
                 }
             }
@@ -2033,7 +2033,7 @@ function cms_delete_receipt_in_order($order_id, $receipt_id) {
 }
 
 function cms_delete_payment_in_input($input_id, $payment_id) {
-    var conf = confirm('Bạn chắc chắn muốn xóa phiếu nhập này!');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a phiáº¿u nháº­p nĂ y!');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2043,9 +2043,9 @@ function cms_delete_payment_in_input($input_id, $payment_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi! không thể xóa phiếu chi này').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i! khĂ´ng thá»ƒ xĂ³a phiáº¿u chi nĂ y').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Xóa phiếu chi thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a phiáº¿u chi thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_detail_input($input_id);
                 }
             }
@@ -2058,21 +2058,21 @@ function cms_update_prdmanufacture($id) {
     'use strict';
     var $prd_manuf_name = $.trim($('.edit_prd_manuf_name-' + $id).val());
     if ($prd_manuf_name.length == 0) {
-        alert('Nhập tên Nhà sản xuất sản phẩm.');
+        alert('Nháº­p tĂªn NhĂ  sáº£n xuáº¥t sáº£n pháº©m.');
     } else {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'product/cms_update_prdmanufacture/' + $id,
-            'data': {'data': {'prd_manuf_name': $prd_manuf_name}},
+            'data': { 'data': { 'prd_manuf_name': $prd_manuf_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_manufacture(1);
                     cms_load_listgroup();
-                    $('.ajax-success-ct').html('Cập nhật Nhà sản xuất sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Cáº­p nháº­t NhĂ  sáº£n xuáº¥t sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-error-ct').html('Tên Nhà sản xuất đã có trong hệ thống. Vui lòng chọn tên khác.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn NhĂ  sáº£n xuáº¥t Ä‘Ă£ cĂ³ trong há»‡ thá»‘ng. Vui lĂ²ng chá»n tĂªn khĂ¡c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2084,21 +2084,21 @@ function cms_update_prdunit($id) {
     'use strict';
     var $prd_unit_name = $.trim($('.edit_prd_unit_name-' + $id).val());
     if ($prd_unit_name.length == 0) {
-        alert('Nhập tên đơn vị tính sản phẩm.');
+        alert('Nháº­p tĂªn Ä‘Æ¡n vá»‹ tĂ­nh sáº£n pháº©m.');
     } else {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'product/cms_update_prdunit/' + $id,
-            'data': {'data': {'prd_unit_name': $prd_unit_name}},
+            'data': { 'data': { 'prd_unit_name': $prd_unit_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_unit(1);
                     cms_load_listunit();
-                    $('.ajax-success-ct').html('Cập nhật đơn vị tính sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Cáº­p nháº­t Ä‘Æ¡n vá»‹ tĂ­nh sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-error-ct').html('Tên đơn vị tính đã có trong hệ thống. Vui lòng chọn tên khác.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn Ä‘Æ¡n vá»‹ tĂ­nh Ä‘Ă£ cĂ³ trong há»‡ thá»‘ng. Vui lĂ²ng chá»n tĂªn khĂ¡c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2110,9 +2110,9 @@ function cms_create_group($cont) {
     'use strict';
     var $prd_group_name = $.trim($('#prd_group_name').val());
     var $parentid = $('#parentid').val();
-    var $data = {'data': {'prd_group_name': $prd_group_name, 'parentid': $parentid}};
+    var $data = { 'data': { 'prd_group_name': $prd_group_name, 'parentid': $parentid } };
     if ($prd_group_name.length == 0) {
-        alert('Nhập tên danh mục.');
+        alert('Nháº­p tĂªn danh má»¥c.');
     } else {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2124,13 +2124,13 @@ function cms_create_group($cont) {
                 if (data == '1') {
                     cms_paging_group(1);
                     cms_load_listgroup();
-                    $('.ajax-success-ct').html('Tạo danh mục thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Táº¡o danh má»¥c thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     $('#prd_group_name').val('');
                     $('#parentid').val('');
                     if ($cont == 1)
                         $('.btn-close').trigger('click');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Tên danh mục cùng cấp đã tồn tại trong hệ thống. Vui lòng chọn tên khác.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn danh má»¥c cĂ¹ng cáº¥p Ä‘Ă£ tá»“n táº¡i trong há»‡ thá»‘ng. Vui lĂ²ng chá»n tĂªn khĂ¡c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
                     $('.ajax-error-ct').html('Opps! Something went wrong. please try again!').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
@@ -2204,21 +2204,21 @@ function cms_save_item_prdGroup($id) {
     'use strict';
     var $prd_group_name = $.trim($('.edit_prd_group_name-' + $id).val());
     if ($prd_group_name.length == 0) {
-        alert('Nhập tên danh mục sản phẩm.');
+        alert('Nháº­p tĂªn danh má»¥c sáº£n pháº©m.');
     } else {
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
             'url': 'product/cms_save_item_prdGroup/' + $id,
-            'data': {'data': {'prd_group_name': $prd_group_name}},
+            'data': { 'data': { 'prd_group_name': $prd_group_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_group(1);
                     cms_load_listgroup();
-                    $('.ajax-success-ct').html('Cập nhật danh mục thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Cáº­p nháº­t danh má»¥c thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-error-ct').html('Tên danh mục đã có trong hệ thống. Vui lòng chọn tên khác.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('TĂªn danh má»¥c Ä‘Ă£ cĂ³ trong há»‡ thá»‘ng. Vui lĂ²ng chá»n tĂªn khĂ¡c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2228,7 +2228,7 @@ function cms_save_item_prdGroup($id) {
 
 function cms_delete_Group($id, $page) {
     'use strict';
-    var conf = confirm('Bạn chắc chắn muốn xóa danh mục này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a danh má»¥c nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2239,14 +2239,14 @@ function cms_delete_Group($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_group($page);
-                    $('.ajax-success-ct').html('Xóa danh mục thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a danh má»¥c thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_load_listgroup();
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '2') {
-                    if (confirm('Danh mục này đã có chứa sản phẩm, Bạn có chắc chắn muốn xóa?')) {
+                    if (confirm('Danh má»¥c nĂ y Ä‘Ă£ cĂ³ chá»©a sáº£n pháº©m, Báº¡n cĂ³ cháº¯c cháº¯n muá»‘n xĂ³a?')) {
                         $('.save').attr('readonly', true);
                         var $param = {
                             'type': 'POST',
@@ -2257,7 +2257,7 @@ function cms_delete_Group($id, $page) {
                                 if (data == '1') {
                                     cms_paging_group($page);
                                     cms_load_listgroup();
-                                    $('.ajax-success-ct').html('Xóa danh mục thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                                    $('.ajax-success-ct').html('XĂ³a danh má»¥c thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                                 } else {
                                     $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
                                 }
@@ -2304,9 +2304,9 @@ function cms_add_product(type) {
     var $hot = cms_get_valCheckbox('prd_hot', 'id');
     var $highlight = cms_get_valCheckbox('prd_highlight', 'id');
     if ($serial == 1 && $sls > 0) {
-        $('.ajax-error-ct').html('Sản phẩm có serial không được nhập số lượng.').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Sà‰n phĂ¢̀‰m cò serial khĂ´ng Ä‘Æ°Æ¡̀£c nhĂ¢̀£p sĂ´̀ lÆ°Æ¡̀£ng.').parent().fadeIn().delay(1000).fadeOut('slow');
     } else if ($name.length == 0) {
-        $('.ajax-error-ct').html('Vui lòng nhập tên sản phẩm.').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p tĂªn sáº£n pháº©m.').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         var $data = {
             'data': {
@@ -2348,12 +2348,12 @@ function cms_add_product(type) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     if (type == 'save') {
-                        $('.ajax-success-ct').html('Tạo sản phẩm ' + $name + ' thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('Táº¡o sáº£n pháº©m ' + $name + ' thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                         setTimeout(function () {
                             $('.btn-back').trigger('click');
                         }, 2000);
                     } else {
-                        $('.ajax-success-ct').html('Tạo sản phẩm ' + $name + ' thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('Táº¡o sáº£n pháº©m ' + $name + ' thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                         $('.products').find('input:text').val('');
                         $('.products').find('input:checkbox').prop('checked', false);
                     }
@@ -2397,7 +2397,7 @@ function cms_update_product($id) {
     var $prd_sls_edit = parseInt($('#prd_sls_edit').text());
     var $store_id = $('#store-id').val();
     if ($name.length == 0) {
-        $('.ajax-error-ct').html('Vui lòng nhập tên sản phẩm.').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p tĂªn sáº£n pháº©m.').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         var $data = {
             'data': {
@@ -2440,9 +2440,9 @@ function cms_update_product($id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data > 0) {
-                    $('.ajax-success-ct').html('Cập nhật sản phẩm ' + $name + ' thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Cáº­p nháº­t sáº£n pháº©m ' + $name + ' thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').trigger('click');
                     }, 2000);
@@ -2471,7 +2471,7 @@ function cms_show_discount_order($id) {
 function cms_paging_customer($page) {
     $keyword = $('.txt-scustomer').val();
     $option = $('#cus-option').val();
-    $data = {'data': {'option': $option, 'keyword': $keyword}};
+    $data = { 'data': { 'option': $option, 'keyword': $keyword } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -2486,7 +2486,7 @@ function cms_paging_customer($page) {
 }
 
 function cms_delete_product($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2496,12 +2496,12 @@ function cms_delete_product($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Xóa sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_product($page);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2510,7 +2510,7 @@ function cms_delete_product($id, $page) {
 }
 
 function cms_delete_all_product($page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa tất cả sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a táº¥t cáº£ sáº£n pháº©m nĂ y?');
     if (conf) {
         $success = '';
         $error = false;
@@ -2533,9 +2533,9 @@ function cms_delete_all_product($page) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Một vài sản phẩm không tồn tại.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('Má»™t vĂ i sáº£n pháº©m khĂ´ng tá»“n táº¡i.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Xóa tất cả sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('XĂ³a táº¥t cáº£ sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
         }
 
         cms_paging_product($page);
@@ -2543,7 +2543,7 @@ function cms_delete_all_product($page) {
 }
 
 function cms_delete_forever_product($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa vĩnh viễn sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a vÄ©nh viá»…n sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2553,12 +2553,12 @@ function cms_delete_forever_product($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Xóa vĩnh viễn sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a vÄ©nh viá»…n sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_product($page);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2567,7 +2567,7 @@ function cms_delete_forever_product($id, $page) {
 }
 
 function cms_delete_forever_all_product($page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa vĩnh viễn tất cả sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a vÄ©nh viá»…n táº¥t cáº£ sáº£n pháº©m nĂ y?');
     if (conf) {
         $success = '';
         $error = false;
@@ -2590,9 +2590,9 @@ function cms_delete_forever_all_product($page) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Một vài sản phẩm không tồn tại.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('Má»™t vĂ i sáº£n pháº©m khĂ´ng tá»“n táº¡i.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Xóa vĩnh viễn tất cả sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('XĂ³a vÄ©nh viá»…n táº¥t cáº£ sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
         }
 
         cms_paging_product($page);
@@ -2600,7 +2600,7 @@ function cms_delete_forever_all_product($page) {
 }
 
 function cms_delete_product_bydetail($id) {
-    var conf = confirm('Bạn chắc chắn muốn xóa sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2610,14 +2610,14 @@ function cms_delete_product_bydetail($id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Xóa sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_javascript_redirect(cms_javascrip_fullURL());
                     }, 2000);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2626,7 +2626,7 @@ function cms_delete_product_bydetail($id) {
 }
 
 function cms_restore_product_deleted_bydetail($id) {
-    var conf = confirm('Bạn chắc chắn muốn khôi phục sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n khĂ´i phá»¥c sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2636,14 +2636,14 @@ function cms_restore_product_deleted_bydetail($id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Khôi phục sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('KhĂ´i phá»¥c sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_javascript_redirect(cms_javascrip_fullURL());
                     }, 2000);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2652,7 +2652,7 @@ function cms_restore_product_deleted_bydetail($id) {
 }
 
 function cms_restore_product_deleted($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn khôi phục sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n khĂ´i phá»¥c sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2662,10 +2662,10 @@ function cms_restore_product_deleted($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Khôi phục sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('KhĂ´i phá»¥c sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_product($page);
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Mã sản phẩm đã tồn tại nên không thể khôi phục.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('MĂ£ sáº£n pháº©m Ä‘Ă£ tá»“n táº¡i nĂªn khĂ´ng thá»ƒ khĂ´i phá»¥c.').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2674,7 +2674,7 @@ function cms_restore_product_deleted($id, $page) {
 }
 
 function cms_restore_all_product_deleted($page) {
-    var conf = confirm('Bạn chắc chắn muốn khôi phục tất cả sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n khĂ´i phá»¥c táº¥t cáº£ sáº£n pháº©m nĂ y?');
     if (conf) {
         $success = '';
         $error = false;
@@ -2697,9 +2697,9 @@ function cms_restore_all_product_deleted($page) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Một vài sản phẩm không tồn tại.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('Má»™t vĂ i sáº£n pháº©m khĂ´ng tá»“n táº¡i.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Khôi phục tất cả sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('KhĂ´i phá»¥c táº¥t cáº£ sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
         }
 
         cms_paging_product($page);
@@ -2707,7 +2707,7 @@ function cms_restore_all_product_deleted($page) {
 }
 
 function cms_restore_product_deactivated_bydetail($id) {
-    var conf = confirm('Bạn chắc chắn muốn khôi phục sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n khĂ´i phá»¥c sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2717,14 +2717,14 @@ function cms_restore_product_deactivated_bydetail($id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Khôi phục sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('KhĂ´i phá»¥c sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_javascript_redirect(cms_javascrip_fullURL());
                     }, 2000);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2733,7 +2733,7 @@ function cms_restore_product_deactivated_bydetail($id) {
 }
 
 function cms_restore_product_deactivated($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn khôi phục sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n khĂ´i phá»¥c sáº£n pháº©m nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2743,12 +2743,12 @@ function cms_restore_product_deactivated($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Khôi phục sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('KhĂ´i phá»¥c sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_product($page);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2757,7 +2757,7 @@ function cms_restore_product_deactivated($id, $page) {
 }
 
 function cms_restore_all_product_deactivated($page) {
-    var conf = confirm('Bạn chắc chắn muốn khôi phục tất cả sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n khĂ´i phá»¥c táº¥t cáº£ sáº£n pháº©m nĂ y?');
     if (conf) {
         $success = '';
         $error = false;
@@ -2780,9 +2780,9 @@ function cms_restore_all_product_deactivated($page) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Một vài sản phẩm không tồn tại.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('Má»™t vĂ i sáº£n pháº©m khĂ´ng tá»“n táº¡i.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Khôi phục tất cả sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('KhĂ´i phá»¥c táº¥t cáº£ sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
         }
 
         cms_paging_product($page);
@@ -2790,7 +2790,7 @@ function cms_restore_all_product_deactivated($page) {
 }
 
 function cms_deactivate_product($id, $page) {
-    var conf = confirm('Bạn có thực sự muốn ngừng kinh doanh sản phẩm này không?');
+    var conf = confirm('Báº¡n cĂ³ thá»±c sá»± muá»‘n ngá»«ng kinh doanh sáº£n pháº©m nĂ y khĂ´ng?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -2800,12 +2800,12 @@ function cms_deactivate_product($id, $page) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Ngừng kinh doanh sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Ngá»«ng kinh doanh sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     cms_paging_product($page);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2814,7 +2814,7 @@ function cms_deactivate_product($id, $page) {
 }
 
 function cms_deactivate_all_product($page) {
-    var conf = confirm('Bạn chắc chắn muốn ngừng kinh doanh tất cả sản phẩm này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n ngá»«ng kinh doanh táº¥t cáº£ sáº£n pháº©m nĂ y?');
     if (conf) {
         $success = '';
         $error = false;
@@ -2837,9 +2837,9 @@ function cms_deactivate_all_product($page) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Một vài sản phẩm không tồn tại.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('Má»™t vĂ i sáº£n pháº©m khĂ´ng tá»“n táº¡i.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Ngừng kinh doanh tất cả sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('Ngá»«ng kinh doanh táº¥t cáº£ sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
         }
 
         cms_paging_product($page);
@@ -2847,7 +2847,7 @@ function cms_deactivate_all_product($page) {
 }
 
 function cms_deactivate_product_bydetail($id) {
-    var conf = confirm('Bạn có thực sự muốn ngừng kinh doanh sản phẩm này không?');
+    var conf = confirm('Báº¡n cĂ³ thá»±c sá»± muá»‘n ngá»«ng kinh doanh sáº£n pháº©m nĂ y khĂ´ng?');
     if (conf) {
         var $name = $('td.prd_name').text();
         $('.save').attr('readonly', true);
@@ -2858,14 +2858,14 @@ function cms_deactivate_product_bydetail($id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
-                    $('.ajax-success-ct').html('Ngừng kinh doanh sản phẩm thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Ngá»«ng kinh doanh sáº£n pháº©m thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_javascript_redirect(cms_javascrip_fullURL());
                     }, 2000);
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -2875,7 +2875,7 @@ function cms_deactivate_product_bydetail($id) {
 
 function cms_detail_product($id) {
     $option1 = $('#search_option_1').val();
-    $data = {'data': {'option1': $option1}};
+    $data = { 'data': { 'option1': $option1 } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -3165,19 +3165,19 @@ function cms_search_box_customer() {
         $('#cys-suggestion-box').show();
         $keyword = $.trim($(this).val());
         if ($keyword.length == 0) {
-            $('.search-cys-inner').html('Không có kết quả phù hợp').parent().hide().delay(1000);
+            $('.search-cys-inner').html('KhĂ´ng cĂ³ káº¿t quáº£ phĂ¹ há»£p').parent().hide().delay(1000);
         } else {
             $('.save').attr('readonly', true);
             var $param = {
                 'type': 'POST',
                 'url': 'orders/cms_search_box_customer/',
-                'data': {'data': {'keyword': $keyword}},
+                'data': { 'data': { 'keyword': $keyword } },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     if (data.length != 0) {
                         $('.search-cys-inner').html(data);
                     } else {
-                        $('.search-cys-inner').html('Không có kết quả phù hợp');
+                        $('.search-cys-inner').html('KhĂ´ng cĂ³ káº¿t quáº£ phĂ¹ há»£p');
                     }
                 }
             };
@@ -3191,19 +3191,19 @@ function cms_search_box_customer_fix() {
         $('#cys-suggestion-box').show();
         $keyword = $.trim($(this).val());
         if ($keyword.length == 0) {
-            $('.search-cys-inner').html('Không có kết quả phù hợp').parent().hide().delay(1000);
+            $('.search-cys-inner').html('KhĂ´ng cĂ³ káº¿t quáº£ phĂ¹ há»£p').parent().hide().delay(1000);
         } else {
             $('.save').attr('readonly', true);
             var $param = {
                 'type': 'POST',
                 'url': 'fix/cms_search_box_customer/',
-                'data': {'data': {'keyword': $keyword}},
+                'data': { 'data': { 'keyword': $keyword } },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     if (data.length != 0) {
                         $('.search-cys-inner').html(data);
                     } else {
-                        $('.search-cys-inner').html('Không có kết quả phù hợp');
+                        $('.search-cys-inner').html('KhĂ´ng cĂ³ káº¿t quáº£ phĂ¹ há»£p');
                     }
                 }
             };
@@ -3217,7 +3217,7 @@ function cms_search_box_sup() {
         $('#mas-suggestion-box').show();
         $keyword = $.trim($(this).val());
         if ($keyword.length == 0) {
-            $('.search-mas-inner').html('Không có kết quả phù hợp').parent().hide().delay(1000);
+            $('.search-mas-inner').html('KhĂ´ng cĂ³ káº¿t quáº£ phĂ¹ há»£p').parent().hide().delay(1000);
         } else {
 
             $('.save').attr('readonly', true);
@@ -3230,7 +3230,7 @@ function cms_search_box_sup() {
                     if (data.length != 0) {
                         $('.search-mas-inner').html(data);
                     } else {
-                        $('.search-mas-inner').html('Không có kết quả phù hợp');
+                        $('.search-mas-inner').html('KhĂ´ng cĂ³ káº¿t quáº£ phĂ¹ há»£p');
                     }
                 }
             };
@@ -3247,7 +3247,7 @@ function cms_select_product_sell($id, $customer_id = 0) {
         var $param = {
             'type': 'POST',
             'url': 'orders/cms_select_product/' + $customer_id,
-            'data': {'id': $id, 'seq': $seq},
+            'data': { 'id': $id, 'seq': $seq },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 $('#pro_search_append').append(data);
@@ -3260,7 +3260,7 @@ function cms_select_product_sell($id, $customer_id = 0) {
         var $param = {
             'type': 'POST',
             'url': 'orders/cms_select_product/' + $customer_id,
-            'data': {'id': $id, 'seq': 1},
+            'data': { 'id': $id, 'seq': 1 },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 $('#pro_search_append').append(data);
@@ -3298,7 +3298,7 @@ function cms_select_product_import($id) {
             var $param = {
                 'type': 'POST',
                 'url': 'input/cms_select_product/',
-                'data': {'id': $id, 'seq': $seq},
+                'data': { 'id': $id, 'seq': $seq },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     $('#pro_search_append').append(data);
@@ -3312,7 +3312,7 @@ function cms_select_product_import($id) {
         var $param = {
             'type': 'POST',
             'url': 'input/cms_select_product/',
-            'data': {'id': $id, 'seq': 1},
+            'data': { 'id': $id, 'seq': 1 },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 $('#pro_search_append').append(data);
@@ -3339,7 +3339,7 @@ function cms_selected_mas($id) {
 
 function cms_save_orders(type) {
     if ($('tbody#pro_search_append tr').length == 0) {
-        $('.ajax-error-ct').html('Xin vui lòng chọn ít nhất 1 sản phẩm cần xuất trước khi lưu đơn hàng. Xin cảm ơn!').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Xin vui lĂ²ng chá»n Ă­t nháº¥t 1 sáº£n pháº©m cáº§n xuáº¥t trÆ°á»›c khi lÆ°u Ä‘Æ¡n hĂ ng. Xin cáº£m Æ¡n!').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $customer_id = typeof $('#search-box-cys').attr('data-id') === 'undefined' ? 0 : $('#search-box-cys').attr('data-id');
         $store_id = $('#store-id').val();
@@ -3386,7 +3386,7 @@ function cms_save_orders(type) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Lỗi. Số lượng sản phẩm không hợp lệ').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('LĂ´̀ƒi. SĂ´̀ lÆ°Æ¡̀£ng sà‰n phĂ¢̀‰m khĂ´ng hÆ¡̀£p lĂª̀£').parent().fadeIn().delay(1000).fadeOut('slow');
             return;
         }
 
@@ -3419,26 +3419,26 @@ function cms_save_orders(type) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Không đủ hàng tồn. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('KhĂ´ng Ä‘á»§ hĂ ng tá»“n. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '-1') {
-                    $('.ajax-error-ct').html('Vui lòng chọn khách hàng để có thể bán nợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Vui lĂ²ng chá»n khĂ¡ch hĂ ng Ä‘á»ƒ cĂ³ thá»ƒ bĂ¡n ná»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
                     if (type == 1) {
-                        $('.ajax-success-ct').html('Đã lưu thành công đơn hàng.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('ÄĂ£ lÆ°u thĂ nh cĂ´ng Ä‘Æ¡n hĂ ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                         setTimeout(function () {
                             $('.btn-back').delay('1000').trigger('click');
                         }, 1000);
                     } else if (type == 0) {
-                        $('.ajax-success-ct').html('Đã Lưu tạm thành công đơn hàng.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('ÄĂ£ LÆ°u táº¡m thĂ nh cĂ´ng Ä‘Æ¡n hĂ ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                         cms_vsell_order();
                     } else if (type == 2) {
                         cms_print_order_in_create(1, data);
                     } else if (type == 3) {
-                        $('.ajax-success-ct').html('Đã lưu thành công đơn hàng.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('ÄĂ£ lÆ°u thĂ nh cĂ´ng Ä‘Æ¡n hĂ ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                         setTimeout(function () {
                             location.reload();
                         }, 1000);
@@ -3454,7 +3454,7 @@ function cms_save_orders(type) {
 
 function cms_update_orders(order_id, type) {
     if ($('tbody#pro_search_append tr').length == 0) {
-        $('.ajax-error-ct').html('Xin vui lòng chọn ít nhất 1 sản phẩm cần xuất trước khi lưu đơn hàng. Xin cảm ơn!').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Xin vui lĂ²ng chá»n Ă­t nháº¥t 1 sáº£n pháº©m cáº§n xuáº¥t trÆ°á»›c khi lÆ°u Ä‘Æ¡n hĂ ng. Xin cáº£m Æ¡n!').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $customer_id = typeof $('#search-box-cys').attr('data-id') === 'undefined' ? 0 : $('#search-box-cys').attr('data-id');
         $date = $('#date-order').val();
@@ -3501,7 +3501,7 @@ function cms_update_orders(order_id, type) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Lỗi. Số lượng sản phẩm không hợp lệ').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('LĂ´̀ƒi. SĂ´̀ lÆ°Æ¡̀£ng sà‰n phĂ¢̀‰m khĂ´ng hÆ¡̀£p lĂª̀£').parent().fadeIn().delay(1000).fadeOut('slow');
             return;
         }
 
@@ -3531,41 +3531,41 @@ function cms_update_orders(order_id, type) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Không đủ hàng tồn. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('KhĂ´ng Ä‘á»§ hĂ ng tá»“n. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-success-ct').html('Đã lưu thông tin thành công').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄĂ£ lÆ°u thĂ´ng tin thĂ nh cĂ´ng').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
                 } else if (data == '-1') {
-                    $('.ajax-error-ct').html('Vui lòng chọn khách hàng để có thể bán nợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Vui lĂ²ng chá»n khĂ¡ch hĂ ng Ä‘á»ƒ cĂ³ thá»ƒ bĂ¡n ná»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (type == '6') {
-                    $('.ajax-success-ct').html('Cập nhật đơn hàng thành công').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Cáº­p nháº­t Ä‘Æ¡n hĂ ng thĂ nh cĂ´ng').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
                 } else if (data == '1') {
-                    $('.ajax-success-ct').html('Đơn hàng đã chuyển sang tình trạng thành công').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄÆ¡n hĂ ng Ä‘Ă£ chuyá»ƒn sang tĂ¬nh tráº¡ng thĂ nh cĂ´ng').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
                 } else if (data == '2') {
-                    $('.ajax-success-ct').html('Đơn hàng đã chuyển sang tình trạng xác nhận').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄÆ¡n hĂ ng Ä‘Ă£ chuyá»ƒn sang tĂ¬nh tráº¡ng xĂ¡c nháº­n').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
                 } else if (data == '3') {
-                    $('.ajax-success-ct').html('Đơn hàng đã chuyển sang tình trạng đang giao hàng').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄÆ¡n hĂ ng Ä‘Ă£ chuyá»ƒn sang tĂ¬nh tráº¡ng Ä‘ang giao hĂ ng').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
                 } else if (data == '4') {
-                    $('.ajax-success-ct').html('Đơn hàng đã chuyển sang tình trạng đã giao hàng').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄÆ¡n hĂ ng Ä‘Ă£ chuyá»ƒn sang tĂ¬nh tráº¡ng Ä‘Ă£ giao hĂ ng').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
                 } else if (data == '5') {
-                    $('.ajax-success-ct').html('Đơn hàng đã chuyển sang tình trạng hủy').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄÆ¡n hĂ ng Ä‘Ă£ chuyá»ƒn sang tĂ¬nh tráº¡ng há»§y').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
@@ -3580,7 +3580,7 @@ function cms_update_orders(order_id, type) {
 
 function save_receipt_order($order_id) {
     if ($('#receipt_money').val() < 1) {
-        $('.ajax-error-ct').html('Vui lòng nhập số tiền thu').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p sá»‘ tiá»n thu').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $receipt_money = cms_decode_currency_format($('#receipt_money').val());
         $store_id = $('#store-id').val();
@@ -3606,11 +3606,11 @@ function save_receipt_order($order_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Đã lưu phiếu thu thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄĂ£ lÆ°u phiáº¿u thu thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_detail_order($order_id);
                     }, 1000);
@@ -3623,7 +3623,7 @@ function save_receipt_order($order_id) {
 
 function save_payment_input($input_id) {
     if ($('#payment_money').val() < 1) {
-        $('.ajax-error-ct').html('Vui lòng nhập số tiền thu').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p sá»‘ tiá»n thu').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $payment_money = cms_decode_currency_format($('#payment_money').val());
         $store_id = $('#store-id').val();
@@ -3649,11 +3649,11 @@ function save_payment_input($input_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Đã lưu phiếu chi thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄĂ£ lÆ°u phiáº¿u chi thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_detail_input($input_id);
                     }, 1000);
@@ -3666,7 +3666,7 @@ function save_payment_input($input_id) {
 
 function save_total_receipt_order_in_customer() {
     if ($('#total_receipt_money').val() < 1) {
-        $('.ajax-error-ct').html('Vui lòng nhập số tiền cần thu').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p sá»‘ tiá»n cáº§n thu').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         var $err = false;
         $('tr.order_debt').each(function () {
@@ -3708,7 +3708,7 @@ function save_total_receipt_order_in_customer() {
         if ($err) {
             $('.ajax-error-ct').html('Oops! This system is errors! please try again.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Đã lưu phiếu thu thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('ÄĂ£ lÆ°u phiáº¿u thu thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
             setTimeout(function () {
                 cms_paging_order_debt_by_customer_id(1);
                 $('#total_receipt_money').val(0);
@@ -3719,7 +3719,7 @@ function save_total_receipt_order_in_customer() {
 
 function save_receipt_order_in_customer($order_id) {
     if ($('#receipt_money-' + $order_id).val() < 1) {
-        $('.ajax-error-ct').html('Vui lòng nhập số tiền thu').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p sá»‘ tiá»n thu').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $receipt_money = cms_decode_currency_format($('#receipt_money-' + $order_id).val());
         $store_id = $('#store-id').val();
@@ -3745,11 +3745,11 @@ function save_receipt_order_in_customer($order_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Đã lưu phiếu thu thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄĂ£ lÆ°u phiáº¿u thu thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_paging_order_debt_by_customer_id(1);
                         $('#total_receipt_money').val(0);
@@ -3763,7 +3763,7 @@ function save_receipt_order_in_customer($order_id) {
 
 function save_payment_input_in_supplier($input_id) {
     if ($('#payment_money-' + $input_id).val() < 1) {
-        $('.ajax-error-ct').html('Vui lòng nhập số tiền chi').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p sá»‘ tiá»n chi').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $payment_money = cms_decode_currency_format($('#payment_money-' + $input_id).val());
         $store_id = $('#store-id').val();
@@ -3789,11 +3789,11 @@ function save_payment_input_in_supplier($input_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Đã lưu phiếu chi thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('ÄĂ£ lÆ°u phiáº¿u chi thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         cms_paging_input_debt_by_supplier_id(1);
                     }, 1000);
@@ -3806,7 +3806,7 @@ function save_payment_input_in_supplier($input_id) {
 
 function save_total_payment_input_in_supplier() {
     if ($('#total_payment_money').val() < 1) {
-        $('.ajax-error-ct').html('Vui lòng nhập số tiền chi').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Vui lĂ²ng nháº­p sá»‘ tiá»n chi').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         var $err = false;
         $('tr.input_debt').each(function () {
@@ -3847,7 +3847,7 @@ function save_total_payment_input_in_supplier() {
         if ($err) {
             $('.ajax-error-ct').html('Oops! This system is errors! please try again.').parent().fadeIn().delay(1000).fadeOut('slow');
         } else {
-            $('.ajax-success-ct').html('Đã lưu phiếu chi thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-success-ct').html('ÄĂ£ lÆ°u phiáº¿u chi thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
             setTimeout(function () {
                 cms_paging_input_debt_by_supplier_id(1);
                 $('#total_payment_money').val(0);
@@ -3870,14 +3870,14 @@ function cms_change_status_order($id, $order_status) {
         'callback': function (data) {
             $('.save').attr('readonly', false);
             if (data == '1') {
-                $('.ajax-success-ct').html('Lưu tình trạng đơn hàng thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-success-ct').html('LÆ°u tĂ¬nh tráº¡ng Ä‘Æ¡n hĂ ng thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 setTimeout(function () {
                     $('.btn-back').delay('1000').trigger('click');
                 }, 1000);
             } else if (isNaN(parseInt(data))) {
-                $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
             } else if (data == '0') {
-                $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
             }
         }
     };
@@ -3885,7 +3885,7 @@ function cms_change_status_order($id, $order_status) {
 }
 
 function cms_del_temp_order($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa đơn hàng này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a Ä‘Æ¡n hĂ ng nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -3896,11 +3896,11 @@ function cms_del_temp_order($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_order($page);
-                    $('.ajax-success-ct').html('Xóa đơn hàng thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a Ä‘Æ¡n hĂ ng thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -3909,7 +3909,7 @@ function cms_del_temp_order($id, $page) {
 }
 
 function cms_del_order($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa vĩnh viễn đơn hàng này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a vÄ©nh viá»…n Ä‘Æ¡n hĂ ng nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -3920,11 +3920,11 @@ function cms_del_order($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_order($page);
-                    $('.ajax-success-ct').html('Xóa đơn hàng vĩnh viễn thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a Ä‘Æ¡n hĂ ng vÄ©nh viá»…n thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -3933,7 +3933,7 @@ function cms_del_order($id, $page) {
 }
 
 function cms_del_order_in_customer($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa đơn hàng này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a Ä‘Æ¡n hĂ ng nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -3944,11 +3944,11 @@ function cms_del_order_in_customer($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_order_by_customer_id($page);
-                    $('.ajax-success-ct').html('Xóa đơn hàng thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a Ä‘Æ¡n hĂ ng thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -3957,7 +3957,7 @@ function cms_del_order_in_customer($id, $page) {
 }
 
 function cms_del_input_in_supplier($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa phiếu nhập này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a phiáº¿u nháº­p nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -3968,11 +3968,11 @@ function cms_del_input_in_supplier($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_input_by_supplier_id($page);
-                    $('.ajax-success-ct').html('Xóa phiếu nhập thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a phiáº¿u nháº­p thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -3985,7 +3985,7 @@ function cms_detail_order($id) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_detail_order/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -3999,7 +3999,7 @@ function cms_edit_order($id) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_edit_order/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4039,11 +4039,11 @@ function cms_detail_order_in_customer($id) {
     var $param = {
         'type': 'POST',
         'url': 'customer/cms_detail_order_in_customer/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders-main-body').html(data);
-            $('#order_info').text('Đơn hàng');
+            $('#order_info').text('ÄÆ¡n hĂ ng');
         }
     };
     cms_adapter_ajax($param);
@@ -4054,11 +4054,11 @@ function cms_detail_input_in_supplier($id) {
     var $param = {
         'type': 'POST',
         'url': 'supplier/cms_detail_input_in_supplier/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.inputs-main-body').html(data);
-            $('#input_info').text('Chi tiết phiếu nhập');
+            $('#input_info').text('Chi tiáº¿t phiáº¿u nháº­p');
         }
     };
     cms_adapter_ajax($param);
@@ -4110,7 +4110,7 @@ function cms_paging_product_history($page) {
 
 function cms_save_import(type) {
     if ($('tbody#pro_search_append tr').length == 0) {
-        $('.ajax-error-ct').html('Xin vui lòng chọn ít nhất 1 sản phẩm cần xuất trước khi lưu hóa đơn nhập. Xin cảm ơn!').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Xin vui lĂ²ng chá»n Ă­t nháº¥t 1 sáº£n pháº©m cáº§n xuáº¥t trÆ°á»›c khi lÆ°u hĂ³a Ä‘Æ¡n nháº­p. Xin cáº£m Æ¡n!').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $store_id = $('#store-id').val();
         $supplier_id = typeof $('#search-box-mas').attr('data-id') === 'undefined' ? 0 : $('#search-box-mas').attr('data-id');
@@ -4144,7 +4144,7 @@ function cms_save_import(type) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Lỗi. Số lượng sản phẩm không hợp lệ').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('LĂ´̀ƒi. SĂ´̀ lÆ°Æ¡̀£ng sà‰n phĂ¢̀‰m khĂ´ng hÆ¡̀£p lĂª̀£').parent().fadeIn().delay(1000).fadeOut('slow');
             return;
         }
 
@@ -4174,17 +4174,17 @@ function cms_save_import(type) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
                     if (type == 1) {
-                        $('.ajax-success-ct').html('Đã lưu thành công phiếu nhập.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('ÄĂ£ lÆ°u thĂ nh cĂ´ng phiáº¿u nháº­p.').parent().fadeIn().delay(1000).fadeOut('slow');
                         setTimeout(function () {
                             $('.btn-back').delay('1000').trigger('click');
                         }, 1000);
                     } else if (type == 0) {
-                        $('.ajax-success-ct').html('Đã lưu thành công phiếu nhập tạm.').parent().fadeIn().delay(1000).fadeOut('slow');
+                        $('.ajax-success-ct').html('ÄĂ£ lÆ°u thĂ nh cĂ´ng phiáº¿u nháº­p táº¡m.').parent().fadeIn().delay(1000).fadeOut('slow');
                         cms_vsell_input();
                     } else {
                         cms_print_input_in_create(3, data);
@@ -4278,7 +4278,7 @@ function cms_s_change_district() {
 
 function cms_update_input($input_id) {
     if ($('tbody#pro_search_append tr').length == 0) {
-        $('.ajax-error-ct').html('Xin vui lòng chọn ít nhất 1 sản phẩm cần xuất trước khi lưu hóa đơn nhập. Xin cảm ơn!').parent().fadeIn().delay(1000).fadeOut('slow');
+        $('.ajax-error-ct').html('Xin vui lĂ²ng chá»n Ă­t nháº¥t 1 sáº£n pháº©m cáº§n xuáº¥t trÆ°á»›c khi lÆ°u hĂ³a Ä‘Æ¡n nháº­p. Xin cáº£m Æ¡n!').parent().fadeIn().delay(1000).fadeOut('slow');
     } else {
         $store_id = $('#store-id').val();
         $supplier_id = typeof $('#search-box-mas').attr('data-id') === 'undefined' ? 0 : $('#search-box-mas').attr('data-id');
@@ -4310,7 +4310,7 @@ function cms_update_input($input_id) {
         });
 
         if ($error) {
-            $('.ajax-error-ct').html('Lỗi. Số lượng sản phẩm không hợp lệ').parent().fadeIn().delay(1000).fadeOut('slow');
+            $('.ajax-error-ct').html('LĂ´̀ƒi. SĂ´̀ lÆ°Æ¡̀£ng sà‰n phĂ¢̀‰m khĂ´ng hÆ¡̀£p lĂª̀£').parent().fadeIn().delay(1000).fadeOut('slow');
             return;
         }
 
@@ -4335,11 +4335,11 @@ function cms_update_input($input_id) {
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else {
-                    $('.ajax-success-ct').html('Cập nhật phiếu nhập thành công').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('Cáº­p nháº­t phiáº¿u nháº­p thĂ nh cĂ´ng').parent().fadeIn().delay(1000).fadeOut('slow');
                     setTimeout(function () {
                         $('.btn-back').delay('1000').trigger('click');
                     }, 1000);
@@ -4371,7 +4371,7 @@ function cms_selboxstock() {
 }
 
 function cms_del_temp_import($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa phiếu nhập này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a phiáº¿u nháº­p nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -4382,11 +4382,11 @@ function cms_del_temp_import($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_input($page);
-                    $('.ajax-success-ct').html('Xóa phiếu nhập thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a phiáº¿u nháº­p thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -4395,7 +4395,7 @@ function cms_del_temp_import($id, $page) {
 }
 
 function cms_del_import($id, $page) {
-    var conf = confirm('Bạn chắc chắn muốn xóa vĩnh viễn phiếu nhập này?');
+    var conf = confirm('Báº¡n cháº¯c cháº¯n muá»‘n xĂ³a vÄ©nh viá»…n phiáº¿u nháº­p nĂ y?');
     if (conf) {
         $('.save').attr('readonly', true);
         var $param = {
@@ -4406,11 +4406,11 @@ function cms_del_import($id, $page) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
                     cms_paging_input($page);
-                    $('.ajax-success-ct').html('Xóa vĩnh viễn phiếu nhập thành công.').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-success-ct').html('XĂ³a vÄ©nh viá»…n phiáº¿u nháº­p thĂ nh cĂ´ng.').parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (isNaN(parseInt(data))) {
-                    $('.ajax-error-ct').html('Lỗi. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i. ' + data).parent().fadeIn().delay(1000).fadeOut('slow');
                 } else if (data == '0') {
-                    $('.ajax-error-ct').html('Lỗi hệ thống. Vui lòng liên hệ admin để được hỗ trợ').parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.ajax-error-ct').html('Lá»—i há»‡ thá»‘ng. Vui lĂ²ng liĂªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£').parent().fadeIn().delay(1000).fadeOut('slow');
                 }
             }
         };
@@ -4423,7 +4423,7 @@ function cms_detail_input($id) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_detail_input/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4437,7 +4437,7 @@ function cms_edit_input($id) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_edit_input/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4595,7 +4595,7 @@ function cms_paging_product($page) {
     $option1 = $('#search_option_1').val();
     $option2 = $('#prd_group_id').val();
     $option3 = $('#prd_manufacture_id').val();
-    $data = {'data': {'option1': $option1, 'option2': $option2, 'option3': $option3, 'keyword': $keyword}};
+    $data = { 'data': { 'option1': $option1, 'option2': $option2, 'option3': $option3, 'keyword': $keyword } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -4726,7 +4726,7 @@ function cms_paging_order_by_customer_id($page) {
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders-main-body').html(data);
-            $('#order_info').text('Đơn hàng');
+            $('#order_info').text('ÄÆ¡n hĂ ng');
             $('#total_receipt_money').val(0);
         }
     };
@@ -4754,7 +4754,7 @@ function cms_paging_order_debt_by_customer_id($page) {
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders-main-body').html(data);
-            $('#order_info').text('Thu nợ');
+            $('#order_info').text('Thu ná»£');
         }
     };
     cms_adapter_ajax($param);
@@ -4781,7 +4781,7 @@ function cms_paging_input_debt_by_supplier_id($page) {
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.inputs-main-body').html(data);
-            $('#input_info').text('Chi nợ');
+            $('#input_info').text('Chi ná»£');
         }
     };
     cms_adapter_ajax($param);
@@ -4967,11 +4967,11 @@ function cms_load_infor_order() {
         $customer_pay = cms_decode_currency_format($('input.customer-pay').val());
 
         if ($total_after_discount - $customer_pay > 0) {
-            $('label.debt').text('Còn nợ');
+            $('label.debt').text('CĂ²n ná»£');
 
             $('div.debt').text(cms_encode_currency_format($total_after_discount - $customer_pay < 0 ? $customer_pay - $total_after_discount : $total_after_discount - $customer_pay));
         } else {
-            $('label.debt').text('Tiền thừa');
+            $('label.debt').text('Tiá»n thá»«a');
 
             $('div.debt').text(cms_encode_currency_format($total_after_discount - $customer_pay < 0 ? $customer_pay - $total_after_discount : $total_after_discount - $customer_pay));
         }
@@ -5060,11 +5060,11 @@ function cms_load_infor_import() {
         $customer_pay = cms_decode_currency_format($('input.customer-pay').val());
 
         if ($total_after_discount - $customer_pay > 0) {
-            $('label.debt').text('Còn nợ');
+            $('label.debt').text('CĂ²n ná»£');
 
             $('div.debt').text(cms_encode_currency_format($total_after_discount - $customer_pay < 0 ? $customer_pay - $total_after_discount : $total_after_discount - $customer_pay));
         } else {
-            $('label.debt').text('Tiền thừa');
+            $('label.debt').text('Tiá»n thá»«a');
 
             $('div.debt').text(cms_encode_currency_format($total_after_discount - $customer_pay < 0 ? $customer_pay - $total_after_discount : $total_after_discount - $customer_pay));
         }

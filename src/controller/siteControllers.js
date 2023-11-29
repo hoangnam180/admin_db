@@ -20,10 +20,24 @@ class siteControllers {
     });
   };
 
+  // [GET] create-orders
+  createOrders = (req, res) => {
+    return res.render('pages/index.ejs', {
+      page_layout: '/create-orders'
+    });
+  };
+
   // [GET] product
   product = (req, res) => {
     return res.render('pages/index.ejs', {
       page_layout: '/product'
+    });
+  };
+
+  // [GET] create-products
+  createProduct = (req, res) => {
+    return res.render('pages/index.ejs', {
+      page_layout: '/create-products'
     });
   };
 
@@ -38,6 +52,13 @@ class siteControllers {
   input = (req, res) => {
     return res.render('pages/index.ejs', {
       page_layout: '/input'
+    });
+  };
+
+  // [GET] create-input
+  createInput = (req, res) => {
+    return res.render('pages/index.ejs', {
+      page_layout: '/create-input'
     });
   };
 

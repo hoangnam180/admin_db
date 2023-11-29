@@ -29,7 +29,7 @@
                                     <%- include('./product'); -%>
                                     <% break; 
                                     case '/customer' : %>
-                                    <%- include('./customer'); -%>
+                                    <%- include('./customers'); -%>
                                     <% break; 
                                     case '/input' : %>
                                     <%- include('./input'); -%>
@@ -43,8 +43,20 @@
                                     case '/setting' : %>
                                     <%- include('./setting'); -%>
                                     <% break; 
+                                    case '/inventory' : %>
+                                    <%- include('./inventory'); -%>
+                                    <% break; 
                                     case '/pos' : %>
                                     <%- include('./pos'); -%>
+                                    <% break; 
+                                    case '/create-orders' : %>
+                                    <%- include('./create_order'); -%>
+                                    <% break; 
+                                    case '/create-products' : %>
+                                    <%- include('./create_products'); -%>
+                                    <% break; 
+                                    case '/create-input' : %>
+                                    <%- include('./create_input'); -%>
                                     <% break; 
                                         default: break; 
                                 } %>
@@ -54,17 +66,5 @@
         </div>
     </section>
 </body>
-<script src="../../public/templates/js/select2.min.js"></script>
-<script src="../../public/templates/js/jquery-ui.min.js"></script>
-<script src="../../public/templates/js/html5shiv.min.js"></script>
-<script src="../../public/templates/js/respond.min.js"></script>
-<script src="../../public/templates/js/bootstrap.min.js"></script>
-<script src="../../public/templates/js/jquery.datetimepicker.full.js"></script>
-<script src="../../public/templates/js/bootstrap-datepicker.min.js"></script>
-<script src="../../public/templates/js/bootstrap-datepicker.vi.min.js"></script>
-<script src="../../public/templates/js/ckeditor.js"></script>
-<script src="../../public/templates/js/editor.js"></script>
-<script src="../../public/templates/js/ajax2.js"></script>
-<script src="../../public/templates/js/bootstrap-tagsinput.min.js"></script>
-
+<%- include('../partials/function'); -%>
 </html>

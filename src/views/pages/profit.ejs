@@ -1013,54 +1013,42 @@
         </div>
     </div>
     <div class="orders">
-        <div class="breadcrumbs-fixed panel-action">
-            <div class="row">
-                <div class="orders-act">
-                    <div class="col-md-4 col-xs-6 col-md-offset-2">
-                        <div class="left-action text-left clearfix">
-                            <h2>Đơn hàng</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xs-6">
-                        <div class="right-action text-right">
-                            <div class="btn-groups">
-                                <a href="create-orders" type="button" class="save btn btn-primary"><i
-                                        class="fa fa-plus"></i> <span class="hidden-xs hidden-sm"> Tạo phiếu</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="breadcrumbs-fixed col-md-offset-2 panel-action panel-action2 padding-left-10">
+            <h5 style="float: left;">
+                <label style="color: #428bca;font-size: 23px;">Báo cáo lợi nhuận</label>
+                <label style="color: #307ecc; padding-left: 10px;">
+                    <input type="radio" name="profit" value="1" checked="">
+                    <span class="lbl">Theo đơn hàng</span>
+                </label>
+                <label style="color: #307ecc;">
+                    <input type="radio" name="profit" value="2">
+                    <span class="lbl">Theo khách hàng</span>
+                </label>
+                <label style="color: #307ecc;">
+                    <input type="radio" name="profit" value="3">
+                    <span class="lbl">Theo thu ngân</span>
+                </label>
+                <label style="color: #307ecc;">
+                    <input type="radio" name="profit" value="4">
+                    <span class="lbl">Theo NV bán hàng</span>
+                </label>
+                <label style="color: #307ecc;">
+                    <input type="radio" name="profit" value="5">
+                    <span class="lbl">Theo kho</span>
+                </label>
+                <label style="color: #307ecc;">
+                    <input type="radio" name="profit" value="6">
+                    <span class="lbl">Theo sản phẩm</span>
+                </label>
+            </h5>
         </div>
         <div class="main-space orders-space"></div>
         <div class="orders-content">
             <div class="product-sear panel-sear">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padd-0">
-                    <div class="form-group col-lg-2 col-md-2 col-sm-3 col-xs-6 padd-0" style="display: flex">
-                        <input type="text" class="form-control" id="order-search"
-                            placeholder="Nhập thông tin để tìm kiếm" value="">
-                    </div>
-                    <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
+                <div class="form-group col-md-12 col-xs-12 padd-0">
+
+                    <div class="col-md-2 col-xs-6 padd-0">
                         <select id="search_option_1" class="form-control">
-                            <option value="0">-Đơn hàng-</option>
-                            <option value="1">Đơn đã xóa</option>
-                            <option value="2">Đơn còn nợ</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
-                        <select id="search_option_2" class="form-control">
-                            <option value="-1">-Tình trạng-</option>
-                            <option value="0">Lưu tạm</option>
-                            <option value="1">Hoàn thành</option>
-                            <option value="2">Xác nhận</option>
-                            <option value="3">Đang giao</option>
-                            <option value="4">Đã giao</option>
-                            <option value="5">Hủy</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
-                        <select id="search_option_3" class="form-control">
                             <option value="-1">-Khách Hàng-</option>
                             <option value="0">Không nhập</option>
                             <option value="1">CÔNG TY TNHH QUẢNG CÁO TRỰC TUYẾN VIHA</option>
@@ -1098,107 +1086,185 @@
                             <option value="40">lê tâm đắc</option>
                         </select>
                     </div>
-                    <div class="form-group col-lg-1 col-md-3 col-sm-3 col-xs-6 padd-0 hidden">
+                    <div class="col-md-2 col-xs-6 padd-0">
+                        <select id="search_option_2" class="form-control">
+                            <option value="-1">-Thu ngân-</option>
+                            <option value="1">admin</option>
+                            <option value=""></option>
+                            <option value="8">Abc</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-xs-6 padd-0">
                         <select id="search_option_4" class="form-control">
+                            <option value="-1">-NV bán hàng-</option>
+                            <option value="0">Không nhập</option>
+                            <option value="1">admin</option>
+                            <option value="6">2563</option>
+                            <option value="7">xcfvgb</option>
+                            <option value="8">Abc</option>
+                            <option value="9">muser</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-xs-6 padd-0 hidden">
+                        <select id="search_option_3" class="form-control">
                             <option value="-1">-Kho-</option>
                             <option value="1">Mỹ Tho</option>
                         </select>
                     </div>
-                    <div class="form-group col-lg-3 col-md-2 col-sm-4 col-xs-6 padd-0" style="display: flex">
+
+                    <div class="col-md-2 col-xs-6 padd-0">
                         <div class="input-daterange input-group" id="datepicker"
                             style="min-width: 130px;display: flex;">
                             <input type="text" class="input-sm form-control" autocomplete="off" id="search-date-from"
                                 placeholder="Từ ngày" name="start">
-                            <span class="input-group-addon hidden-xs hidden-md"
-                                style="padding: 6px 4px;width: auto">-</span>
+                            <span class="input-group-addon hidden-xs" style="padding: 6px 4px;width: auto">-</span>
                             <input type="text" class="input-sm form-control" autocomplete="off" id="search-date-to"
                                 placeholder="Đến ngày" name="end">
                         </div>
-                        <button style="box-shadow: none;" type="button" class="save btn btn-primary btn-large"
-                            onclick="cms_paging_order(1)"><i class="fa fa-search"></i> <span
-                                class="hidden-xs hidden-sm hidden-md">Tìm</span>
-                        </button>
                     </div>
 
-                    <div class="form-group col-lg-4 col-md-2 col-sm-8 col-xs-6 padd-0 text-right">
+                    <div class="col-md-2 col-xs-6 padd-0">
                         <div class="btn-group order-btn-calendar">
-                            <button type="button" onclick="cms_order_week()" class="btn btn-default">Tuần</button>
-                            <button type="button" onclick="cms_order_month()" class="btn btn-default">Tháng</button>
-                            <button type="button" onclick="cms_order_quarter()" class="btn btn-default">Quý</button>
+                            <button type="button" onclick="cms_profit_all_week()" class="btn btn-default">Tuần</button>
+                            <button type="button" onclick="cms_profit_all_month()"
+                                class="btn btn-default">Tháng</button>
+                            <button type="button" onclick="cms_profit_all_quarter()"
+                                class="btn btn-default">Quý</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="profit-main-body">
+                <div class="quick-info report row" style="margin-bottom: 15px;">
+                    <div class="col-md-12 col-xs-12 padd-0">
+                        <div class="col-md-2 padd-right-0">
+                            <div class="report-box " style="border: 1px dotted #ddd; border-radius: 0">
+                                <div class="infobox-icon">
+                                    <i class="fa fa-refresh orange" style="font-size: 45px;"></i>
+                                </div>
+                                <div class="infobox-data">
+                                    <h3 class="infobox-title orange" style="font-size: 25px;">1,067,000</h3>
+                                    <br>
+                                    <span class="infobox-data-number text-center"
+                                        style="font-size: 14px; color: #555;">Doanh số</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 padd-right-0">
+                            <div class="report-box" style="border: 1px dotted #ddd; border-radius: 0">
+                                <div class="infobox-icon">
+                                    <i class="fa fa-undo blue" style="font-size: 45px;" aria-hidden="true"></i>
+                                </div>
+                                <div class="infobox-data">
+                                    <h3 class="infobox-title blue" style="font-size: 25px;">0</h3>
+                                    <br>
+                                    <span class="infobox-data-number text-center"
+                                        style="font-size: 14px; color: #555;">Trả hàng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 padd-right-0">
+                            <div class="report-box" style="border: 1px dotted #ddd; border-radius: 0">
+                                <div class="infobox-icon">
+                                    <i class="fa fa-dollar cred" style="font-size: 45px;"></i>
+                                </div>
+                                <div class="infobox-data">
+                                    <h3 class="infobox-title cred" style="font-size: 25px;">710,000</h3>
+                                    <br>
+                                    <span class="infobox-data-number text-center"
+                                        style="font-size: 14px; color: #555;">Tiền vốn</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 padd-right-0">
+                            <div class="report-box" style="border: 1px dotted #ddd; border-radius: 0">
+                                <div class="infobox-icon">
+                                    <i class="fa fa-inbox blue" style="font-size: 45px;"></i>
+                                </div>
+                                <div class="infobox-data">
+                                    <h3 class="infobox-title blue" style="font-size: 25px;">
+                                        0</h3>
+                                    <br>
+                                    <span class="infobox-data-number text-center"
+                                        style="font-size: 14px; color: #555;">Tổng thu</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 padd-right-0">
+                            <div class="report-box" style="border: 1px dotted #ddd; border-radius: 0">
+                                <div class="infobox-icon">
+                                    <i class="fa fa-paypal cred" style="font-size: 45px;"></i>
+                                </div>
+                                <div class="infobox-data">
+                                    <h3 class="infobox-title cred" style="font-size: 25px;">0</h3>
+                                    <br>
+                                    <span class="infobox-data-number text-center"
+                                        style="font-size: 14px; color: #555;">Tổng chi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 padd-right-0">
+                            <div class="report-box " style="border: 1px dotted #ddd; border-radius: 0">
+                                <div class="infobox-icon">
+                                    <i class="fa fa-dollar orange" style="font-size: 45px;"></i>
+                                </div>
+                                <div class="infobox-data">
+                                    <h3 class="infobox-title orange" style="font-size: 25px;">357,000</h3>
+                                    <br>
+                                    <span class="infobox-data-number text-center"
+                                        style="font-size: 14px; color: #555;">Lợi nhuận</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="orders-main-body">
                 <div class="table-responsive">
+
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th class="text-center hidden-xs">STT</th>
                                 <th class="text-center">Mã đơn hàng</th>
                                 <th class="text-center hidden-xs">Kho xuất</th>
                                 <th class="text-center">Ngày bán</th>
                                 <th class="text-center hidden-xs">Thu ngân</th>
                                 <th class="text-center">Khách hàng</th>
-                                <th class="text-center hidden-xs">Tình trạng</th>
-                                <th class="text-center hidden-xs">Tổng SL</th>
-                                <th class="text-center">Tổng tiền</th>
-                                <th class="text-center"><i class="fa fa-clock-o"></i> Nợ</th>
-                                <th></th>
-                                <th class="text-center hidden-xs"><label class="checkbox" style="margin: 0;">
-                                        <input type="checkbox" class="checkbox chkAll">
-                                        <span style="width: 15px; height: 15px;">
-                                        </span>
-                                    </label>
-                                </th>
+                                <th class="text-center hidden-xs">SL</th>
+                                <th class="text-center hidden-xs">Chiết khấu</th>
+                                <th class="text-center">Doanh số</th>
+                                <th class="text-center hidden-xs">Tiền vốn</th>
+                                <th class="text-center">Lợi nhuận</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td style="text-align: center;">
-
                                     <i style="color: #478fca!important;" title="Chi tiết đơn hàng"
-                                        onclick="cms_show_detail_order(178)"
-                                        class="fa fa-plus-circle i-detail-order-178">
+                                        onclick="cms_show_detail_order(179)"
+                                        class="fa fa-plus-circle i-detail-order-179">
                                     </i>
                                     <i style="color: #478fca!important;" title="Chi tiết đơn hàng"
-                                        onclick="cms_show_detail_order(178)"
-                                        class="fa fa-minus-circle i-hide i-detail-order-178">
+                                        onclick="cms_show_detail_order(179)"
+                                        class="fa fa-minus-circle i-hide i-detail-order-179">
                                     </i>
-
                                 </td>
-                                <td class="text-center hidden-xs">1</td>
                                 <td class="text-center" style="color: #2a6496; cursor: pointer;"
-                                    onclick="cms_detail_order(178)">
-                                    PX0000178</td>
+                                    onclick="cms_detail_order(179)">PX0000179</td>
                                 <td class="text-center hidden-xs">Mỹ Tho</td>
-                                <td class="text-center"><span class="hidden visible-xs">28/11/2023</span><span
-                                        class="hidden-xs">16:11 28/11/2023</span></td>
+                                <td class="text-center"><span class="hidden visible-xs">08/11/2023</span><span
+                                        class="hidden-xs">16:13 08/11/2023</span></td>
                                 <td class="text-center hidden-xs">Phong Trần</td>
-                                <td class="text-center">Không nhập</td>
-                                <td class="text-center hidden-xs">Hoàn thành</td>
-                                <td class="text-center hidden-xs">1 </td>
-                                <td class="text-center">7,000 </td>
-                                <td class="text-center">7,000 </td>
-                                <td class="text-center">
-
-                                    <i title="In hóa đơn" onclick="cms_print_order(2,178)"
-                                        class="fa fa-print blue hidden-xs" style="margin-right: 5px;">
-                                    </i>
-
-                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa vĩnh viễn"
-                                        onclick="cms_del_order(178,1)"></i>
-                                </td>
-                                <td class="text-center hidden-xs">
-                                    <label class="checkbox" style="margin: 0;">
-                                        <input type="checkbox" value="178" class="checkbox chk">
-                                        <span style="width: 15px; height: 15px;">
-                                        </span>
-                                    </label>
-                                </td>
+                                <td class="text-center">CÔNG TY TNHH QUẢNG CÁO TRỰC TUYẾN VIHA</td>
+                                <td class="text-center hidden-xs">1</td>
+                                <td class="text-center hidden-xs">0</td>
+                                <td class="text-center">7,000</td>
+                                <td class="text-center hidden-xs">5,000</td>
+                                <td class="text-center">2,000</td>
                             </tr>
-                            <tr class="tr-hide" id="tr-detail-order-178">
+                            <tr class="tr-hide" id="tr-detail-order-179">
                                 <td colspan="15">
                                     <div class="tabbable">
                                         <ul class="nav nav-tabs">
@@ -1221,20 +1287,13 @@
                                                         <label> </label>
                                                     </div>
                                                 </div>
-
                                                 <table class="table table-striped table-bordered table-hover dataTable">
                                                     <thead>
                                                         <tr role="row">
                                                             <th class="text-center hidden-xs">STT</th>
                                                             <th class="text-left hidden-xs">Mã SP</th>
                                                             <th class="text-left">Tên SP</th>
-                                                            <th class="text-center hidden-xs">Hình ảnh</th>
-                                                            <th class="text-center  hidden">Ngày
-                                                                hết
-                                                                hạn
-                                                            </th>
                                                             <th class="text-center">SL</th>
-                                                            <th class="text-center hidden-xs">ĐVT</th>
                                                             <th class="text-center">Đơn giá</th>
                                                             <th class="text-center">Thành tiền</th>
                                                         </tr>
@@ -1247,19 +1306,106 @@
                                                                 SP00030 </td>
                                                             <td class="text-left">
                                                                 cam </td>
-                                                            <td class="text-center zoomin hidden-xs">
-                                                                <img height="30"
-                                                                    src="/templates/uploads/baner-2_24_08_2023.jpg">
-                                                            </td>
-                                                            <td class="text-center  hidden"></td>
                                                             <td class="text-center">
                                                                 1 </td>
-                                                            <td class="text-center hidden-xs">
-                                                                VND </td>
                                                             <td class="text-center">
                                                                 7,000 </td>
                                                             <td class="text-center">
                                                                 7,000 </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <i style="color: #478fca!important;" title="Chi tiết đơn hàng"
+                                        onclick="cms_show_detail_order(173)"
+                                        class="fa fa-plus-circle i-detail-order-173">
+                                    </i>
+                                    <i style="color: #478fca!important;" title="Chi tiết đơn hàng"
+                                        onclick="cms_show_detail_order(173)"
+                                        class="fa fa-minus-circle i-hide i-detail-order-173">
+                                    </i>
+                                </td>
+                                <td class="text-center" style="color: #2a6496; cursor: pointer;"
+                                    onclick="cms_detail_order(173)">PX0000173</td>
+                                <td class="text-center hidden-xs">Mỹ Tho</td>
+                                <td class="text-center"><span class="hidden visible-xs">09/11/2023</span><span
+                                        class="hidden-xs">16:10 09/11/2023</span></td>
+                                <td class="text-center hidden-xs">Phong Trần</td>
+                                <td class="text-center">CÔNG TY TNHH QUẢNG CÁO TRỰC TUYẾN VIHA</td>
+                                <td class="text-center hidden-xs">12</td>
+                                <td class="text-center hidden-xs">0</td>
+                                <td class="text-center">1,060,000</td>
+                                <td class="text-center hidden-xs">705,000</td>
+                                <td class="text-center">355,000</td>
+                            </tr>
+                            <tr class="tr-hide" id="tr-detail-order-173">
+                                <td colspan="15">
+                                    <div class="tabbable">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a data-toggle="tab">
+                                                    <i class="green icon-reorder bigger-110"></i>
+                                                    Chi tiết đơn hàng
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                <div class="alert alert-success clearfix" style="display: flex;">
+
+                                                    <div class="padding-left-10">
+                                                        <i class="fa fa-sticky-note-o">
+                                                        </i>
+                                                        <span class="hidden-768">Ghi chú:
+                                                        </span>
+                                                        <label> </label>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-bordered table-hover dataTable">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="text-center hidden-xs">STT</th>
+                                                            <th class="text-left hidden-xs">Mã SP</th>
+                                                            <th class="text-left">Tên SP</th>
+                                                            <th class="text-center">SL</th>
+                                                            <th class="text-center">Đơn giá</th>
+                                                            <th class="text-center">Thành tiền</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center width-5 hidden-xs">
+                                                                1 </td>
+                                                            <td class="text-left hidden-xs">
+                                                                cc </td>
+                                                            <td class="text-left">
+                                                                Nước mắm cá cơm </td>
+                                                            <td class="text-center">
+                                                                5 </td>
+                                                            <td class="text-center">
+                                                                100,000 </td>
+                                                            <td class="text-center">
+                                                                500,000 </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center width-5 hidden-xs">
+                                                                2 </td>
+                                                            <td class="text-left hidden-xs">
+                                                                nmcl </td>
+                                                            <td class="text-left">
+                                                                Nước mắm cá lục </td>
+                                                            <td class="text-center">
+                                                                7 </td>
+                                                            <td class="text-center">
+                                                                80,000 </td>
+                                                            <td class="text-center">
+                                                                560,000 </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -1273,14 +1419,6 @@
                 </div>
 
                 <div class="alert alert-info summany-info clearfix" role="alert">
-                    <div class="sm-info pull-left padd-0">
-                        Tổng số hóa đơn:
-                        <span>1</span>
-                        Tổng tiền:
-                        <span>7,000</span>
-                        Tổng nợ:
-                        <span>7,000</span>
-                    </div>
                     <div class="pull-right ajax-pagination">
                     </div>
                 </div>
