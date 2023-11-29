@@ -1,0 +1,106 @@
+<div class="orders input">
+  <div class="breadcrumbs-fixed panel-action">
+      <div class="row">
+          <div class="orders-act">
+              <div class="col-md-4 col-xs-6 col-md-offset-2">
+                  <div class="left-action text-left clearfix">
+                      <h2>Phi?u nh?p</h2>
+                  </div>
+              </div>
+              <div class="col-md-6 col-xs-6">
+                  <div class="right-action text-right">
+                      <div class="btn-groups">
+                          <button type="button" class="save btn btn-primary"
+                              onclick="cms_vsell_input();"><i class="fa fa-plus"></i><span
+                                  class="hidden-xs hidden-sm"> T?o phi?u</span>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="main-space orders-space"></div>
+  <div class="orders-content">
+      <div class="product-sear panel-sear">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padd-0">
+              <div class="form-group col-lg-2 col-md-2 col-sm-3 col-xs-6 padd-0"
+                  style="display: flex">
+                  <input type="text" class="form-control" id="input-search"
+                      placeholder="Nh?p m� phi?u nh?p d? t�m ki?m">
+              </div>
+              <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
+                  <select class="form-control" id="search_option_1">
+                      <option value="0">-Phi?u nh?p-</option>
+                      <option value="1">Phi?u nh?p d� x�a</option>
+                      <option value="2">Phi?u nh?p c�n n?</option>
+                  </select>
+              </div>
+              <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
+                  <select id="search_option_2" class="form-control">
+                      <option value="-1">-T�nh tr?ng-</option>
+                      <option value="0">Luu t?m</option>
+                      <option value="1">Ho�n th�nh</option>
+                  </select>
+              </div>
+              <div class="form-group col-lg-1 col-md-2 col-sm-3 col-xs-6 padd-0">
+                  <select id="search_option_3" class="form-control">
+                      <option value="-1">-Nh� cung c?p-</option>
+                      <option value="0">Kh�ng nh?p</option>
+                      <div
+                          style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+
+                          <h4>A PHP Error was encountered</h4>
+
+                          <p>Severity: Warning</p>
+
+                          <p>Message: Undefined array key "supplier"</p>
+
+                          <p>Filename: input/index.php</p>
+
+                          <p>Line Number: 52</p>
+
+                      </div>
+                  </select>
+              </div>
+              <div class="form-group col-lg-1 col-md-3 col-sm-3 col-xs-6 padd-0 hidden">
+                  <select id="search_option_4" class="form-control">
+                      <option value="-1">-Kho-</option>
+                      <option value="1">M? Tho</option>
+                  </select>
+              </div>
+              <div class="form-group col-lg-3 col-md-2 col-sm-4 col-xs-6 padd-0"
+                  style="display: flex">
+                  <div class="input-daterange input-group" id="datepicker"
+                      style="min-width: 130px;display: flex;">
+                      <input type="text" class="input-sm form-control" autocomplete="off"
+                          id="search-date-from" placeholder="T? ng�y" name="start" />
+                      <span class="input-group-addon hidden-xs hidden-md"
+                          style="padding: 6px 4px;width: auto">-</span>
+                      <input type="text" class="input-sm form-control" autocomplete="off"
+                          id="search-date-to" placeholder="�?n ng�y" name="end" />
+                  </div>
+                  <button style="box-shadow: none;" type="button"
+                      class="save btn btn-primary btn-large" onclick="cms_paging_input(1)"><i
+                          class="fa fa-search"></i> <span
+                          class="hidden-xs hidden-sm hidden-md">T�m</span>
+                  </button>
+              </div>
+
+              <div class="form-group col-lg-4 col-md-2 col-sm-8 col-xs-6 padd-0 text-right">
+                  <div class="btn-group order-btn-calendar">
+                      <button type="button" onclick="cms_input_week()"
+                          class="btn btn-default">Tu?n</button>
+                      <button type="button" onclick="cms_input_month()"
+                          class="btn btn-default">Th�ng</button>
+                      <button type="button" onclick="cms_input_quarter()"
+                          class="btn btn-default">Qu�</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="input-main-body">
+      </div>
+  </div>
+</div>

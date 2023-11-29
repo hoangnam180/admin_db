@@ -1,0 +1,82 @@
+<div class="inventory">
+    <div class="breadcrumbs-fixed panel-action">
+        <div class="row">
+            <div class="orders-act">
+                <div class="col-md-4 col-xs-6 col-md-offset-2">
+                    <div class="left-action text-left clearfix">
+                        <h2>T?n kho</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-space orders-space"></div>
+    <div class="inventory-content">
+        <input id="modal_product_id" style="display: none;">
+        <div class="product-sear panel-sear">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padd-0">
+                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-12 padd-0"
+                    style="display: flex">
+                    <input type="text" class="form-control txt-sinventory"
+                        placeholder="Nh?p t�n ho?c m� s?n ph?m d? t�m ki?m">
+                </div>
+                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                    <select class="form-control" id="prd_group_id">
+                        <option value="-1" selected='selected'>-Danh m?c-</option>
+                        <optgroup label="Ch?n danh m?c">
+                            <option value="1">�o</option>
+                            <option value="8">|---Dm con</option>
+                            <option value="2">qu?n</option>
+                            <option value="4">Van ph�ng ph?m</option>
+                            <option value="6">V�y</option>
+                            <option value="7">Rong Nho T�ch Nhi?t</option>
+                            <option value="9">Laptop</option>
+                        </optgroup>
+                        <optgroup label="------------------------">
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                    <select class="form-control search_option_3" id="prd_manufacture_id">
+                        <option value="-1" selected="selected">-Nh� s?n xu?t-</option>
+                        <optgroup label="Ch?n nh� s?n xu?t">
+                            <option value="1">TQ</option>
+                            <option value="2">H?ng H�</option>
+                            <option value="3">qaeqsadadas</option>
+                            <option value="4">Duc tuong</option>
+                            <option value="5">LT Ocean</option>
+                            <option value="6">aaaaaa</option>
+                        </optgroup>
+                        <optgroup label="------------------------">
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                    <select class="form-control" id="option_inventory">
+                        <option value="0">--T?t c?--</option>
+                        <option value="1" selected="selected">Ch? l?y h�ng t?n</option>
+                        <option value="2">H?t H�ng</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-4 padd-0 hidden">
+                    <select id="store_id" class="form-control">
+                        <option value="-1">-Kho-</option>
+                        <option selected value="1">M? Tho</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2 padd-0"
+                    style="display: flex">
+                    <button style="box-shadow: none;" type="button"
+                        class="save btn btn-primary btn-large"
+                        onclick="cms_paging_inventory(1)"><i class="fa fa-search"></i> <span
+                            class="hidden-xs hidden-sm">Xem</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="inventory-main-body">
+        </div>
+    </div>
+</div>
