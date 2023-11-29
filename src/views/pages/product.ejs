@@ -1,0 +1,1932 @@
+<div class="main-content">
+    <div class="alert alert-dange ajax-error" role="alert"><span style="font-weight: bold; font-size: 18px;">Thông
+            báo!</span><br>
+
+        <div class="ajax-error-ct"></div>
+    </div>
+    <div class="alert ajax-success" role="alert"
+        style="width: 350px;background: rgba(92,130,79,0.9); display:none; color: #fff;" data-original-title=""
+        title=""><span style="font-weight: bold; font-size: 18px;">Thông báo!</span>
+        <br>
+
+        <div class="ajax-success-ct"></div>
+    </div>
+    <!-- Start create employee -->
+    <div class="modal fade" id="create-nv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm tài khoản đăng nhập </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="frm-cruser">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="tennhanvien">Tên nhân viên</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="display_name" name="display_name" class="form-control" value=""
+                                    placeholder="Nhập tên nhân viên">
+                                <span style="color: red; font-style: italic;" class="error error-display_name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Mã nhân viên</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="manv" name="manv" class="form-control" value=""
+                                    placeholder="Nhập mã nhân viên">
+                                <span style="color: red; font-style: italic;" class="error error-manv"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Email</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="mail" name="email" class="form-control" value=""
+                                    placeholder="Nhập email của bạn">
+                                <span style="color: red; font-style: italic;" class="error error-mail"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="commission">Hệ số thưởng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="commission" name="commission" class="form-control txtNumber"
+                                    value="" placeholder="Nhập % hoa hồng ( hệ số thưởng)">
+                                <span style="color: red; font-style: italic;" class="error error-commission"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Mật khẩu</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="password" id="password" name="password" class="form-control" value=""
+                                    placeholder="Nhập Mật khẩu">
+                                <span style="color: red; font-style: italic;" class="error error-password"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 padd-right-0">
+                                <label for="manv">Nhóm người dùng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="group-user">
+                                    <div class="group-selbox">
+                                        <select name="group" id="sel-group" class="form-control">
+                                        </select>
+                                    </div>
+                                    <span style="color: red; font-style: italic;" class="error error-group"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="stock">Kho làm việc</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="stock-selbox"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crnv" onclick="cms_cruser()"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end create employee -->
+
+    <!-- Start create function -->
+    <div class="modal fade" id="create-func" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm Chức năng </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="tennhanvien">URL</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="permisstion_url" name="permisstion_url" class="form-control"
+                                    value="" placeholder="Nhập url cho phép của chức năng">
+                                <span style="color: red; font-style: italic;"
+                                    class="error error-permisstion_url"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Tên chức năng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="permisstion_name" name="permisstion_name" class="form-control"
+                                    value="" placeholder="Nhập tên chức năng">
+                                <span style="color: red; font-style: italic;"
+                                    class="error error-permisstion_name"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crfunc"><i class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="create-group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm nhóm người dùng </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="group-name">Tên Nhóm</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="group-name" name="group_name" class="form-control" value=""
+                                    placeholder="Nhập tên nhóm người dùng">
+                                <span style="color: red; font-style: italic;" class="error error-group_name"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crgroup"><i class="fa fa-check"></i>
+                        Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="create-store" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm kho </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="group-name">Tên Kho</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="store-name" name="store_name" class="form-control" value=""
+                                    placeholder="Nhập tên kho">
+                                <span style="color: red; font-style: italic;" class="error error-store_name"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm" onclick="cms_crstore();"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- start create customer -->
+
+    <div class="modal fade" id="create-cust" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 90%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Tạo mới khách hàng</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" id="frm-crcust">
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_group">Nhóm KH</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_group" class="form-control">
+                                    <option value="0">Khách lẻ</option>
+                                    <option value="1">Khách sỉ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_code">Mã KH</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_code" name="customer_code" class="form-control" value=""
+                                    placeholder="Mã khách hàng(tự sinh nếu bỏ trống)">
+                                <span style="color: red; font-style: italic;" class="error error-customer_code"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_name">Tên KH</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_name" name="customer_name" class="form-control" value=""
+                                    placeholder="Nhập tên khách hàng (bắt buộc)">
+                                <span style="color: red; font-style: italic;" class="error error-customer_name"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_phone">Điện thoại</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_phone" name="customer_phone" class="form-control"
+                                    value="" placeholder="Nhập số điện thoại">
+                                <span style="color: red; font-style: italic;" class="error error-customer_phone"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_email">Email</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_email" name="customer_email" class="form-control"
+                                    value="" placeholder="Nhập email khách hàng ( ví dụ: kh10@gmail.com )">
+                                <span style="color: red; font-style: italic;" class="error error-customer_email"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_tax">Mã số thuế</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_tax" name="customer_tax" class="form-control" value=""
+                                    placeholder="Nhập mã số thuế khách hàng">
+                                <span style="color: red; font-style: italic;" class="error error-customer_tax"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_province_modal">Tỉnh/Tp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_province_modal" onchange="cms_change_province()"
+                                    style="width: 100% !important;"
+                                    class="form-control province select2-hidden-accessible"
+                                    data-select2-id="customer_province_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="-1" data-select2-id="2">Chọn tỉnh/ thành phố</option>
+                                    <option value="1">Thành phố Hà Nội</option>
+                                    <option value="2">Tỉnh Hà Giang</option>
+                                    <option value="4">Tỉnh Cao Bằng</option>
+                                    <option value="6">Tỉnh Bắc Kạn</option>
+                                    <option value="8">Tỉnh Tuyên Quang</option>
+                                    <option value="10">Tỉnh Lào Cai</option>
+                                    <option value="11">Tỉnh Điện Biên</option>
+                                    <option value="12">Tỉnh Lai Châu</option>
+                                    <option value="14">Tỉnh Sơn La</option>
+                                    <option value="15">Tỉnh Yên Bái</option>
+                                    <option value="17">Tỉnh Hoà Bình</option>
+                                    <option value="19">Tỉnh Thái Nguyên</option>
+                                    <option value="20">Tỉnh Lạng Sơn</option>
+                                    <option value="22">Tỉnh Quảng Ninh</option>
+                                    <option value="24">Tỉnh Bắc Giang</option>
+                                    <option value="25">Tỉnh Phú Thọ</option>
+                                    <option value="26">Tỉnh Vĩnh Phúc</option>
+                                    <option value="27">Tỉnh Bắc Ninh</option>
+                                    <option value="30">Tỉnh Hải Dương</option>
+                                    <option value="31">Thành phố Hải Phòng</option>
+                                    <option value="33">Tỉnh Hưng Yên</option>
+                                    <option value="34">Tỉnh Thái Bình</option>
+                                    <option value="35">Tỉnh Hà Nam</option>
+                                    <option value="36">Tỉnh Nam Định</option>
+                                    <option value="37">Tỉnh Ninh Bình</option>
+                                    <option value="38">Tỉnh Thanh Hóa</option>
+                                    <option value="40">Tỉnh Nghệ An</option>
+                                    <option value="42">Tỉnh Hà Tĩnh</option>
+                                    <option value="44">Tỉnh Quảng Bình</option>
+                                    <option value="45">Tỉnh Quảng Trị</option>
+                                    <option value="46">Tỉnh Thừa Thiên Huế</option>
+                                    <option value="48">Thành phố Đà Nẵng</option>
+                                    <option value="49">Tỉnh Quảng Nam</option>
+                                    <option value="51">Tỉnh Quảng Ngãi</option>
+                                    <option value="52">Tỉnh Bình Định</option>
+                                    <option value="54">Tỉnh Phú Yên</option>
+                                    <option value="56">Tỉnh Khánh Hòa</option>
+                                    <option value="58">Tỉnh Ninh Thuận</option>
+                                    <option value="60">Tỉnh Bình Thuận</option>
+                                    <option value="62">Tỉnh Kon Tum</option>
+                                    <option value="64">Tỉnh Gia Lai</option>
+                                    <option value="66">Tỉnh Đắk Lắk</option>
+                                    <option value="67">Tỉnh Đắk Nông</option>
+                                    <option value="68">Tỉnh Lâm Đồng</option>
+                                    <option value="70">Tỉnh Bình Phước</option>
+                                    <option value="72">Tỉnh Tây Ninh</option>
+                                    <option value="74">Tỉnh Bình Dương</option>
+                                    <option value="75">Tỉnh Đồng Nai</option>
+                                    <option value="77">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                    <option value="79">Thành phố Hồ Chí Minh</option>
+                                    <option value="80">Tỉnh Long An</option>
+                                    <option value="82">Tỉnh Tiền Giang</option>
+                                    <option value="83">Tỉnh Bến Tre</option>
+                                    <option value="84">Tỉnh Trà Vinh</option>
+                                    <option value="86">Tỉnh Vĩnh Long</option>
+                                    <option value="87">Tỉnh Đồng Tháp</option>
+                                    <option value="89">Tỉnh An Giang</option>
+                                    <option value="91">Tỉnh Kiên Giang</option>
+                                    <option value="92">Thành phố Cần Thơ</option>
+                                    <option value="93">Tỉnh Hậu Giang</option>
+                                    <option value="94">Tỉnh Sóc Trăng</option>
+                                    <option value="95">Tỉnh Bạc Liêu</option>
+                                    <option value="96">Tỉnh Cà Mau</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="1" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-customer_province_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-customer_province_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn tỉnh/ thành phố">Chọn tỉnh/ thành
+                                                phố</span><span class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_district_modal">Quận/Huyện</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_district_modal" onchange="cms_change_district()"
+                                    style="width: 100% !important;"
+                                    class="form-control district select2-hidden-accessible"
+                                    data-select2-id="customer_district_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="4">Chọn Quận/Huyện</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="3" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-customer_district_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-customer_district_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Quận/Huyện">Chọn Quận/Huyện</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_ward_modal">Phường/Xã</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_ward_modal" style="width: 100% !important;"
+                                    class="form-control ward select2-hidden-accessible"
+                                    data-select2-id="customer_ward_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="6">Chọn Xã/Phường</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="5" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-customer_ward_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-customer_ward_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Xã/Phường">Chọn Xã/Phường</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_addr">Địa chỉ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_addr" name="customer_addr" class="form-control" value=""
+                                    placeholder="Nhập địa chỉ">
+                                <span style="color: red; font-style: italic;" class="error error-customer_addr"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_addr">Bản đồ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_map" name="customer_map" class="form-control" value=""
+                                    placeholder="Nhập bản đồ">
+                                <span style="color: red; font-style: italic;" class="error error-customer_addr"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_notes">Ghi chú</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_notes" name="customer_notes" class="form-control"
+                                    value="" placeholder="Nhập ghi chú">
+                                <span style="color: red; font-style: italic;" class="error error-customer_notes"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_birthday">Ngày sinh</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_birthday" name="customer_birthday"
+                                    class="form-control txttimes" value="" placeholder="yyyy-mm-dd">
+                                <span style="color: red;" class="error error-customer_birthday"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_gender">Giới tính</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="radio" name="gender" checked="" class="customer_gender" value="0"> Nam
+                                <input type="radio" name="gender" class="customer_gender" value="1"> Nữ
+                                <span style="color: red; font-style: italic;"
+                                    class="error error-customer_gender"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_gender">Nợ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="is_customer_debt" name="is_customer_debt"
+                                    class="txtMoney form-control" value="" placeholder="Khách hàng đang nợ">
+                                <span style="color: red; font-style: italic;" class="error error-customer_debt"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12" style="margin-top: 18px;">
+                            <div class="jumbotron text-center" id="img_upload"
+                                style="border-radius: 0; margin-bottom: 10px; padding: 5px 20px;">
+                                <h4>Upload hình ảnh</h4>
+
+                                <center>
+                                    <div id="customer_img_preview" style="display: none;"></div>
+                                    <form id="customer_image_upload_form" method="post" enctype="multipart/form-data"
+                                        action="product/upload_img" autocomplete="off">
+                                        <div class="file_input_container">
+                                            <div class="upload_button"><input type="file" name="photo"
+                                                    id="customer_photo" class="file_input"></div>
+                                        </div>
+
+                                    </form>
+                                </center>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crcust" onclick="cms_crCustomer();"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end customer -->
+
+    <!-- start create supplier -->
+
+    <div class="modal fade" id="create-sup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 90%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Tạo mới nhà cung cấp</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" id="frm-crsup">
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_name">Mã nhà cung cấp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_code" name="supplier_code" class="form-control" value=""
+                                    placeholder="Mã nhà cung cấp (Tự sinh nếu bỏ trống)">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_code"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_name">Tên nhà cung cấp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_name" name="supplier_name" class="form-control" value=""
+                                    placeholder="Nhập tên nhà cung cấp (bắt buộc)">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_name"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_phone">Điện thoại</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_phone" name="supplier_phone" class="form-control"
+                                    value="" placeholder="Nhập số điện thoại">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_phone"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_email">Email</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_email" name="supplier_email" class="form-control"
+                                    value="" placeholder="Nhập email nhà cung cấp ( ví dụ: kh10@gmail.com )">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_email"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_tax">Mã số thuế</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_tax" name="supplier_tax" class="form-control" value=""
+                                    placeholder="Nhập mã số thuế">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_tax"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_province_modal">Tỉnh/Tp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="supplier_province_modal" onchange="cms_s_change_province()"
+                                    style="width: 100%" class="form-control province select2-hidden-accessible"
+                                    data-select2-id="supplier_province_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="-1" data-select2-id="8">Chọn tỉnh/ thành phố</option>
+                                    <option value="1">Thành phố Hà Nội</option>
+                                    <option value="2">Tỉnh Hà Giang</option>
+                                    <option value="4">Tỉnh Cao Bằng</option>
+                                    <option value="6">Tỉnh Bắc Kạn</option>
+                                    <option value="8">Tỉnh Tuyên Quang</option>
+                                    <option value="10">Tỉnh Lào Cai</option>
+                                    <option value="11">Tỉnh Điện Biên</option>
+                                    <option value="12">Tỉnh Lai Châu</option>
+                                    <option value="14">Tỉnh Sơn La</option>
+                                    <option value="15">Tỉnh Yên Bái</option>
+                                    <option value="17">Tỉnh Hoà Bình</option>
+                                    <option value="19">Tỉnh Thái Nguyên</option>
+                                    <option value="20">Tỉnh Lạng Sơn</option>
+                                    <option value="22">Tỉnh Quảng Ninh</option>
+                                    <option value="24">Tỉnh Bắc Giang</option>
+                                    <option value="25">Tỉnh Phú Thọ</option>
+                                    <option value="26">Tỉnh Vĩnh Phúc</option>
+                                    <option value="27">Tỉnh Bắc Ninh</option>
+                                    <option value="30">Tỉnh Hải Dương</option>
+                                    <option value="31">Thành phố Hải Phòng</option>
+                                    <option value="33">Tỉnh Hưng Yên</option>
+                                    <option value="34">Tỉnh Thái Bình</option>
+                                    <option value="35">Tỉnh Hà Nam</option>
+                                    <option value="36">Tỉnh Nam Định</option>
+                                    <option value="37">Tỉnh Ninh Bình</option>
+                                    <option value="38">Tỉnh Thanh Hóa</option>
+                                    <option value="40">Tỉnh Nghệ An</option>
+                                    <option value="42">Tỉnh Hà Tĩnh</option>
+                                    <option value="44">Tỉnh Quảng Bình</option>
+                                    <option value="45">Tỉnh Quảng Trị</option>
+                                    <option value="46">Tỉnh Thừa Thiên Huế</option>
+                                    <option value="48">Thành phố Đà Nẵng</option>
+                                    <option value="49">Tỉnh Quảng Nam</option>
+                                    <option value="51">Tỉnh Quảng Ngãi</option>
+                                    <option value="52">Tỉnh Bình Định</option>
+                                    <option value="54">Tỉnh Phú Yên</option>
+                                    <option value="56">Tỉnh Khánh Hòa</option>
+                                    <option value="58">Tỉnh Ninh Thuận</option>
+                                    <option value="60">Tỉnh Bình Thuận</option>
+                                    <option value="62">Tỉnh Kon Tum</option>
+                                    <option value="64">Tỉnh Gia Lai</option>
+                                    <option value="66">Tỉnh Đắk Lắk</option>
+                                    <option value="67">Tỉnh Đắk Nông</option>
+                                    <option value="68">Tỉnh Lâm Đồng</option>
+                                    <option value="70">Tỉnh Bình Phước</option>
+                                    <option value="72">Tỉnh Tây Ninh</option>
+                                    <option value="74">Tỉnh Bình Dương</option>
+                                    <option value="75">Tỉnh Đồng Nai</option>
+                                    <option value="77">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                    <option value="79">Thành phố Hồ Chí Minh</option>
+                                    <option value="80">Tỉnh Long An</option>
+                                    <option value="82">Tỉnh Tiền Giang</option>
+                                    <option value="83">Tỉnh Bến Tre</option>
+                                    <option value="84">Tỉnh Trà Vinh</option>
+                                    <option value="86">Tỉnh Vĩnh Long</option>
+                                    <option value="87">Tỉnh Đồng Tháp</option>
+                                    <option value="89">Tỉnh An Giang</option>
+                                    <option value="91">Tỉnh Kiên Giang</option>
+                                    <option value="92">Thành phố Cần Thơ</option>
+                                    <option value="93">Tỉnh Hậu Giang</option>
+                                    <option value="94">Tỉnh Sóc Trăng</option>
+                                    <option value="95">Tỉnh Bạc Liêu</option>
+                                    <option value="96">Tỉnh Cà Mau</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="7" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-supplier_province_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-supplier_province_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn tỉnh/ thành phố">Chọn tỉnh/ thành
+                                                phố</span><span class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_district_modal">Quận/Huyện</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="supplier_district_modal" onchange="cms_s_change_district()"
+                                    style="width: 100%" class="form-control district select2-hidden-accessible"
+                                    data-select2-id="supplier_district_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="10">Chọn Quận/Huyện</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="9" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-supplier_district_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-supplier_district_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Quận/Huyện">Chọn Quận/Huyện</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_ward_modal">Phường/Xã</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="supplier_ward_modal" style="width: 100%"
+                                    class="form-control ward select2-hidden-accessible"
+                                    data-select2-id="supplier_ward_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="12">Chọn Xã/Phường</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="11" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-supplier_ward_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-supplier_ward_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Xã/Phường">Chọn Xã/Phường</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_addr">Địa chỉ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_addr" name="supplier_addr" class="form-control" value=""
+                                    placeholder="Nhập địa chỉ">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_addr"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_notes">Ghi chú</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_notes" name="notes" class="form-control" value=""
+                                    placeholder="Nhập ghi chú">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_notes"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="is_supplier_debt">Nợ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="is_supplier_debt" name="is_supplier_debt"
+                                    class="form-control txtMoney" value="" placeholder="Đang nợ nhà cung cấp">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_debt"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12" style="margin-top: 18px;">
+                            <div class="jumbotron text-center" id="img_upload"
+                                style="border-radius: 0; margin-bottom: 10px; padding: 15px 20px;">
+                                <h3>Upload hình ảnh</h3>
+                                <small style="font-size: 14px; margin-bottom: 5px; display: inline-block;">(Kích thướt
+                                    tối đa 10MB)
+                                </small>
+                                <p>
+                                </p>
+                                <center>
+                                    <div id="supplier_img_preview" style="display: none;"></div>
+                                    <form id="supplier_image_upload_form" method="post" enctype="multipart/form-data"
+                                        action="product/upload_img" autocomplete="off">
+                                        <div class="file_input_container">
+                                            <div class="upload_button"><input type="file" name="photo"
+                                                    id="supplier_photo" class="file_input"></div>
+                                        </div>
+
+                                    </form>
+                                </center>
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crsup" onclick="cms_crsup();"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list-prd-manufacture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Quản lý nhà sản xuất</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabtable">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-setting" role="tablist"
+                            style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                            <li role="presentation" class="active list-manufacture-click" style="margin-right: 3px;"><a
+                                    href="#list-manufacture" aria-controls="list-manufacture" role="tab"
+                                    data-toggle="tab"><i class="fa fa-list"></i> Danh sách Nhà sản xuất</a></li>
+                            <li role="presentation"><a href="#create-manufacture" aria-controls="create-manufacture"
+                                    role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tạo mới nhà
+                                    sản xuất
+                                </a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                            <div role="tabpanel" class="tab-pane active" id="list-manufacture">
+                                <div class="prd_manufacture-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th class="text-left">Tên nhà sản xuất</th>
+                                                <th style="width: 80px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-item-6">
+                                                <td class="text-edit">6</td>
+                                                <td class="text-edit">aaaaaa</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('manufacture',6)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_manufacture(6,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-6" style="display: none;">
+                                                <td class="text-edit">6</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_manuf_name-6" value="aaaaaa">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdmanufacture(6)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(6 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-5">
+                                                <td class="text-edit">5</td>
+                                                <td class="text-edit">LT Ocean</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('manufacture',5)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_manufacture(5,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-5" style="display: none;">
+                                                <td class="text-edit">5</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_manuf_name-5" value="LT Ocean">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdmanufacture(5)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(5 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-4">
+                                                <td class="text-edit">4</td>
+                                                <td class="text-edit">Duc tuong</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('manufacture',4)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_manufacture(4,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-4" style="display: none;">
+                                                <td class="text-edit">4</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_manuf_name-4" value="Duc tuong">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdmanufacture(4)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(4 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-3">
+                                                <td class="text-edit">3</td>
+                                                <td class="text-edit">qaeqsadadas</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('manufacture',3)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_manufacture(3,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-3" style="display: none;">
+                                                <td class="text-edit">3</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_manuf_name-3" value="qaeqsadadas">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdmanufacture(3)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(3 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-2">
+                                                <td class="text-edit">2</td>
+                                                <td class="text-edit">Hồng Hà</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('manufacture',2)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_manufacture(2,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-2" style="display: none;">
+                                                <td class="text-edit">2</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_manuf_name-2" value="Hồng Hà">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdmanufacture(2)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(2 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-1">
+                                                <td class="text-edit">1</td>
+                                                <td class="text-edit">TQ</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('manufacture',1)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_manufacture(1,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-1" style="display: none;">
+                                                <td class="text-edit">1</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_manuf_name-1" value="TQ">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdmanufacture(1)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(1 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Tab Function -->
+                            <div role="tabpanel" class="tab-pane" id="create-manufacture">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-7">
+                                                <input type="text" style="border-radius: 0 !important;"
+                                                    class="form-control" id="prd_manuf_name" value=""
+                                                    placeholder="Nhập tên Nhà sản xuất">
+                                            </div>
+                                            <div class="input-groups-btn col-md-5">
+                                                <button type="button" class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0;"
+                                                    onclick="cms_create_manufacture(1);"><i class="fa fa-check"></i> Lưu
+                                                </button>
+                                                <button type="button" class="save btn btn-primary"
+                                                    onclick="cms_create_manufacture(0);"><i class="fa fa-floppy-o"></i>
+                                                    Lưu và tiếp tục
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list-prd-unit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Quản lý đơn vị tính</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabtable">
+                        <ul class="nav nav-tabs tab-setting" role="tablist"
+                            style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                            <li role="presentation" class="active list-unit-click" style="margin-right: 3px;"><a
+                                    href="#list-unit" aria-controls="list-unit" role="tab" data-toggle="tab"><i
+                                        class="fa fa-list"></i> Danh sách đơn vị tính</a></li>
+                            <li role="presentation"><a href="#create-unit" aria-controls="create-unit" role="tab"
+                                    data-toggle="tab"><i class="fa fa-plus"></i> Tạo mới đơn
+                                    vị tính</a></li>
+                        </ul>
+                        <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                            <div role="tabpanel" class="tab-pane active" id="list-unit">
+                                <div class="prd_unit-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th class="text-left">Tên đơn vị tính</th>
+                                                <th style="width: 80px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-item-3">
+                                                <td class="text-edit">3</td>
+                                                <td class="text-edit">USD</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('unit',3)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_unit(3,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-3" style="display: none;">
+                                                <td class="text-edit">3</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_unit_name-3" value="USD">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdunit(3)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(3 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-2">
+                                                <td class="text-edit">2</td>
+                                                <td class="text-edit">Ream</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('unit',2)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_unit(2,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-2" style="display: none;">
+                                                <td class="text-edit">2</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_unit_name-2" value="Ream">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdunit(2)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(2 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-1">
+                                                <td class="text-edit">1</td>
+                                                <td class="text-edit">VND</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('unit',1)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_unit(1,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-1" style="display: none;">
+                                                <td class="text-edit">1</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_unit_name-1" value="VND">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_update_prdunit(1)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(1 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="create-unit">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-7">
+                                                <input type="text" style="border-radius: 0 !important;"
+                                                    class="form-control" id="prd_unit_name" value=""
+                                                    placeholder="Nhập tên đơn vị tính">
+                                            </div>
+                                            <div class="input-groups-btn col-md-5">
+                                                <button type="button" class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0;" onclick="cms_create_unit(1);"><i
+                                                        class="fa fa-check"></i> Lưu
+                                                </button>
+                                                <button type="button" class="save btn btn-primary"
+                                                    onclick="cms_create_unit(0);"><i class="fa fa-floppy-o"></i> Lưu và
+                                                    tiếp tục
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list-prd-group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Quản lý danh mục</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabtable">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-setting" role="tablist"
+                            style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                            <li role="presentation" class="active" style="margin-right: 3px;"><a href="#list-groups"
+                                    aria-controls="list-group" role="tab" data-toggle="tab"><i class="fa fa-list"></i>
+                                    Danh sách danh mục</a></li>
+                            <li role="presentation"><a href="#create-groups" aria-controls="create-group" role="tab"
+                                    data-toggle="tab"><i class="fa fa-plus"></i> Tạo mới danh mục</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                            <div role="tabpanel" class="tab-pane active" id="list-groups">
+                                <div class="prd_group-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th class="text-left">Tên danh mục</th>
+                                                <th style="width: 80px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-item-1">
+                                                <td class="text-edit">1</td>
+                                                <td class="text-edit">áo</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 1)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(1,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-1" style="display: none;">
+                                                <td class="text-edit">1</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-1" value="áo">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(1)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(1 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-2">
+                                                <td class="text-edit">2</td>
+                                                <td class="text-edit">quần</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 2)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(2,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-2" style="display: none;">
+                                                <td class="text-edit">2</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-2" value="quần">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(2)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(2 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-4">
+                                                <td class="text-edit">4</td>
+                                                <td class="text-edit">Văn phòng phẩm</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 4)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(4,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-4" style="display: none;">
+                                                <td class="text-edit">4</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-4"
+                                                        value="Văn phòng phẩm">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(4)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(4 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-6">
+                                                <td class="text-edit">6</td>
+                                                <td class="text-edit">Váy</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 6)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(6,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-6" style="display: none;">
+                                                <td class="text-edit">6</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-6" value="Váy">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(6)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(6 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-7">
+                                                <td class="text-edit">7</td>
+                                                <td class="text-edit">Rong Nho Tách Nhiệt</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 7)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(7,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-7" style="display: none;">
+                                                <td class="text-edit">7</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-7"
+                                                        value="Rong Nho Tách Nhiệt">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(7)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(7 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-8">
+                                                <td class="text-edit">8</td>
+                                                <td class="text-edit">Dm con</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 8)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(8,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-8" style="display: none;">
+                                                <td class="text-edit">8</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-8" value="Dm con">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(8)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(8 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr-item-9">
+                                                <td class="text-edit">9</td>
+                                                <td class="text-edit">Laptop</td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o edit-item"
+                                                        title="Sửa" onclick="cms_edit_prd('group', 9)"
+                                                        style="margin-right: 10px; cursor: pointer;"></i><i
+                                                        onclick="cms_delete_Group(9,1)" title="Xóa"
+                                                        class="fa fa-trash-o delete-item" style="cursor: pointer;"></i>
+                                                </td>
+                                            </tr>
+                                            <tr class="edit-tr-item-9" style="display: none;">
+                                                <td class="text-edit">9</td>
+                                                <td class="text-edit"><input type="text"
+                                                        class="form-control edit_prd_group_name-9" value="Laptop">
+                                                </td>
+                                                <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                                        onclick="cms_save_item_prdGroup(9)"
+                                                        style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                                        onclick="cms_undo_item(9 )" title="Hủy" class="fa fa-undo"
+                                                        style="color: green; cursor: pointer; margin-right: 5px;"></i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Tab Function -->
+                            <div role="tabpanel" class="tab-pane" id="create-groups">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-4 text-right">
+                                                <label>Tên danh mục</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" id="prd_group_name" class="form-control"
+                                                    placeholder="Nhập tên danh mục.">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-4 text-right">
+                                                <label>Danh mục cấp cha</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select id="parentid" class="form-control">
+                                                    <option value="-1" selected="selected">-Danh mục-</option>
+                                                    <optgroup label="Chọn danh mục">
+                                                        <option value="1">áo </option>
+                                                        <option value="8">|---Dm con </option>
+                                                        <option value="2">quần </option>
+                                                        <option value="4">Văn phòng phẩm </option>
+                                                        <option value="6">Váy </option>
+                                                        <option value="7">Rong Nho Tách Nhiệt </option>
+                                                        <option value="9">Laptop </option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8 col-md-offset-4">
+                                                <button type="button" class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0;" onclick="cms_create_group(1);">
+                                                    <i class="fa fa-check"></i> Lưu
+                                                </button>
+                                                <button type="button" class="save btn btn-primary"
+                                                    onclick="cms_create_group(0);"><i class="fa fa-floppy-o"></i> Lưu
+                                                    và tiếp tục
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <div class="breadcrumbs-fixed panel-action">
+            <div class="row">
+                <div class="products-act">
+                    <div class="col-md-3 col-sm-3 col-xs-6 col-md-offset-2">
+                        <div class="left-action text-left clearfix">
+                            <h2>Sản phẩm</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-9 col-xs-6 padd-0">
+                        <div class="right-action text-right">
+                            <div class="btn-groups">
+                                <div class="col-md-5 col-sm-6 hidden-xs" style="line-height: 50px;">
+
+                                </div>
+                                <div class="col-md-7 col-sm-6 col-xs-12">
+                                    <a class="save btn btn-primary" href="create-products"> <i
+                                            class="fa fa-plus"></i> <span class="hidden-xs hidden-sm"> Tạo sản
+                                            phẩm</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-space orders-space"></div>
+
+        <div class="products-content">
+            <div class="product-sear panel-sear">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padd-0">
+                    <div class="form-group col-lg-2 col-md-3 col-sm-2 col-xs-6 padd-0" style="display: flex">
+                        <input type="text" class="form-control" placeholder="Nhập thông tin sản phẩm để tìm kiếm"
+                            id="product-search">
+                    </div>
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                        <select class="form-control" id="search_option_1">
+                            <option value="0">Đang kinh doanh</option>
+                            <option value="1">Đã ngừng kinh doanh</option>
+                            <option value="2">Đã xóa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6 padd-0">
+                        <select class="form-control search_option_2" id="prd_group_id">
+                            <option value="-1" selected="selected">-Danh mục-</option>
+                            <optgroup label="Chọn danh mục">
+                                <option value="1">áo </option>
+                                <option value="8">|---Dm con </option>
+                                <option value="2">quần </option>
+                                <option value="4">Văn phòng phẩm </option>
+                                <option value="6">Váy </option>
+                                <option value="7">Rong Nho Tách Nhiệt </option>
+                                <option value="9">Laptop </option>
+                            </optgroup>
+                            <optgroup label="------------------------">
+                                <option value="product_group" data-toggle="modal" data-target="#list-prd-group">Tạo mới
+                                    danh
+                                    mục
+                                </option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-5 padd-0">
+                        <select class="form-control search_option_3" id="prd_manufacture_id">
+                            <option value="-1" selected="selected">-Nhà sản xuất-</option>
+                            <optgroup label="Chọn nhà sản xuất">
+                                <option value="1">TQ</option>
+                                <option value="2">Hồng Hà</option>
+                                <option value="3">qaeqsadadas</option>
+                                <option value="4">Duc tuong</option>
+                                <option value="5">LT Ocean</option>
+                                <option value="6">aaaaaa</option>
+                            </optgroup>
+                            <optgroup label="------------------------">
+                                <option value="product_manufacture" data-toggle="modal"
+                                    data-target="#list-prd-manufacture">Tạo mới
+                                    Nhà sản xuất
+                                </option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-4 col-md-3 col-sm-4 col-xs-1 padd-0" style="display: flex">
+                        <button type="button" class="save btn btn-primary btn-large btn-ssup"
+                            onclick="cms_paging_product(1)"><i class="fa fa-search"></i> <span
+                                class="hidden-xs hidden-sm"> Tìm</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-main-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Mã SP</th>
+                                <th class="text-center">Tên SP</th>
+                                <th class="text-center hidden-xs">Hình ảnh</th>
+                                <th class="text-center">Tồn</th>
+                                <th class="text-center">Giá lẻ</th>
+                                <th class="text-center hidden-xs">Giá sỉ</th>
+                                <th class="text-center hidden-xs">Danh mục</th>
+                                <th class="text-center hidden-xs">Nhà sản xuất</th>
+                                <th></th>
+                                <th class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" class="checkbox chkAll"><span
+                                            style="width: 15px; height: 15px;"></span></label></th>
+                            </tr>
+                        </thead>
+                        <tbody id="list_product_show">
+                            <tr class="product_change" data-id="46">
+                                <td class="text-center">bb</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(46)"
+                                    style="color: #2a6496; cursor: pointer;">Bao bì</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_46">
+                                    <form id="image_upload_form_46" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/46" autocomplete="off">
+                                        <div id="product_image_46" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_46"
+                                                    class="product_image product_image_46">
+                                                <input type="input" name="product_id" value="46" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_46"
+                                        onclick="$('.product_image_46').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">601</td>
+                                <td class="text-right" style="font-weight: bold;">10,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">8,000</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">Hồng Hà</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(46);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(46,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(46,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="46" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="47">
+                                <td class="text-center">cc</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(47)"
+                                    style="color: #2a6496; cursor: pointer;">Nước mắm cá cơm</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_47">
+                                    <form id="image_upload_form_47" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/47" autocomplete="off">
+                                        <div id="product_image_47" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_47"
+                                                    class="product_image product_image_47">
+                                                <input type="input" name="product_id" value="47" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_47"
+                                        onclick="$('.product_image_47').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">1411</td>
+                                <td class="text-right" style="font-weight: bold;">100,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">80,000</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(47);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(47,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(47,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="47" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="44">
+                                <td class="text-center">H1</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(44)"
+                                    style="color: #2a6496; cursor: pointer;">Mì</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_44">
+                                    <form id="image_upload_form_44" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/44" autocomplete="off">
+                                        <div id="product_image_44" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_44"
+                                                    class="product_image product_image_44">
+                                                <input type="input" name="product_id" value="44" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_44"
+                                        onclick="$('.product_image_44').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">198</td>
+                                <td class="text-right" style="font-weight: bold;">500,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">0</td>
+                                <td class="hidden-xs">Văn phòng phẩm</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(44);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(44,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(44,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="44" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="49">
+                                <td class="text-center">nmcl</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(49)"
+                                    style="color: #2a6496; cursor: pointer;">Nước mắm cá lục</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_49">
+                                    <form id="image_upload_form_49" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/49" autocomplete="off">
+                                        <div id="product_image_49" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_49"
+                                                    class="product_image product_image_49">
+                                                <input type="input" name="product_id" value="49" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_49"
+                                        onclick="$('.product_image_49').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">3320</td>
+                                <td class="text-right" style="font-weight: bold;">80,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">75,000</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(49);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(49,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(49,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="49" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="48">
+                                <td class="text-center">nmt</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(48)"
+                                    style="color: #2a6496; cursor: pointer;">Nước mắm tép</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_48">
+                                    <form id="image_upload_form_48" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/48" autocomplete="off">
+                                        <div id="product_image_48" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_48"
+                                                    class="product_image product_image_48">
+                                                <input type="input" name="product_id" value="48" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_48"
+                                        onclick="$('.product_image_48').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">3222</td>
+                                <td class="text-right" style="font-weight: bold;">0</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">0</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(48);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(48,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(48,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="48" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="43">
+                                <td class="text-center">SP00030</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(43)"
+                                    style="color: #2a6496; cursor: pointer;">cam</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img height="30" src="/templates/uploads/baner-2_24_08_2023.jpg">
+
+
+                                </td>
+                                <td class="text-center">28</td>
+                                <td class="text-right" style="font-weight: bold;">7,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">10,000</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(43);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(43,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(43,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="43" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="45">
+                                <td class="text-center">SP00031</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(45)"
+                                    style="color: #2a6496; cursor: pointer;">Mì - copy</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img height="30"
+                                        src="/templates/uploads/Screenshot_2023-09-11-19-46-05-462_lockscreen_13_09_2023.jpg">
+
+
+                                </td>
+                                <td class="text-center">0</td>
+                                <td class="text-right" style="font-weight: bold;">0</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">0</td>
+                                <td class="hidden-xs">Văn phòng phẩm</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(45);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(45,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(45,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="45" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="42">
+                                <td class="text-center">Sp01</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(42)"
+                                    style="color: #2a6496; cursor: pointer;">Sp01</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_42">
+                                    <form id="image_upload_form_42" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/42" autocomplete="off">
+                                        <div id="product_image_42" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_42"
+                                                    class="product_image product_image_42">
+                                                <input type="input" name="product_id" value="42" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_42"
+                                        onclick="$('.product_image_42').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">1045</td>
+                                <td class="text-right" style="font-weight: bold;">160,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">155,000</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(42);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(42,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(42,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="42" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+                            <tr class="product_change" data-id="41">
+                                <td class="text-center">T01</td>
+                                <td class="text-left prd_name" onclick="cms_detail_product(41)"
+                                    style="color: #2a6496; cursor: pointer;">Text</td>
+                                <td class="text-center zoomin hidden-xs">
+
+                                    <img id="product_review_41">
+                                    <form id="image_upload_form_41" method="post" enctype="multipart/form-data"
+                                        class="hidden" action="product/upload_img/41" autocomplete="off">
+                                        <div id="product_image_41" style="display: none;"></div>
+                                        <div>
+                                            <a class="btn btn-blue">
+                                                <input type="file" name="photo" id="photo_41"
+                                                    class="product_image product_image_41">
+                                                <input type="input" name="product_id" value="41" class="hidden">
+                                            </a>
+                                        </div>
+                                    </form>
+
+                                    <span class="href" id="product_hide_41"
+                                        onclick="$('.product_image_41').trigger('click')">Up hình</span>
+
+
+
+                                </td>
+                                <td class="text-center">97</td>
+                                <td class="text-right" style="font-weight: bold;">140,000</td>
+                                <td class="text-right hidden-xs" style="font-weight: bold;">145,000</td>
+                                <td class="hidden-xs">áo</td>
+                                <td class="hidden-xs">TQ</td>
+                                <td class="text-center">
+                                    <i title="Copy" onclick="cms_clone_product(41);" class="fa fa-files-o blue"
+                                        style="margin-right: 5px;"></i>
+                                    <i title="Ngừng kinh doanh" class="fa fa-pause"
+                                        onclick="cms_deactivate_product(41,1);"
+                                        style="margin-right: 5px; color: #C6699F; cursor: pointer;"></i>
+                                    <i class="fa fa-trash-o" style="color: darkred;" title="Xóa"
+                                        onclick="cms_delete_product(41,1)"></i>
+                                </td>
+                                <td class="text-center"><label class="checkbox" style="margin: 0;"><input
+                                            type="checkbox" value="41" class="checkbox chk checkbox_value"><span
+                                            style="width: 15px; height: 15px;"></span></label>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="list_product_change_show" class="row text-right" style="padding-right: 20px;display: none;">
+                    <button type="button" class="save btn btn-primary" onclick="cms_deactivate_all_product(1)"><i
+                            class="fa fa-pause"></i> Ngừng kinh doanh sản phẩm đang chọn
+                    </button>
+
+                    <button type="button" class="save btn btn-primary" onclick="cms_delete_all_product(1)"><i
+                            class="fa fa-trash-o"></i> Xóa sản phẩm đang chọn
+                    </button>
+                </div>
+                <div class="alert alert-info summany-info clearfix" role="alert">
+                    <div class="sm-info pull-left padd-0">Tổng số sản phẩm
+                        <span>9</span>
+                    </div>
+                    <div class="pull-right ajax-pagination">
+                    </div>
+                </div>
+
+                <script>
+                    $('input.product_image').on('change', function () {
+                        $product_id = $(this).parents('.product_change').attr('data-id');
+                        $("#product_image_" + $product_id).html('');
+                        $("#image_upload_form_" + $product_id).ajaxForm(
+                            {
+                                target: '#product_image_' + $product_id,
+                                success: function () {
+                                    if ($.trim($("#product_image_" + $product_id).text()) != '') {
+                                        $("#product_review_" + $product_id).attr("src", '/templates/uploads/' + $("#product_image_" + $product_id).text());
+                                        $("#product_hide_" + $product_id).hide();
+                                    }
+                                }
+                            }
+                        ).submit();
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

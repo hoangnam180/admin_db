@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base</title>
-  </head>
-  <body>
-    <h1>Base</h1>
-  </body>
+
+<head>
+    <%- include('../partials/head'); -%>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); -%>
+    </header>
+    <section class="main" role="main">
+        <div class="container-fluid">
+            <div class="row">
+                <%- include('../partials/navbar'); -%>
+                    <div class="col-md-11">
+                        <div class="main-content">
+                            <%- include('../partials/action'); -%>
+                                <!-- Content -->
+                                <% switch (page_layout) { 
+                                    case '/' :
+                                    case '/dashboard' : %>
+                                    <%- include('./home'); -%>
+                                    <% break; 
+                                    case '/orders' : %>
+                                    <%- include('./orders'); -%>
+                                    <% break; 
+                                    case '/product' : %>
+                                    <%- include('./product'); -%>
+                                    <% break; 
+                                    case '/customer' : %>
+                                    <%- include('./customers'); -%>
+                                    <% break; 
+                                    case '/input' : %>
+                                    <%- include('./input'); -%>
+                                    <% break; 
+                                    case '/revenue' : %>
+                                    <%- include('./revenue'); -%>
+                                    <% break; 
+                                    case '/profit' : %>
+                                    <%- include('./profit'); -%>
+                                    <% break; 
+                                    case '/setting' : %>
+                                    <%- include('./setting'); -%>
+                                    <% break; 
+                                    case '/inventory' : %>
+                                    <%- include('./inventory'); -%>
+                                    <% break; 
+                                    case '/pos' : %>
+                                    <%- include('./pos'); -%>
+                                    <% break; 
+                                    case '/create-orders' : %>
+                                    <%- include('./create_order'); -%>
+                                    <% break; 
+                                    case '/create-products' : %>
+                                    <%- include('./create_products'); -%>
+                                    <% break; 
+                                    case '/create-input' : %>
+                                    <%- include('./create_input'); -%>
+                                    <% break; 
+                                        default: break; 
+                                } %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+</body>
+<%- include('../partials/function'); -%>
 </html>

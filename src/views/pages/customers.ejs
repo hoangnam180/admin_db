@@ -1,0 +1,1527 @@
+<div class="main-content">
+    <div class="alert alert-dange ajax-error" role="alert"><span style="font-weight: bold; font-size: 18px;">Thông
+            báo!</span><br>
+
+        <div class="ajax-error-ct"></div>
+    </div>
+    <div class="alert ajax-success" role="alert"
+        style="width: 350px;background: rgba(92,130,79,0.9); display:none; color: #fff;" data-original-title=""
+        title=""><span style="font-weight: bold; font-size: 18px;">Thông báo!</span>
+        <br>
+
+        <div class="ajax-success-ct"></div>
+    </div>
+    <!-- Start create employee -->
+    <div class="modal fade" id="create-nv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm tài khoản đăng nhập </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="frm-cruser">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="tennhanvien">Tên nhân viên</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="display_name" name="display_name" class="form-control" value=""
+                                    placeholder="Nhập tên nhân viên">
+                                <span style="color: red; font-style: italic;" class="error error-display_name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Mã nhân viên</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="manv" name="manv" class="form-control" value=""
+                                    placeholder="Nhập mã nhân viên">
+                                <span style="color: red; font-style: italic;" class="error error-manv"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Email</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="mail" name="email" class="form-control" value=""
+                                    placeholder="Nhập email của bạn">
+                                <span style="color: red; font-style: italic;" class="error error-mail"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="commission">Hệ số thưởng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="commission" name="commission" class="form-control txtNumber"
+                                    value="" placeholder="Nhập % hoa hồng ( hệ số thưởng)">
+                                <span style="color: red; font-style: italic;" class="error error-commission"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Mật khẩu</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="password" id="password" name="password" class="form-control" value=""
+                                    placeholder="Nhập Mật khẩu">
+                                <span style="color: red; font-style: italic;" class="error error-password"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 padd-right-0">
+                                <label for="manv">Nhóm người dùng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="group-user">
+                                    <div class="group-selbox">
+                                        <select name="group" id="sel-group" class="form-control">
+                                        </select>
+                                    </div>
+                                    <span style="color: red; font-style: italic;" class="error error-group"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="stock">Kho làm việc</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="stock-selbox"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crnv" onclick="cms_cruser()"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end create employee -->
+
+    <!-- Start create function -->
+    <div class="modal fade" id="create-func" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm Chức năng </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="tennhanvien">URL</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="permisstion_url" name="permisstion_url" class="form-control"
+                                    value="" placeholder="Nhập url cho phép của chức năng">
+                                <span style="color: red; font-style: italic;"
+                                    class="error error-permisstion_url"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="manv">Tên chức năng</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="permisstion_name" name="permisstion_name" class="form-control"
+                                    value="" placeholder="Nhập tên chức năng">
+                                <span style="color: red; font-style: italic;"
+                                    class="error error-permisstion_name"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crfunc"><i class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="create-group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm nhóm người dùng </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="group-name">Tên Nhóm</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="group-name" name="group_name" class="form-control" value=""
+                                    placeholder="Nhập tên nhóm người dùng">
+                                <span style="color: red; font-style: italic;" class="error error-group_name"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crgroup"><i class="fa fa-check"></i>
+                        Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="create-store" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-transform: uppercase;"><i
+                            class="fa fa-user"></i>
+                        Thêm kho </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="group-name">Tên Kho</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="store-name" name="store_name" class="form-control" value=""
+                                    placeholder="Nhập tên kho">
+                                <span style="color: red; font-style: italic;" class="error error-store_name"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm" onclick="cms_crstore();"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- start create customer -->
+
+    <div class="modal fade" id="create-cust" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 90%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Tạo mới khách hàng</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" id="frm-crcust">
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_group">Nhóm KH</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_group" class="form-control">
+                                    <option value="0">Khách lẻ</option>
+                                    <option value="1">Khách sỉ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_code">Mã KH</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_code" name="customer_code" class="form-control" value=""
+                                    placeholder="Mã khách hàng(tự sinh nếu bỏ trống)">
+                                <span style="color: red; font-style: italic;" class="error error-customer_code"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_name">Tên KH</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_name" name="customer_name" class="form-control" value=""
+                                    placeholder="Nhập tên khách hàng (bắt buộc)">
+                                <span style="color: red; font-style: italic;" class="error error-customer_name"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_phone">Điện thoại</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_phone" name="customer_phone" class="form-control"
+                                    value="" placeholder="Nhập số điện thoại">
+                                <span style="color: red; font-style: italic;" class="error error-customer_phone"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_email">Email</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_email" name="customer_email" class="form-control"
+                                    value="" placeholder="Nhập email khách hàng ( ví dụ: kh10@gmail.com )">
+                                <span style="color: red; font-style: italic;" class="error error-customer_email"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_tax">Mã số thuế</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_tax" name="customer_tax" class="form-control" value=""
+                                    placeholder="Nhập mã số thuế khách hàng">
+                                <span style="color: red; font-style: italic;" class="error error-customer_tax"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_province_modal">Tỉnh/Tp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_province_modal" onchange="cms_change_province()"
+                                    style="width: 100% !important;"
+                                    class="form-control province select2-hidden-accessible"
+                                    data-select2-id="customer_province_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="-1" data-select2-id="2">Chọn tỉnh/ thành phố</option>
+                                    <option value="1">Thành phố Hà Nội</option>
+                                    <option value="2">Tỉnh Hà Giang</option>
+                                    <option value="4">Tỉnh Cao Bằng</option>
+                                    <option value="6">Tỉnh Bắc Kạn</option>
+                                    <option value="8">Tỉnh Tuyên Quang</option>
+                                    <option value="10">Tỉnh Lào Cai</option>
+                                    <option value="11">Tỉnh Điện Biên</option>
+                                    <option value="12">Tỉnh Lai Châu</option>
+                                    <option value="14">Tỉnh Sơn La</option>
+                                    <option value="15">Tỉnh Yên Bái</option>
+                                    <option value="17">Tỉnh Hoà Bình</option>
+                                    <option value="19">Tỉnh Thái Nguyên</option>
+                                    <option value="20">Tỉnh Lạng Sơn</option>
+                                    <option value="22">Tỉnh Quảng Ninh</option>
+                                    <option value="24">Tỉnh Bắc Giang</option>
+                                    <option value="25">Tỉnh Phú Thọ</option>
+                                    <option value="26">Tỉnh Vĩnh Phúc</option>
+                                    <option value="27">Tỉnh Bắc Ninh</option>
+                                    <option value="30">Tỉnh Hải Dương</option>
+                                    <option value="31">Thành phố Hải Phòng</option>
+                                    <option value="33">Tỉnh Hưng Yên</option>
+                                    <option value="34">Tỉnh Thái Bình</option>
+                                    <option value="35">Tỉnh Hà Nam</option>
+                                    <option value="36">Tỉnh Nam Định</option>
+                                    <option value="37">Tỉnh Ninh Bình</option>
+                                    <option value="38">Tỉnh Thanh Hóa</option>
+                                    <option value="40">Tỉnh Nghệ An</option>
+                                    <option value="42">Tỉnh Hà Tĩnh</option>
+                                    <option value="44">Tỉnh Quảng Bình</option>
+                                    <option value="45">Tỉnh Quảng Trị</option>
+                                    <option value="46">Tỉnh Thừa Thiên Huế</option>
+                                    <option value="48">Thành phố Đà Nẵng</option>
+                                    <option value="49">Tỉnh Quảng Nam</option>
+                                    <option value="51">Tỉnh Quảng Ngãi</option>
+                                    <option value="52">Tỉnh Bình Định</option>
+                                    <option value="54">Tỉnh Phú Yên</option>
+                                    <option value="56">Tỉnh Khánh Hòa</option>
+                                    <option value="58">Tỉnh Ninh Thuận</option>
+                                    <option value="60">Tỉnh Bình Thuận</option>
+                                    <option value="62">Tỉnh Kon Tum</option>
+                                    <option value="64">Tỉnh Gia Lai</option>
+                                    <option value="66">Tỉnh Đắk Lắk</option>
+                                    <option value="67">Tỉnh Đắk Nông</option>
+                                    <option value="68">Tỉnh Lâm Đồng</option>
+                                    <option value="70">Tỉnh Bình Phước</option>
+                                    <option value="72">Tỉnh Tây Ninh</option>
+                                    <option value="74">Tỉnh Bình Dương</option>
+                                    <option value="75">Tỉnh Đồng Nai</option>
+                                    <option value="77">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                    <option value="79">Thành phố Hồ Chí Minh</option>
+                                    <option value="80">Tỉnh Long An</option>
+                                    <option value="82">Tỉnh Tiền Giang</option>
+                                    <option value="83">Tỉnh Bến Tre</option>
+                                    <option value="84">Tỉnh Trà Vinh</option>
+                                    <option value="86">Tỉnh Vĩnh Long</option>
+                                    <option value="87">Tỉnh Đồng Tháp</option>
+                                    <option value="89">Tỉnh An Giang</option>
+                                    <option value="91">Tỉnh Kiên Giang</option>
+                                    <option value="92">Thành phố Cần Thơ</option>
+                                    <option value="93">Tỉnh Hậu Giang</option>
+                                    <option value="94">Tỉnh Sóc Trăng</option>
+                                    <option value="95">Tỉnh Bạc Liêu</option>
+                                    <option value="96">Tỉnh Cà Mau</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="1" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-customer_province_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-customer_province_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn tỉnh/ thành phố">Chọn tỉnh/ thành
+                                                phố</span><span class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_district_modal">Quận/Huyện</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_district_modal" onchange="cms_change_district()"
+                                    style="width: 100% !important;"
+                                    class="form-control district select2-hidden-accessible"
+                                    data-select2-id="customer_district_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="4">Chọn Quận/Huyện</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="3" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-customer_district_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-customer_district_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Quận/Huyện">Chọn Quận/Huyện</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_ward_modal">Phường/Xã</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="customer_ward_modal" style="width: 100% !important;"
+                                    class="form-control ward select2-hidden-accessible"
+                                    data-select2-id="customer_ward_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="6">Chọn Xã/Phường</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="5" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-customer_ward_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-customer_ward_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Xã/Phường">Chọn Xã/Phường</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_addr">Địa chỉ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_addr" name="customer_addr" class="form-control" value=""
+                                    placeholder="Nhập địa chỉ">
+                                <span style="color: red; font-style: italic;" class="error error-customer_addr"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_addr">Bản đồ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_map" name="customer_map" class="form-control" value=""
+                                    placeholder="Nhập bản đồ">
+                                <span style="color: red; font-style: italic;" class="error error-customer_addr"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_notes">Ghi chú</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_notes" name="customer_notes" class="form-control"
+                                    value="" placeholder="Nhập ghi chú">
+                                <span style="color: red; font-style: italic;" class="error error-customer_notes"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_birthday">Ngày sinh</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="customer_birthday" name="customer_birthday"
+                                    class="form-control txttimes" value="" placeholder="yyyy-mm-dd">
+                                <span style="color: red;" class="error error-customer_birthday"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_gender">Giới tính</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="radio" name="gender" checked="" class="customer_gender" value="0"> Nam
+                                <input type="radio" name="gender" class="customer_gender" value="1"> Nữ
+                                <span style="color: red; font-style: italic;"
+                                    class="error error-customer_gender"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="customer_gender">Nợ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="is_customer_debt" name="is_customer_debt"
+                                    class="txtMoney form-control" value="" placeholder="Khách hàng đang nợ">
+                                <span style="color: red; font-style: italic;" class="error error-customer_debt"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12" style="margin-top: 18px;">
+                            <div class="jumbotron text-center" id="img_upload"
+                                style="border-radius: 0; margin-bottom: 10px; padding: 5px 20px;">
+                                <h4>Upload hình ảnh</h4>
+
+                                <center>
+                                    <div id="customer_img_preview" style="display: none;"></div>
+                                    <form id="customer_image_upload_form" method="post" enctype="multipart/form-data"
+                                        action="product/upload_img" autocomplete="off">
+                                        <div class="file_input_container">
+                                            <div class="upload_button"><input type="file" name="photo"
+                                                    id="customer_photo" class="file_input"></div>
+                                        </div>
+
+                                    </form>
+                                </center>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crcust" onclick="cms_crCustomer();"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end customer -->
+
+    <!-- start create supplier -->
+
+    <div class="modal fade" id="create-sup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 90%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Tạo mới nhà cung cấp</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" id="frm-crsup">
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_name">Mã nhà cung cấp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_code" name="supplier_code" class="form-control" value=""
+                                    placeholder="Mã nhà cung cấp (Tự sinh nếu bỏ trống)">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_code"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_name">Tên nhà cung cấp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_name" name="supplier_name" class="form-control" value=""
+                                    placeholder="Nhập tên nhà cung cấp (bắt buộc)">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_name"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_phone">Điện thoại</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_phone" name="supplier_phone" class="form-control"
+                                    value="" placeholder="Nhập số điện thoại">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_phone"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_email">Email</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_email" name="supplier_email" class="form-control"
+                                    value="" placeholder="Nhập email nhà cung cấp ( ví dụ: kh10@gmail.com )">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_email"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_tax">Mã số thuế</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_tax" name="supplier_tax" class="form-control" value=""
+                                    placeholder="Nhập mã số thuế">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_tax"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_province_modal">Tỉnh/Tp</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="supplier_province_modal" onchange="cms_s_change_province()"
+                                    style="width: 100%" class="form-control province select2-hidden-accessible"
+                                    data-select2-id="supplier_province_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="-1" data-select2-id="8">Chọn tỉnh/ thành phố</option>
+                                    <option value="1">Thành phố Hà Nội</option>
+                                    <option value="2">Tỉnh Hà Giang</option>
+                                    <option value="4">Tỉnh Cao Bằng</option>
+                                    <option value="6">Tỉnh Bắc Kạn</option>
+                                    <option value="8">Tỉnh Tuyên Quang</option>
+                                    <option value="10">Tỉnh Lào Cai</option>
+                                    <option value="11">Tỉnh Điện Biên</option>
+                                    <option value="12">Tỉnh Lai Châu</option>
+                                    <option value="14">Tỉnh Sơn La</option>
+                                    <option value="15">Tỉnh Yên Bái</option>
+                                    <option value="17">Tỉnh Hoà Bình</option>
+                                    <option value="19">Tỉnh Thái Nguyên</option>
+                                    <option value="20">Tỉnh Lạng Sơn</option>
+                                    <option value="22">Tỉnh Quảng Ninh</option>
+                                    <option value="24">Tỉnh Bắc Giang</option>
+                                    <option value="25">Tỉnh Phú Thọ</option>
+                                    <option value="26">Tỉnh Vĩnh Phúc</option>
+                                    <option value="27">Tỉnh Bắc Ninh</option>
+                                    <option value="30">Tỉnh Hải Dương</option>
+                                    <option value="31">Thành phố Hải Phòng</option>
+                                    <option value="33">Tỉnh Hưng Yên</option>
+                                    <option value="34">Tỉnh Thái Bình</option>
+                                    <option value="35">Tỉnh Hà Nam</option>
+                                    <option value="36">Tỉnh Nam Định</option>
+                                    <option value="37">Tỉnh Ninh Bình</option>
+                                    <option value="38">Tỉnh Thanh Hóa</option>
+                                    <option value="40">Tỉnh Nghệ An</option>
+                                    <option value="42">Tỉnh Hà Tĩnh</option>
+                                    <option value="44">Tỉnh Quảng Bình</option>
+                                    <option value="45">Tỉnh Quảng Trị</option>
+                                    <option value="46">Tỉnh Thừa Thiên Huế</option>
+                                    <option value="48">Thành phố Đà Nẵng</option>
+                                    <option value="49">Tỉnh Quảng Nam</option>
+                                    <option value="51">Tỉnh Quảng Ngãi</option>
+                                    <option value="52">Tỉnh Bình Định</option>
+                                    <option value="54">Tỉnh Phú Yên</option>
+                                    <option value="56">Tỉnh Khánh Hòa</option>
+                                    <option value="58">Tỉnh Ninh Thuận</option>
+                                    <option value="60">Tỉnh Bình Thuận</option>
+                                    <option value="62">Tỉnh Kon Tum</option>
+                                    <option value="64">Tỉnh Gia Lai</option>
+                                    <option value="66">Tỉnh Đắk Lắk</option>
+                                    <option value="67">Tỉnh Đắk Nông</option>
+                                    <option value="68">Tỉnh Lâm Đồng</option>
+                                    <option value="70">Tỉnh Bình Phước</option>
+                                    <option value="72">Tỉnh Tây Ninh</option>
+                                    <option value="74">Tỉnh Bình Dương</option>
+                                    <option value="75">Tỉnh Đồng Nai</option>
+                                    <option value="77">Tỉnh Bà Rịa - Vũng Tàu</option>
+                                    <option value="79">Thành phố Hồ Chí Minh</option>
+                                    <option value="80">Tỉnh Long An</option>
+                                    <option value="82">Tỉnh Tiền Giang</option>
+                                    <option value="83">Tỉnh Bến Tre</option>
+                                    <option value="84">Tỉnh Trà Vinh</option>
+                                    <option value="86">Tỉnh Vĩnh Long</option>
+                                    <option value="87">Tỉnh Đồng Tháp</option>
+                                    <option value="89">Tỉnh An Giang</option>
+                                    <option value="91">Tỉnh Kiên Giang</option>
+                                    <option value="92">Thành phố Cần Thơ</option>
+                                    <option value="93">Tỉnh Hậu Giang</option>
+                                    <option value="94">Tỉnh Sóc Trăng</option>
+                                    <option value="95">Tỉnh Bạc Liêu</option>
+                                    <option value="96">Tỉnh Cà Mau</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="7" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-supplier_province_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-supplier_province_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn tỉnh/ thành phố">Chọn tỉnh/ thành
+                                                phố</span><span class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_district_modal">Quận/Huyện</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="supplier_district_modal" onchange="cms_s_change_district()"
+                                    style="width: 100%" class="form-control district select2-hidden-accessible"
+                                    data-select2-id="supplier_district_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="10">Chọn Quận/Huyện</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="9" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-supplier_district_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-supplier_district_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Quận/Huyện">Chọn Quận/Huyện</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_ward_modal">Phường/Xã</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <select id="supplier_ward_modal" style="width: 100%"
+                                    class="form-control ward select2-hidden-accessible"
+                                    data-select2-id="supplier_ward_modal" tabindex="-1" aria-hidden="true">
+                                    <option value="0" data-select2-id="12">Chọn Xã/Phường</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="11" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-labelledby="select2-supplier_ward_modal-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-supplier_ward_modal-container" role="textbox"
+                                                aria-readonly="true" title="Chọn Xã/Phường">Chọn Xã/Phường</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_addr">Địa chỉ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_addr" name="supplier_addr" class="form-control" value=""
+                                    placeholder="Nhập địa chỉ">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_addr"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="supplier_notes">Ghi chú</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="supplier_notes" name="notes" class="form-control" value=""
+                                    placeholder="Nhập ghi chú">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_notes"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 padd-0" style="margin-top: 18px;">
+                            <div class="col-md-3 col-xs-5">
+                                <label for="is_supplier_debt">Nợ</label>
+                            </div>
+                            <div class="col-md-9 col-xs-7 padd-0">
+                                <input type="text" id="is_supplier_debt" name="is_supplier_debt"
+                                    class="form-control txtMoney" value="" placeholder="Đang nợ nhà cung cấp">
+                                <span style="color: red; font-style: italic;" class="error error-supplier_debt"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12" style="margin-top: 18px;">
+                            <div class="jumbotron text-center" id="img_upload"
+                                style="border-radius: 0; margin-bottom: 10px; padding: 15px 20px;">
+                                <h3>Upload hình ảnh</h3>
+                                <small style="font-size: 14px; margin-bottom: 5px; display: inline-block;">(Kích thướt
+                                    tối đa 10MB)
+                                </small>
+                                <p>
+                                </p>
+                                <center>
+                                    <div id="supplier_img_preview" style="display: none;"></div>
+                                    <form id="supplier_image_upload_form" method="post" enctype="multipart/form-data"
+                                        action="product/upload_img" autocomplete="off">
+                                        <div class="file_input_container">
+                                            <div class="upload_button"><input type="file" name="photo"
+                                                    id="supplier_photo" class="file_input"></div>
+                                        </div>
+
+                                    </form>
+                                </center>
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-primary btn-sm btn-crsup" onclick="cms_crsup();"><i
+                            class="fa fa-check"></i> Lưu
+                    </button>
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Bỏ qua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list-prd-manufacture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Quản lý nhà sản xuất</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabtable">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-setting" role="tablist"
+                            style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                            <li role="presentation" class="active list-manufacture-click" style="margin-right: 3px;"><a
+                                    href="#list-manufacture" aria-controls="list-manufacture" role="tab"
+                                    data-toggle="tab"><i class="fa fa-list"></i> Danh sách Nhà sản xuất</a></li>
+                            <li role="presentation"><a href="#create-manufacture" aria-controls="create-manufacture"
+                                    role="tab" data-toggle="tab"><i class="fa fa-plus"></i> Tạo mới nhà
+                                    sản xuất
+                                </a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                            <div role="tabpanel" class="tab-pane active" id="list-manufacture">
+                                <div class="prd_manufacture-body">
+
+                                </div>
+                            </div>
+
+                            <!-- Tab Function -->
+                            <div role="tabpanel" class="tab-pane" id="create-manufacture">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-7">
+                                                <input type="text" style="border-radius: 0 !important;"
+                                                    class="form-control" id="prd_manuf_name" value=""
+                                                    placeholder="Nhập tên Nhà sản xuất">
+                                            </div>
+                                            <div class="input-groups-btn col-md-5">
+                                                <button type="button" class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0;"
+                                                    onclick="cms_create_manufacture(1);"><i class="fa fa-check"></i> Lưu
+                                                </button>
+                                                <button type="button" class="save btn btn-primary"
+                                                    onclick="cms_create_manufacture(0);"><i class="fa fa-floppy-o"></i>
+                                                    Lưu và tiếp tục
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list-prd-unit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Quản lý đơn vị tính</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabtable">
+                        <ul class="nav nav-tabs tab-setting" role="tablist"
+                            style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                            <li role="presentation" class="active list-unit-click" style="margin-right: 3px;"><a
+                                    href="#list-unit" aria-controls="list-unit" role="tab" data-toggle="tab"><i
+                                        class="fa fa-list"></i> Danh sách đơn vị tính</a></li>
+                            <li role="presentation"><a href="#create-unit" aria-controls="create-unit" role="tab"
+                                    data-toggle="tab"><i class="fa fa-plus"></i> Tạo mới đơn
+                                    vị tính</a></li>
+                        </ul>
+                        <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                            <div role="tabpanel" class="tab-pane active" id="list-unit">
+                                <div class="prd_unit-body">
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="create-unit">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-7">
+                                                <input type="text" style="border-radius: 0 !important;"
+                                                    class="form-control" id="prd_unit_name" value=""
+                                                    placeholder="Nhập tên đơn vị tính">
+                                            </div>
+                                            <div class="input-groups-btn col-md-5">
+                                                <button type="button" class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0;" onclick="cms_create_unit(1);"><i
+                                                        class="fa fa-check"></i> Lưu
+                                                </button>
+                                                <button type="button" class="save btn btn-primary"
+                                                    onclick="cms_create_unit(0);"><i class="fa fa-floppy-o"></i> Lưu và
+                                                    tiếp tục
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list-prd-group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Quản lý danh mục</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabtable">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-setting" role="tablist"
+                            style="background-color: #EFF3F8; padding: 5px 0 0 15px;">
+                            <li role="presentation" class="active" style="margin-right: 3px;"><a href="#list-groups"
+                                    aria-controls="list-group" role="tab" data-toggle="tab"><i class="fa fa-list"></i>
+                                    Danh sách danh mục</a></li>
+                            <li role="presentation"><a href="#create-groups" aria-controls="create-group" role="tab"
+                                    data-toggle="tab"><i class="fa fa-plus"></i> Tạo mới danh mục</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top: none;">
+                            <div role="tabpanel" class="tab-pane active" id="list-groups">
+                                <div class="prd_group-body">
+                                    <div class="text-center"><img src="/templates/images/balls.gif"></div>
+                                </div>
+                            </div>
+
+                            <!-- Tab Function -->
+                            <div role="tabpanel" class="tab-pane" id="create-groups">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="col-md-4 text-right">
+                                                <label>Tên danh mục</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" id="prd_group_name" class="form-control"
+                                                    placeholder="Nhập tên danh mục.">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-4 text-right">
+                                                <label>Danh mục cấp cha</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select id="parentid" class="form-control">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8 col-md-offset-4">
+                                                <button type="button" class="save btn btn-primary"
+                                                    style="border-radius: 0 3px 3px 0;" onclick="cms_create_group(1);">
+                                                    <i class="fa fa-check"></i> Lưu
+                                                </button>
+                                                <button type="button" class="save btn btn-primary"
+                                                    onclick="cms_create_group(0);"><i class="fa fa-floppy-o"></i> Lưu
+                                                    và tiếp tục
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="save btn btn-default btn-sm btn-close" data-dismiss="modal"><i
+                            class="fa fa-undo"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customer-supplier">
+        <div class="breadcrumbs-fixed panel-action">
+            <div class="row">
+                <div class="customer-act act">
+                    <div class="col-md-3 col-sm-3 col-xs-7 col-md-offset-2">
+                        <div class="left-action text-left clearfix">
+                            <h2>Khách hàng</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-9 col-xs-5 padd-0">
+                        <div class="right-action text-right">
+                            <div class="col-md-6 col-sm-7 hidden-xs" style="line-height: 50px;">
+
+                            </div>
+                            <div class="col-md-6 col-sm-5 col-xs-12">
+                                <button type="button" class="save btn btn-primary" data-toggle="modal"
+                                    data-target="#create-cust">
+
+                                    <i class="fa fa-plus"></i> <span class="hidden-xs hidden-sm"> Tạo KH</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="supplier-act act" style="display: none;">
+                    <div class="col-md-3 col-sm-3 col-xs-7 col-md-offset-2">
+                        <div class="left-action text-left clearfix">
+                            <h2>Nhà cung cấp</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-9 col-xs-5 padd-0">
+                        <div class="right-action text-right">
+                            <div class="col-md-6 col-sm-7 hidden-xs" style="line-height: 50px;">
+                            </div>
+                            <div class="col-md-6 col-sm-5 col-xs-12">
+                                <button type="button" class="save btn btn-primary" data-toggle="modal"
+                                    data-target="#create-sup">
+                                    <i class="fa fa-plus"></i> <span class="hidden-xs hidden-sm"> Tạo NCC</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-space orders-space"></div>
+        <div>
+            <ul class="nav nav-tabs tab-setting" role="tablist" style="padding-left: 20px;">
+                <li role="presentation" onclick="tab_click_act('customer');" class="active"><a href="#cus"
+                        aria-controls="customer" role="tab" data-toggle="tab"><i class="fa fa-user"></i> Khách hàng</a>
+                </li>
+                <li role="presentation" onclick="tab_click_act('supplier');"><a href="#sup" aria-controls="supplier"
+                        role="tab" data-toggle="tab"><i class="fa fa-truck"></i> Nhà cung cấp</a></li>
+
+            </ul>
+            <div class="tab-content">
+                <div id="cus" class="tab-pane active">
+                    <div class="cus-sear panel-sear">
+                        <div class="form-group col-md-3 col-sm-3 col-xs-12 padd-0" style="margin-bottom:0px;">
+                            <input type="text" class="form-control txt-scustomer"
+                                placeholder="Nhập tên, mã hoặc SDT khách hàng">
+                        </div>
+                        <div class="form-group col-md-9 col-sm-9 col-xs-12 padd-0">
+                            <div class="col-md-3 col-sm-4 col-xs-6 padd-0">
+                                <select id="cus-option" class="form-control">
+                                    <option value="0">Tất cả</option>
+                                    <option value="1">KH từng mua hàng</option>
+                                    <option value="2">KH còn nợ</option>
+                                </select>
+                            </div>
+                            <button type="button" onclick="cms_paging_customer(1)"
+                                class="save btn btn-primary btn-large btn-sCustomer"><i class="fa fa-search"></i> <span
+                                    class="hidden-xs hidden-sm"> Tìm</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cus-body">
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center hidden-xs">Hình ảnh</th>
+                                        <th class="text-center">Nhóm KH</th>
+                                        <th class="text-center hidden-xs">Mã KH</th>
+                                        <th class="text-center">Tên KH</th>
+                                        <th class="text-center">Điện thoại</th>
+                                        <th class="text-center hidden-xs">Địa chỉ</th>
+                                        <th class="text-center hidden-xs">Bản đồ</th>
+                                        <th class="text-center hidden-xs">Lần cuối mua hàng</th>
+                                        <th class="text-center hidden-xs">Tổng tiền hàng</th>
+                                        <th class="text-center">Công nợ</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="ajax-loadlist-customer">
+                                    <tr id="tr-item-40">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(40)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000033</td>
+                                        <td onclick="cms_detail_customer(40)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">lê tâm đắc</td>
+                                        <td class="text-center">0396951632</td>
+                                        <td class="text-center hidden-xs">ddd,Phường Vĩnh Phúc,Quận Ba Đình,Thành phố Hà
+                                            Nội</td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-right hidden-xs">-</td>
+                                        <td class="text-right">-</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(40,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-39">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(39)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">vinh</td>
+                                        <td onclick="cms_detail_customer(39)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">vinh</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">23:35 13/08/2023</td>
+                                        <td class="text-right hidden-xs">7,000</td>
+                                        <td class="text-right">-</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(39,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-38">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(38)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000032</td>
+                                        <td onclick="cms_detail_customer(38)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">chị thanh</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">12:55 13/07/2023</td>
+                                        <td class="text-right hidden-xs">100,000,000</td>
+                                        <td class="text-right">100,000,000</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(38,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-37">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(37)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000031</td>
+                                        <td onclick="cms_detail_customer(37)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">anh long</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">12:55 13/07/2023</td>
+                                        <td class="text-right hidden-xs">19,000,000</td>
+                                        <td class="text-right">19,000,000</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(37,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-35">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(35)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000030</td>
+                                        <td onclick="cms_detail_customer(35)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">erterte</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">07:16 08/07/2023</td>
+                                        <td class="text-right hidden-xs">19,400,000</td>
+                                        <td class="text-right">14,955,556</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(35,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-33">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(33)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000029</td>
+                                        <td onclick="cms_detail_customer(33)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">ANH MINH</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">23:22 27/06/2023</td>
+                                        <td class="text-right hidden-xs">790,000</td>
+                                        <td class="text-right">-</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(33,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-32">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(32)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000028</td>
+                                        <td onclick="cms_detail_customer(32)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">AAA</td>
+                                        <td class="text-center">09750648555</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">00:48 09/05/2023</td>
+                                        <td class="text-right hidden-xs">77,000</td>
+                                        <td class="text-right">-</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(32,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-31">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30"
+                                                src="/templates/uploads/jewelry-618429_960_720_05_05_2023.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(31)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000027</td>
+                                        <td onclick="cms_detail_customer(31)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">Nguyễn Văn Nam</td>
+                                        <td class="text-center">8549621</td>
+                                        <td class="text-center hidden-xs">,Phường Đồng Xuân,Quận Hoàn Kiếm,Thành phố Hà
+                                            Nội</td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">15:24 25/10/2023</td>
+                                        <td class="text-right hidden-xs">602,000</td>
+                                        <td class="text-right">77,000</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(31,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-30">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách lẻ </td>
+                                        <td onclick="cms_detail_customer(30)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000026</td>
+                                        <td onclick="cms_detail_customer(30)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">Khách lẻ</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">17:39 23/04/2023</td>
+                                        <td class="text-right hidden-xs">7,057,000</td>
+                                        <td class="text-right">-</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(30,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr id="tr-item-29">
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center">
+                                            Khách sỉ </td>
+                                        <td onclick="cms_detail_customer(29)"
+                                            class="text-center tr-detail-item hidden-xs"
+                                            style="cursor: pointer; color: #1b6aaa;">KH000025</td>
+                                        <td onclick="cms_detail_customer(29)" class="text-center tr-detail-item"
+                                            style="cursor: pointer; color: #1b6aaa;">asd</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs">,Phường Bến Nghé,Quận 1,Thành phố Hồ Chí Minh
+                                        </td>
+                                        <td class="text-center hidden-xs">
+                                        </td>
+                                        <td class="text-center hidden-xs">09:20 15/04/2023</td>
+                                        <td class="text-right hidden-xs">7,000,000</td>
+                                        <td class="text-right">-</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delCustomer(29,1);"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="alert alert-info summany-info clearfix" role="alert">
+                            <div class="ajax-loadlist-total sm-info pull-left padd-0">
+                                Số khách
+                                hàng:<span>33</span>
+                                Tổng tiền:
+                                <span>262,859,733 đ</span>
+                                Tổng nợ:
+                                <span>164,613,281 đ</span>
+                            </div>
+                            <div class="pull-right ajax-pagination">
+                                <ul class="pagination">
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a class="href" onclick="cms_paging_customer(2)">2</a></li>
+                                    <li><a class="href" onclick="cms_paging_customer(3)">3</a></li>
+                                    <li><a class="href" onclick="cms_paging_customer(2)">›</a></li>
+                                    <li><a class="href" onclick="cms_paging_customer(4)">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="sup" class="tab-pane">
+                    <div class="sup-sear panel-sear">
+                        <div class="form-group col-md-3 col-sm-3 col-xs-12 padd-0" style="margin-bottom:0px;">
+                            <input type="text" class="form-control txt-ssupplier"
+                                placeholder="Nhập tên, mã hoặc SDT Nhà cung cấp">
+                        </div>
+                        <div class="form-group col-md-9 col-sm-9 col-xs-12 padd-0">
+                            <div class="col-md-3 col-sm-4 col-xs-6 padd-0">
+                                <select id="sup-option" class="form-control">
+                                    <option value="0">Tất cả</option>
+                                    <option value="1">NCC từng nhập hàng</option>
+                                    <option value="2">Còn nợ NCC</option>
+                                </select>
+                            </div>
+                            <button type="button" class="save btn btn-primary btn-large btn-ssup"
+                                onclick="cms_paging_supplier(1)"><i class="fa fa-search"></i> <span
+                                    class="hidden-xs hidden-sm">Tìm</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sup-body">
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center hidden-xs">Hình ảnh</th>
+                                        <th class="text-center hidden-xs">Mã NCC</th>
+                                        <th class="text-center">Tên NCC</th>
+                                        <th class="text-center">Điện thoại</th>
+                                        <th class="text-center hidden-xs">Địa chỉ</th>
+                                        <th class="text-center">Lần cuối nhập hàng</th>
+                                        <th class="text-center">Tổng tiền hàng</th>
+                                        <th class="text-center">Công nợ</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center hidden-xs" onclick="cms_detail_supplier(5)"
+                                            style="cursor: pointer; color: #1b6aaa;">skytech</td>
+                                        <td class="text-center" onclick="cms_detail_supplier(5)"
+                                            style="cursor: pointer; color: #1b6aaa;">skytech</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center">2023-08-13 23:34:55</td>
+                                        <td class="text-right">50,000 </td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delsup(5,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center hidden-xs" onclick="cms_detail_supplier(4)"
+                                            style="cursor: pointer; color: #1b6aaa;">NCC00001</td>
+                                        <td class="text-center" onclick="cms_detail_supplier(4)"
+                                            style="cursor: pointer; color: #1b6aaa;">11</td>
+                                        <td class="text-center">1111</td>
+                                        <td class="text-center hidden-xs">1,Thành phố Hà Nội</td>
+                                        <td class="text-center">2023-06-02 09:56:00</td>
+                                        <td class="text-right">200,000 </td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delsup(4,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center hidden-xs" onclick="cms_detail_supplier(3)"
+                                            style="cursor: pointer; color: #1b6aaa;">Nhà 1</td>
+                                        <td class="text-center" onclick="cms_detail_supplier(3)"
+                                            style="cursor: pointer; color: #1b6aaa;">Nhà 1</td>
+                                        <td class="text-center">0123654789</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center">2023-04-05 14:00:00</td>
+                                        <td class="text-right">50,000 </td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delsup(3,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center hidden-xs" onclick="cms_detail_supplier(2)"
+                                            style="cursor: pointer; color: #1b6aaa;">addaasda</td>
+                                        <td class="text-center" onclick="cms_detail_supplier(2)"
+                                            style="cursor: pointer; color: #1b6aaa;">ádad</td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-center hidden-xs"></td>
+                                        <td class="text-center">-</td>
+                                        <td class="text-right">0 </td>
+                                        <td class="text-right">0</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delsup(2,1);"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center zoomin hidden-xs">
+                                            <img height="30" src="/templates/uploads/no_image.jpg">
+                                        </td>
+                                        <td class="text-center hidden-xs" onclick="cms_detail_supplier(1)"
+                                            style="cursor: pointer; color: #1b6aaa;">adasd</td>
+                                        <td class="text-center" onclick="cms_detail_supplier(1)"
+                                            style="cursor: pointer; color: #1b6aaa;">VietTien</td>
+                                        <td class="text-center">111111111</td>
+                                        <td class="text-center hidden-xs">adada,Phường Trúc Bạch,Quận Ba Đình,Thành phố
+                                            Hà Nội</td>
+                                        <td class="text-center">2023-11-09 16:12:18</td>
+                                        <td class="text-right">5,574,911 </td>
+                                        <td class="text-right">29,000</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-trash-o" style="cursor:pointer;"
+                                                onclick="cms_delsup(1,1);"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="alert alert-info summany-info clearfix" role="alert">
+                            <div class="sm-info pull-left padd-0">
+                                Số
+                                NCC:<span>15</span>
+                                Tổng tiền:
+                                <span>5,874,911 đ</span>
+                                Tổng nợ:
+                                <span>29,000 đ</span>
+                            </div>
+                            <div class="pull-right ajax-pagination">
+                                <ul class="pagination">
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a class="href" onclick="cms_paging_supplier(2)">2</a></li>
+                                    <li><a class="href" onclick="cms_paging_supplier(2)">›</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
