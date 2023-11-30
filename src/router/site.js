@@ -16,5 +16,7 @@ router.get("/profit", siteControllers.profit);
 router.get("/pos", siteControllers.pos);
 router.get("/setting", siteControllers.setting);
 router.get("/inventory", siteControllers.inventory);
+router.get("/login", siteControllers.login);
+router.get("/account", siteControllers.account);
 
 module.exports = router;

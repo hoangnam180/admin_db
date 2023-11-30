@@ -15,7 +15,6 @@
                 <%- include('../partials/navbar'); -%>
                     <div class="col-md-11">
                         <div class="main-content">
-                            <%- include('../partials/action'); -%>
                                 <!-- Content -->
                                 <% switch (page_layout) { 
                                     case '/' :
@@ -48,6 +47,9 @@
                                     <% break; 
                                     case '/pos' : %>
                                     <%- include('./pos'); -%>
+                                    <% break; 
+                                    case '/account' : %>
+                                    <%- include('./account'); -%>
                                     <% break; 
                                     case '/create-orders' : %>
                                     <%- include('./create_order'); -%>

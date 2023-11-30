@@ -3,6 +3,7 @@ const initWebRoute = require("./router/index.js");
 const configViewEngine = require("./config/viewEngine");
 const morgan = require("morgan");
 const cors = require("cors");
+const session = require('express-session');
 require("dotenv").config();
 
 const app = express();
@@ -21,6 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cookieParser("asdfsdgfsdr243234"));
+
+// app.use(session({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: true
+// }));
 
 //config view engine
 configViewEngine(app);

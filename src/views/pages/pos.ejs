@@ -1245,3 +1245,33 @@
         </div>
     </div>
 </div>
+<script>
+    $store_id = $('#store-id').val();
+    $(function () {
+        $("#search-pro-box").autocomplete({
+            minLength: 1,
+            source: 'orders/cms_autocomplete_products/' + 0 + '/' + $store_id,
+            focus: function (event, ui) {
+                $("#search-pro-box").val(ui.item.prd_code);
+                return false;
+            },
+            select: function (event, ui) {
+                cms_select_product_sell(ui.item.ID, 0);
+                $("#search-pro-box").val('');
+                return false;
+            }
+        }).keyup(function (e) {
+            if (e.which === 13) {
+                cms_autocomplete_enter_sell();
+                $("#search-pro-box").val('');
+                $(".ui-menu-item").hide();
+            }
+        })
+            .autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>")
+                .append("<div>" + item.prd_code + " - " + item.prd_name + " - " + item.prd_sell_price + " - Tồn: " + item.quantity + "</div>")
+                .appendTo(ul);
+        };
+    });
+    document.addEventListener('keyup', hotkey, false);
+</script>

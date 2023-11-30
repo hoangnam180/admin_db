@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const connectDatabase = require('./connectDatabase');
 const moment = require("moment");
 const configViewEngine = (app) => {
   app.use(express.static(path.join(__dirname, "../public")));
@@ -9,6 +10,7 @@ const configViewEngine = (app) => {
     res.locals.moment = moment;
     next();
   });
+  connectDatabase();
 };
 
 module.exports = configViewEngine;

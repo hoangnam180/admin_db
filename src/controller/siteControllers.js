@@ -96,6 +96,18 @@ class siteControllers {
       page_layout: '/pos'
     });
   };
+
+  // [GET] account
+  account = (req, res) => {
+    return res.render('pages/index.ejs', {
+      page_layout: '/account'
+    });
+  };
+
+  // [GET] login
+  login = (req, res) => {
+    return res.render('pages/login.ejs');
+  };
 }
 
 module.exports = new siteControllers();
