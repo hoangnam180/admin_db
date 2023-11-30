@@ -13,7 +13,6 @@ const connectDatabase = () => {
       console.log('Database connection error: ' + err);
     });
     mongoose.connection.on('disconnected', () => {
-      console.log(process.env.DB_URL)
       console.log('Database disconnected');
     });
   } catch (err) {

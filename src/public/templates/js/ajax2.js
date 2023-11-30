@@ -805,12 +805,9 @@ function cms_hide_payment_input() {
 function cms_cruser() {
     "use strict";
     var display_name = $.trim($('#frm-cruser #display_name').val());
-    var username = $.trim($('#frm-cruser #manv').val());
     var email = $.trim($('#frm-cruser #mail').val());
-    var commission = $.trim($('#frm-cruser #commission').val());
     var password = $.trim($('#frm-cruser #password').val());
     var group_id = $('#frm-cruser .group-user .group-selbox #sel-group').val();
-    var store_id = $('#frm-cruser .stock-selbox #sel-stock').val();
     $('#frm-cruser .group-user .group-selbox #sel-group').on('change', function () {
         group_id = $(this).val();
     });
@@ -818,11 +815,6 @@ function cms_cruser() {
         $('.error-display_name').text('Vui lòng nhập tên hiển thị!');
     } else {
         $('.error-display_name').text('');
-    }
-    if (username.length == 0) {
-        $('.error-manv').text('Vui lòng nhập mã nhân viên!');
-    } else {
-        $('.error-manv').text('');
     }
     if (email.length == 0) {
         $('.error-mail').text('Vui lòng nhập email!');
@@ -835,33 +827,27 @@ function cms_cruser() {
         $('.error-password').text('');
     }
 
-    if (display_name && email && password && group_id && username) {
+    if (display_name && email && password && group_id) {
         var $data = {
-            'data': {
-                'display_name': display_name,
-                'username': username,
-                'email': email,
-                'commission': commission,
-                'group_id': group_id,
-                'password': password,
-                'store_id': store_id
-            }
+            'username': display_name,
+            'email': email,
+            'role': group_id,
+            'password': password,
         };
-        console.log(123123);
-        console.log($data);
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
-            'url': 'ajax/cms_cruser',
+            'url': 'api/user/create-user',
             'data': $data,
             'callback': function (data) {
                 $('.save').attr('readonly', false);
-                if (data != '1') {
-                    $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
-                } else {
+                if (data) {
                     $('.btn-close').trigger('click');
                     cms_paging_user_setting();
                     $('.ajax-success-ct').html('Thêm thành viên mới thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+                } else {
+                    $('.ajax-error-ct').html(data.message).parent().fadeIn().delay(1000).fadeOut('slow');
+                    $('.btn-close').trigger('click');
                 }
             }
         };
@@ -958,7 +944,7 @@ function cms_del_usitem($id) {
         var $param = {
             'type': 'POST',
             'url': 'ajax/cms_del_usitem',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '0') {
@@ -980,7 +966,7 @@ function cms_del_store($id) {
         var $param = {
             'type': 'POST',
             'url': 'store/cms_del_store',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '0') {
@@ -1155,7 +1141,7 @@ function cms_crgroup() {
             var $param = {
                 'type': 'POST',
                 'url': 'ajax/cms_crgroup',
-                'data': {'group_name': $group_name},
+                'data': { 'group_name': $group_name },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     if (data != '1') {
@@ -1188,7 +1174,7 @@ function cms_crstore() {
         var $param = {
             'type': 'POST',
             'url': 'setting/cms_crstore/',
-            'data': {'store_name': $store_name},
+            'data': { 'store_name': $store_name },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '1') {
@@ -1278,7 +1264,7 @@ function cms_del_gritem($id) {
         var $param = {
             'type': 'POST',
             'url': 'ajax/cms_del_gritem',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data != '0') {
@@ -1299,7 +1285,7 @@ function cms_save_item_group($id) {
     if ($group_name.length == 0) {
         alert('Tên nhóm người dùng không được bỏ trống!');
     } else {
-        var $data = {'gid': $id, 'group_name': $group_name};
+        var $data = { 'gid': $id, 'group_name': $group_name };
         $('.save').attr('readonly', true);
         var $param = {
             'type': 'POST',
@@ -1437,7 +1423,7 @@ function cms_delCustomer($id, $page) {
         var $param = {
             'type': 'POST',
             'url': 'customer/cms_delCustomer',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
@@ -1599,7 +1585,7 @@ function cms_print_order($id_template, $id_order) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_print_order',
-        'data': {'data': {'id_template': $id_template, 'id_order': $id_order}},
+        'data': { 'data': { 'id_template': $id_template, 'id_order': $id_order } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
@@ -1627,7 +1613,7 @@ function cms_print_order_in_create($id_template, $id_order) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_print_order',
-        'data': {'data': {'id_template': $id_template, 'id_order': $id_order}},
+        'data': { 'data': { 'id_template': $id_template, 'id_order': $id_order } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
@@ -1657,7 +1643,7 @@ function cms_print_order_in_pos($id_template, $id_order) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_print_order',
-        'data': {'data': {'id_template': $id_template, 'id_order': $id_order}},
+        'data': { 'data': { 'id_template': $id_template, 'id_order': $id_order } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
@@ -1687,7 +1673,7 @@ function cms_print_input($id_template, $id_input) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_print_input',
-        'data': {'data': {'id_template': $id_template, 'id_input': $id_input}},
+        'data': { 'data': { 'id_template': $id_template, 'id_input': $id_input } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
@@ -1715,7 +1701,7 @@ function cms_print_input_in_create($id_template, $id_input) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_print_input',
-        'data': {'data': {'id_template': $id_template, 'id_input': $id_input}},
+        'data': { 'data': { 'id_template': $id_template, 'id_input': $id_input } },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             var mywindow = window.open('', 'In hóa đơn', 'height=800,width=1200');
@@ -1743,7 +1729,7 @@ function cms_print_input_in_create($id_template, $id_input) {
 function cms_paging_supplier($page) {
     $keyword = $('.txt-ssupplier').val();
     $option = $('#sup-option').val();
-    $data = {'data': {'option': $option, 'keyword': $keyword}};
+    $data = { 'data': { 'option': $option, 'keyword': $keyword } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -1765,7 +1751,7 @@ function cms_delsup($id, $page) {
         var $param = {
             'type': 'POST',
             'url': 'supplier/cms_delsup',
-            'data': {'id': $id},
+            'data': { 'id': $id },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '0') {
@@ -1889,7 +1875,7 @@ function cms_create_manufacture($cont) {
         var $param = {
             'type': 'POST',
             'url': 'product/cms_create_manufacture',
-            'data': {'data': {'prd_manuf_name': $prd_manuf_name}},
+            'data': { 'data': { 'prd_manuf_name': $prd_manuf_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
@@ -1918,7 +1904,7 @@ function cms_create_unit($cont) {
         var $param = {
             'type': 'POST',
             'url': 'product/cms_create_unit',
-            'data': {'data': {'prd_unit_name': $prd_unit_name}},
+            'data': { 'data': { 'prd_unit_name': $prd_unit_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
@@ -2065,7 +2051,7 @@ function cms_update_prdmanufacture($id) {
         var $param = {
             'type': 'POST',
             'url': 'product/cms_update_prdmanufacture/' + $id,
-            'data': {'data': {'prd_manuf_name': $prd_manuf_name}},
+            'data': { 'data': { 'prd_manuf_name': $prd_manuf_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
@@ -2091,7 +2077,7 @@ function cms_update_prdunit($id) {
         var $param = {
             'type': 'POST',
             'url': 'product/cms_update_prdunit/' + $id,
-            'data': {'data': {'prd_unit_name': $prd_unit_name}},
+            'data': { 'data': { 'prd_unit_name': $prd_unit_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
@@ -2111,7 +2097,7 @@ function cms_create_group($cont) {
     'use strict';
     var $prd_group_name = $.trim($('#prd_group_name').val());
     var $parentid = $('#parentid').val();
-    var $data = {'data': {'prd_group_name': $prd_group_name, 'parentid': $parentid}};
+    var $data = { 'data': { 'prd_group_name': $prd_group_name, 'parentid': $parentid } };
     if ($prd_group_name.length == 0) {
         alert('Nhập tên danh mục.');
     } else {
@@ -2211,7 +2197,7 @@ function cms_save_item_prdGroup($id) {
         var $param = {
             'type': 'POST',
             'url': 'product/cms_save_item_prdGroup/' + $id,
-            'data': {'data': {'prd_group_name': $prd_group_name}},
+            'data': { 'data': { 'prd_group_name': $prd_group_name } },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 if (data == '1') {
@@ -2472,7 +2458,7 @@ function cms_show_discount_order($id) {
 function cms_paging_customer($page) {
     $keyword = $('.txt-scustomer').val();
     $option = $('#cus-option').val();
-    $data = {'data': {'option': $option, 'keyword': $keyword}};
+    $data = { 'data': { 'option': $option, 'keyword': $keyword } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -2876,7 +2862,7 @@ function cms_deactivate_product_bydetail($id) {
 
 function cms_detail_product($id) {
     $option1 = $('#search_option_1').val();
-    $data = {'data': {'option1': $option1}};
+    $data = { 'data': { 'option1': $option1 } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',
@@ -3172,7 +3158,7 @@ function cms_search_box_customer() {
             var $param = {
                 'type': 'POST',
                 'url': 'orders/cms_search_box_customer/',
-                'data': {'data': {'keyword': $keyword}},
+                'data': { 'data': { 'keyword': $keyword } },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     if (data.length != 0) {
@@ -3198,7 +3184,7 @@ function cms_search_box_customer_fix() {
             var $param = {
                 'type': 'POST',
                 'url': 'fix/cms_search_box_customer/',
-                'data': {'data': {'keyword': $keyword}},
+                'data': { 'data': { 'keyword': $keyword } },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     if (data.length != 0) {
@@ -3248,7 +3234,7 @@ function cms_select_product_sell($id, $customer_id = 0) {
         var $param = {
             'type': 'POST',
             'url': 'orders/cms_select_product/' + $customer_id,
-            'data': {'id': $id, 'seq': $seq},
+            'data': { 'id': $id, 'seq': $seq },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 $('#pro_search_append').append(data);
@@ -3261,7 +3247,7 @@ function cms_select_product_sell($id, $customer_id = 0) {
         var $param = {
             'type': 'POST',
             'url': 'orders/cms_select_product/' + $customer_id,
-            'data': {'id': $id, 'seq': 1},
+            'data': { 'id': $id, 'seq': 1 },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 $('#pro_search_append').append(data);
@@ -3299,7 +3285,7 @@ function cms_select_product_import($id) {
             var $param = {
                 'type': 'POST',
                 'url': 'input/cms_select_product/',
-                'data': {'id': $id, 'seq': $seq},
+                'data': { 'id': $id, 'seq': $seq },
                 'callback': function (data) {
                     $('.save').attr('readonly', false);
                     $('#pro_search_append').append(data);
@@ -3313,7 +3299,7 @@ function cms_select_product_import($id) {
         var $param = {
             'type': 'POST',
             'url': 'input/cms_select_product/',
-            'data': {'id': $id, 'seq': 1},
+            'data': { 'id': $id, 'seq': 1 },
             'callback': function (data) {
                 $('.save').attr('readonly', false);
                 $('#pro_search_append').append(data);
@@ -3986,7 +3972,7 @@ function cms_detail_order($id) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_detail_order/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4000,7 +3986,7 @@ function cms_edit_order($id) {
     var $param = {
         'type': 'POST',
         'url': 'orders/cms_edit_order/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4040,7 +4026,7 @@ function cms_detail_order_in_customer($id) {
     var $param = {
         'type': 'POST',
         'url': 'customer/cms_detail_order_in_customer/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders-main-body').html(data);
@@ -4055,7 +4041,7 @@ function cms_detail_input_in_supplier($id) {
     var $param = {
         'type': 'POST',
         'url': 'supplier/cms_detail_input_in_supplier/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.inputs-main-body').html(data);
@@ -4424,7 +4410,7 @@ function cms_detail_input($id) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_detail_input/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4438,7 +4424,7 @@ function cms_edit_input($id) {
     var $param = {
         'type': 'POST',
         'url': 'input/cms_edit_input/',
-        'data': {'id': $id},
+        'data': { 'id': $id },
         'callback': function (data) {
             $('.save').attr('readonly', false);
             $('.orders').html(data);
@@ -4596,7 +4582,7 @@ function cms_paging_product($page) {
     $option1 = $('#search_option_1').val();
     $option2 = $('#prd_group_id').val();
     $option3 = $('#prd_manufacture_id').val();
-    $data = {'data': {'option1': $option1, 'option2': $option2, 'option3': $option3, 'keyword': $keyword}};
+    $data = { 'data': { 'option1': $option1, 'option2': $option2, 'option3': $option3, 'keyword': $keyword } };
     $('.save').attr('readonly', true);
     var $param = {
         'type': 'POST',

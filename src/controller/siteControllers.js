@@ -1,3 +1,4 @@
+const User = require('../model/User');
 class siteControllers {
   // [GET] home page
   index = (req, res) => {
@@ -84,30 +85,36 @@ class siteControllers {
   };
 
   // [GET] setting
-  setting = (req, res) => {
-    return res.render('pages/index.ejs', {
-      page_layout: '/setting'
-    });
+  setting = async (req, res) => {
+    try {
+      const users = await User.find();
+      return res.render('pages/index.ejs', {
+        page_layout: '/setting'
+      });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
   };
 
-  // [GET] pos
-  pos = (req, res) => {
-    return res.render('pages/index.ejs', {
-      page_layout: '/pos'
-    });
-  };
+// [GET] pos
+pos = (req, res) => {
+  return res.render('pages/index.ejs', {
+    page_layout: '/pos'
+  });
+};
 
-  // [GET] account
-  account = (req, res) => {
-    return res.render('pages/index.ejs', {
-      page_layout: '/account'
-    });
-  };
+// [GET] account
+account = (req, res) => {
+  return res.render('pages/index.ejs', {
+    page_layout: '/account'
+  });
+};
 
-  // [GET] login
-  login = (req, res) => {
-    return res.render('pages/login.ejs');
-  };
+// [GET] login
+login = (req, res) => {
+  return res.render('pages/login.ejs');
+};
 }
 
 module.exports = new siteControllers();

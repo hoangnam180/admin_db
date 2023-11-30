@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    unique: true,
     trim: true,
     minlength: 3,
     required: [true, 'Username is required'],
@@ -16,17 +15,15 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    unique: true,
     trim: true,
     minlength: 3,
     required: [true, 'Email is required'],
   },
   role: {
-    type: String,
+    type: Number,
     required: true,
     trim: true,
-    minlength: 3,
-    default: 'user',
+    default: 1,
   },
   date: {
     type: Date,
