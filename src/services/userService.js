@@ -1,12 +1,11 @@
 const bcrypt = require("bcryptjs");
-const pool = require("../config/connectDatabase");
+const User = require('../model/User');
 
 const checkUserEmail = (userEmail) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const sql = `SELECT * FROM user WHERE user_name = '${userEmail}'`;
-      let [user] = await pool.execute(sql);
-      if (user.length > 0) {
+      const user = await User.findOne({ email: userEmail });
+      if (user) {
         resolve(true);
       } else {
         resolve(false);
@@ -29,22 +28,21 @@ const handleUserLogin = (user_name, password) => {
         return;
       }
       //user already exist
-      const sql = `SELECT * FROM user WHERE user_name = '${user_name}'`;
-      let [user] = await pool.execute(sql);
-      if (user?.length <= 0) {
+      const user = await User.findOne({ username: user_name });
+      if (!user) {
         userData.errCode = 2;
         userData.errMessage = `User not found`;
         resolve(userData);
         return;
       }
       // checkPass
-      let checkPass = await bcrypt.compare(password, user[0].password);
+      let checkPass = user.password === password;
       if (checkPass) {
         userData.errCode = 0;
         userData.errMessage = "OK";
 
-        delete user[0].password;
-        userData.user = user[0];
+        delete user.password;
+        userData.user = user;
       } else {
         userData.errCode = 3;
         userData.errMessage = "Wrong password";

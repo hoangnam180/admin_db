@@ -37,4 +37,3 @@ var initBasic = (function () {
         return !!CKEDITOR.plugins.get('wysiwygarea');
     }
 })();
-

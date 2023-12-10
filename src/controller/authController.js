@@ -32,32 +32,10 @@ class AuthControllers {
       });
     }
     const userData = await userService.handleUserLogin(username, password);
-    if (!userData?.user)
-      return res.status(500).json({
-        errCode: userData.errCode,
-        message: userData.errMessage,
-      });
-    const access_token = await jwt.sign(
-      userData,
-      process.env.ACCESS_TOKEN_SECRET,
-      {
-        expiresIn: '30s',
-      }
-    );
-    const refreherToken = await jwt.sign(
-      userData,
-      process.env.REFRESH_TOKEN_SECRET
-    );
-    refreherTokens.push(refreherToken);
-    res.cookie('refreherToken', refreherToken, {
-      signed: true,
-    });
     return res.status(200).json({
       errCode: userData.errCode,
       message: userData.errMessage,
       user: userData.user ? userData.user : {},
-      access_token,
-      refreherToken,
     });
   };
 
@@ -66,35 +44,6 @@ class AuthControllers {
     return res.status(204).json({
       message: 'successfully',
     });
-  };
-
-  refresherToken = async (req, res) => {
-    const refreherToken = req.signedCookies.refreherToken;
-    if (!refreherToken) return res.sendStatus(401);
-    if (!refreherTokens.includes(refreherToken)) {
-      return res.status(403);
-    }
-    await jwt.verify(
-      refreherToken,
-      process.env.REFRESH_TOKEN_SECRET,
-      (err, data) => {
-        if (err)
-          return res.status(403).json({
-            message: err,
-          });
-        const access_token = jwt.sign(
-          { user: data?.user },
-          process.env.ACCESS_TOKEN_SECRET,
-          {
-            expiresIn: '30s',
-          }
-        );
-        return res.status(200).json({
-          user: data ? data : {},
-          access_token,
-        });
-      }
-    );
   };
 }
 

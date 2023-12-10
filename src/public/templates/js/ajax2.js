@@ -1,6 +1,6 @@
+
 $(document).ready(function () {
     "use strict";
-
     $('#customer_province_modal').select2({
         dropdownParent: $("#create-cust")
     });
@@ -763,7 +763,8 @@ function cms_adapter_ajax($param) {
         type: $param.type,
         data: $param.data,
         async: true,
-        success: $param.callback
+        success: $param.callback,
+        error: $param.callbackError
     });
 }
 
@@ -855,34 +856,84 @@ function cms_cruser() {
             'data': $data,
             'callback': function (data) {
                 $('.save').attr('readonly', false);
-                if (data != '1') {
-                    $('.ajax-error-ct').html(data).parent().fadeIn().delay(1000).fadeOut('slow');
-                } else {
-                    $('.btn-close').trigger('click');
-                    cms_paging_user_setting();
-                    $('.ajax-success-ct').html('ThĂªm thĂ nh viĂªn má»›i thĂ nh cĂ´ng!').parent().fadeIn().delay(1000).fadeOut('slow');
-                }
+                $('.btn-close').trigger('click');
+                cms_paging_user_setting();
+                $('.ajax-success-ct').html('Thêm thành viên mới thành công!').parent().fadeIn().delay(1000).fadeOut('slow');
+            },
+            'callbackError': function (data) {
+                $('.save').attr('readonly', false);
+                $('.ajax-error-ct').html('Thêm thành viên mới thất bại!').parent().fadeIn().delay(1000).fadeOut('slow');
+                $('.btn-close').trigger('click');
             }
         };
         cms_adapter_ajax($param);
     }
 }
 
-function cms_paging_user_setting() {
+function cms_paging_user_setting(page = 1) {
+    console.log('cms_paging_user_setting');
     $('.save').attr('readonly', true);
     var $param = {
-        'type': 'POST',
-        'url': 'ajax/cms_paging_user_setting',
-        'data': null,
+        'type': 'GET',
+        'url': 'api/user/get-user-pagination',
+        'data': `page=${page}&limit=10`,
         'callback': function (data) {
             $('.save').attr('readonly', false);
-            if (data != '0') {
-                $('#user .table-user tbody').html(data);
+            if (data?.count > 0) {
+                var $html = data?.data?.map((item, index) => {
+                    return `<tr class="tr-item-${item?._id}">
+                    <td class="text-center">${index + 1}</td>
+                    <td>${item?._id || ''}</td>
+                    <td>${item?.username}</td>
+                    <td>${item?.email}</td>
+                    <td><span class="user_group"><i class="fa fa-male"></i> Ban Giám đốc</span></td>
+                    <td class="text-center"><span style="background-color: ${item.is_active ? '#82AF6F' : 'grey'};" class="user_status"><i class="fa fa-${item.is_active ? 'unlock' : 'lock'}"></i>
+                    ${item.is_active ? 'Hoạt động' : 'Không hoạt động'}</span></td>
+                    <td class="text-center"><i class="fa fa-pencil-square-o edit-item" title="Sửa"
+                            onclick="cms_edit_usitem('${item?._id}')"
+                            style="margin-right: 10px; cursor: pointer;"></i><i
+                            onclick="cms_del_usitem('${item?._id}')" title="Xóa"
+                            class="fa fa-trash-o delete-item" style="cursor: pointer;"></i></td>
+                    </tr>
+                    <tr class="edit-tr-item-${item?._id}" style="display: none;">
+                        <td class="text-center">${index + 1}</td>
+                        <td class="itmanv"><input type="text" class="form-control" value="${item?._id || ''}"
+                                disabled=""></td>
+                        <td class="itdisplay_name"><input type="text" class="form-control"
+                                value="${item?.username}"></td>
+                        <td class="itemail"><input type="text" class="form-control"
+                                value="${item?.email}"></td>
+                        <td class="itgroup_name">
+                            <div class="group-user">
+                                <div class="group-selbox"></div><select name="group" id="sel-group"
+                                    class="form-control">
+                                    <option selected="" value="1">Ban Giám đốc</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="text-center ituser_status"><select name="" class="ituser_status">
+                                <option value="1">Hoạt động</option>
+                                <option value="0">Tạm dừng</option>
+                            </select></td>
+                        <td class="text-center"><i class="fa fa-floppy-o" title="Lưu"
+                                onclick="cms_save_item_user('${item?._id}')"
+                                style="color: #EC971F; cursor: pointer; margin-right: 10px;"></i><i
+                                onclick="cms_undo_item('${item?._id}')" title="Hủy" class="fa fa-undo"
+                                style="color: green; cursor: pointer; margin-right: 5px;"></i></td>
+                    </tr>`
+                });
+                const countPage = Math.ceil(data?.count / 10);
+                const htmlPage = Array.from({ length: countPage }, (v, i) => i + 1).map((item) => {
+                    return `<li class="page-item ${item === page ? 'active' : ''}"><a class="page-link" onclick="cms_paging_user_setting(${item})">${item}</a></li>`
+                });
+                $('#user .table-user tbody').html($html);
+                $('.pagination.setting').html(htmlPage);
             } else {
                 var $html = '<tr><td colspan="7" class="text-center">KhĂ´ng cĂ³ ngÆ°á»i dĂ¹ng Ä‘á»ƒ hiá»ƒn thá»‹</td> </tr>';
                 $('#user.table-user tbody').html($html);
             }
-        }
+        },
+        'callbackError': function (data) { }
     };
     cms_adapter_ajax($param);
 }
@@ -5212,6 +5263,7 @@ function cms_profit_all_quarter() {
 }
 
 function cms_edit_usitem(id) {
+    console.log(id);
     $('#user tr.tr-item-' + id).hide();
     $('#user tr.edit-tr-item-' + id).show();
 }

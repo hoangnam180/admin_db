@@ -6,6 +6,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+const session = require('express-session');
+
 const corsOptions = {
   origin: "http://localhost:3000",
   credentials: true, //access-control-allow-credentials:true
@@ -20,7 +22,12 @@ app.use(morgan("combined"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(cookieParser("asdfsdgfsdr243234"));
+// Uncomment this section if you intend to use sessions
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
 
 //config view engine
 configViewEngine(app);
